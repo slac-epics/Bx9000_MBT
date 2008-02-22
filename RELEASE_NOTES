@@ -1,3 +1,8 @@
+Bx9000_MBT-R1-2-6-1:
+modifications needed to bring the module to EPICS R3-14-9 standard
+Build with base-R3-14-9-lcls1 and rtems 4.7.1
+
+
 The last release is R1-2-6.
 Please use blow command to get it:
 cvs co -P -d R1-2-6 -r R1-2-6 Bx9000_MBT

@@ -1,4 +1,6 @@
-# Makefile.Host
+#  -*- Makefile -*-
+T_A = $EPICS_HOST_ARCH
+
 TOP = ../..
 include $(TOP)/configure/CONFIG
 #----------------------------------------
@@ -16,7 +18,7 @@ EDLS += Bx9000InstalledBTs.edl
 # EDM Screens to install
 # # If you want to install all screens and are
 # # lazy use the wildcard method. :)
-# #EDLS+=$(wildcard *.edl)
+## EDLS+=$(wildcard *.edl)
 # #PNGS+=$(wildcard *.png)
 # #GIFS+=$(wildcard *.gif)
 
