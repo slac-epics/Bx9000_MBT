@@ -2,11 +2,9 @@
 # Run "gnumake clean uninstall install" in the application
 # top directory each time this file is changed.
 
-TEMPLATE_TOP=$(EPICS_MBA_TEMPLATE_TOP)
+include $(TOP)/RELEASE_SITE
 
-# The following supports installation of EDM screens
-#OPIROOT=${IOCTOP_RELEASE}/<App-directory>
-OPIROOT=${TOP}
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # If you don't want to install into $(TOP) then
 # define INSTALL_LOCATION_APP here
@@ -17,13 +15,35 @@ OPIROOT=${TOP}
 # We will build some tools/scripts that allow us to
 # change this easily when relocating software.
 # ==============================================================
-EPICS_SITE_TOP=/pcds/package/epics
+#EPICS_SITE_TOP=/nfs/slac/g/lcls/build/epics
+
+
+# ========================================================================================
+# #If using macro substitutions, point MSI at the binary:
+EXTENSIONS_MODULE_VERSION=extensions-R3-14-9
+MSI=$(EPICS_SITE_TOP)/extensions/$(EXTENSIONS_MODULE_VERSION)/bin/$(EPICS_HOST_ARCH)/msi
+# # ========================================================================================
+
+# =============================================================
+# Define the version of modules needed by
+# IOC apps or other Support apps
+# =============================================================
+# The Bx9000 driver is based on the ModBusTCPClnt
+MODBUSTCPCLNT_MODULE_VERSION=ModBusTCPClnt-R1-1-0-1
+
+# ============================================================
+# External Support
+# ============================================================
+MODBUSTCPCLNT=$(EPICS_MODULES)/ModBusTCPClnt/$(MODBUSTCPCLNT_MODULE_VERSION)
+
+
+
 
 
 # ==============================================================
 # Define the cvs module version of EPICS BASE that you will use
 # =============================================================
-BASE_MODULE_VERSION=base-R3-14-9-pcds1
+BASE_MODULE_VERSION=base-R3-14-9-lcls1
 
 
 # =================================================================
@@ -31,23 +51,4 @@ BASE_MODULE_VERSION=base-R3-14-9-pcds1
 # EPICS_BASE usually appears last so other apps can override stuff:
 # =================================================================
 EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
-
-
-# =============================================================
-# Define location of module tree with respect to
-# EPICS_SITE_TOP
-# =============================================================
-EPICS_MODULES=$(EPICS_SITE_TOP)/modules
-
-# =============================================================
-# Define the version of modules needed by
-# IOC apps or other Support apps
-# =============================================================
-# The Bx9000 driver is based on the ModBusTCPClnt
-MODBUSTCPCLNT_MODULE_VERSION=ModBusTCPClnt-R1-1-0
-
-# ============================================================
-# External Support
-# ============================================================
-MODBUSTCPCLNT=$(EPICS_MODULES)/ModBusTCPClnt/$(MODBUSTCPCLNT_MODULE_VERSION)
 
