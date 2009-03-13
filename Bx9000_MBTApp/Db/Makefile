@@ -20,6 +20,7 @@ DB += KL2408.template
 DB += KL2622.template
 DB += KL3064.template
 DB += KL3102.template
+DB += KL3202.template
 DB += KL3312.template
 DB += KL3314.template
 DB += KL3408.template

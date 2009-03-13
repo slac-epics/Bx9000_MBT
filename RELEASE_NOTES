@@ -1,3 +1,6 @@
+Bx9000_MBT-R1-2-7:
+Add RTD module KL3202 support.
+
 Bx9000_MBT-R1-2-6-2:
   Build with base-R3-14-8-2-lcls2 and ModBusTCPClnt-R1-1-0-2
 
