@@ -15,7 +15,7 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 # We will build some tools/scripts that allow us to
 # change this easily when relocating software.
 # ==============================================================
-EPICS_SITE_TOP=/usr/local/lcls/epics
+#EPICS_SITE_TOP=/usr/local/lcls/epics
 
 # ========================================================================================
 # #If using macro substitutions, point MSI at the binary:
