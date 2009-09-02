@@ -52,8 +52,7 @@ private:
 	struct ModBusTCP_CB	*	m_pModBusLink;
 };
 
-extern "C"
-unsigned int BK_CheckWatchdog( char * pNameOrIpAddr, unsigned int fQuiet )
+extern "C" unsigned int BK_CheckWatchdog( char * pNameOrIpAddr, unsigned int fQuiet )
 {
 	unsigned short			watchdogElapsed	= FALSE;
 	BK_Coupler				bkCoupler(	pNameOrIpAddr ); 
@@ -64,8 +63,7 @@ unsigned int BK_CheckWatchdog( char * pNameOrIpAddr, unsigned int fQuiet )
 	return watchdogElapsed;
 }
 
-extern "C"
-unsigned int MBT_CheckWatchdog( ModBusTCP_Link mbt_link, unsigned int fQuiet )
+extern "C" unsigned int MBT_CheckWatchdog( ModBusTCP_Link mbt_link, unsigned int fQuiet )
 {
 	unsigned short			couplerStatus	= 0;
 	unsigned short			watchdogElapsed	= FALSE;
@@ -92,8 +90,7 @@ unsigned int MBT_CheckWatchdog( ModBusTCP_Link mbt_link, unsigned int fQuiet )
  *	tyWatchdog = 1 for R/W Telegram Mode
  *	tyWatchdog = 0 for Write Telegram Mode
  */
-extern "C"
-int BK_SetWatchdogType( char * pNameOrIpAddr, unsigned int tyWatchdog )
+extern "C" int BK_SetWatchdogType( char * pNameOrIpAddr, unsigned int tyWatchdog )
 {
 	int						result		= 0;
 	BK_Coupler				bkCoupler(	pNameOrIpAddr ); 
@@ -115,8 +112,7 @@ int BK_SetWatchdogType( char * pNameOrIpAddr, unsigned int tyWatchdog )
  *	tyWatchdog = 1 for R/W Telegram Mode
  *	tyWatchdog = 0 for Write Telegram Mode
  */
-extern "C"
-int MBT_SetWatchdogType( ModBusTCP_Link mbt_link, unsigned int tyWatchdog )
+extern "C" int MBT_SetWatchdogType( ModBusTCP_Link mbt_link, unsigned int tyWatchdog )
 {
 	const unsigned short	timeoutSec	= 2;
 
@@ -127,8 +123,7 @@ int MBT_SetWatchdogType( ModBusTCP_Link mbt_link, unsigned int tyWatchdog )
 }
 
 
-extern "C"
-int BK_ResetWatchdog( char * pNameOrIpAddr )
+extern "C" int BK_ResetWatchdog( char * pNameOrIpAddr )
 {
 	int						result		= 0;
 	BK_Coupler				bkCoupler(	pNameOrIpAddr ); 
@@ -144,8 +139,7 @@ int BK_ResetWatchdog( char * pNameOrIpAddr )
 }
 
 
-extern "C"
-int MBT_ResetWatchdog( ModBusTCP_Link mbt_link )
+extern "C" int MBT_ResetWatchdog( ModBusTCP_Link mbt_link )
 {
 	const unsigned short	timeoutSec	= 2;
 
@@ -156,8 +150,7 @@ int MBT_ResetWatchdog( ModBusTCP_Link mbt_link )
 }
 
 
-extern "C"
-int BK_SetWatchdogTimeout( char * pNameOrIpAddr, unsigned int timeout )
+extern "C" int BK_SetWatchdogTimeout( char * pNameOrIpAddr, unsigned int timeout )
 {
 	int						result		= 0;
 	BK_Coupler				bkCoupler(	pNameOrIpAddr ); 
@@ -170,8 +163,7 @@ int BK_SetWatchdogTimeout( char * pNameOrIpAddr, unsigned int timeout )
 }
 
 
-extern "C"
-int MBT_SetWatchdogTimeout( ModBusTCP_Link mbt_link, unsigned int timeout )
+extern "C" int MBT_SetWatchdogTimeout( ModBusTCP_Link mbt_link, unsigned int timeout )
 {
 	const unsigned short	timeoutSec	= 2;
 	int						result		= 0;
@@ -189,22 +181,28 @@ int MBT_SetWatchdogTimeout( ModBusTCP_Link mbt_link, unsigned int timeout )
 	}
 	else
 	{
-		printf( "Watchdog timeout is now %dms.\n", timeout );
+		if ( timeout == 0 )
+		{
+			printf( "Watchdog timeout is now disabled.\n" );
+			printf( "Call BK_SetWatchdogTimeout() to enable.\n\n" );
+		}
+		else
+		{
+			printf( "Watchdog timeout is now %dms.\n\n", timeout );
+		}
 	}
 
 	return result;
 }
 
 
-extern "C"
-int BK_DisableWatchdog( char * pNameOrIpAddr )
+extern "C" int BK_DisableWatchdog( char * pNameOrIpAddr )
 {
 	return BK_SetWatchdogTimeout( pNameOrIpAddr, 0 );
 }
 
 
-extern "C"
-int MBT_DisableWatchdog( ModBusTCP_Link mbt_link )
+extern "C" int MBT_DisableWatchdog( ModBusTCP_Link mbt_link )
 {
 	return MBT_SetWatchdogTimeout( mbt_link, 0 );
 }

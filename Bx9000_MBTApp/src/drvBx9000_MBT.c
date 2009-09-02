@@ -534,8 +534,8 @@ static int Bx9000_Coupler_Init(Bx9000_COUPLER * pcoupler)
 	/* if(Bx9000_DRV_DEBUG) */
 	printf("Successfully connected to Bx9000 %s!\n", MBT_GetName(pcoupler->mbt_link));
 
-	/* See if the watchdog timer has elapsed */
-	MBT_CheckWatchdog( pcoupler->mbt_link, FALSE );
+	/* Disable watchdog timer by default */
+	MBT_DisableWatchdog( pcoupler->mbt_link );
 	return 0;
 }
 
