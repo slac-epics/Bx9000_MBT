@@ -6,6 +6,9 @@ module called ModBusTCPClnt.
 This driver and device support are OSI based, so your have to EPICS base 3.14
 or above to use it.
 
+Before using the Beckhoff controller, you must configure it for IP address.
+For DHCP server based configuration, set DIP switch 9 to OFF and DIP switch 10 to ON.
+
 Please follow the way described below to use this module:
 
 !!!!!!!!!!!!!!!!!!!!!!!!!! WARNING WARNING WARNING WARNING WARNING WARNING !!!!!!!!!!!!!!!!!!!!!!!!!

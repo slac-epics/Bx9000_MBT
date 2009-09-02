@@ -1,6 +1,7 @@
 #include "Bx9000_MBT_Common.h"
 #include "Bx9000_BTDef.h"
 #include "Bx9000_SigDef.h"
+#include "Bx9000_Watchdog.h"
 
 Bx9000_COUPLER_LIST	bx9000_cplr_list;
 SINT32	Bx9000_DRV_DEBUG = 1;
@@ -99,7 +100,10 @@ static void	Bx9000_Couplers_Reboot_Hook(int startType)
 		 * we just want to close socket to Bx9000 to make next re-connection easy
 		 */
 		if(pcoupler->mbt_link)
+		{
 			MBT_Disconnect(pcoupler->mbt_link, 0);
+			pcoupler->mbt_link	= NULL;
+		}
 	}
 
 	/* my experience is we can only print one character */
@@ -529,6 +533,9 @@ static int Bx9000_Coupler_Init(Bx9000_COUPLER * pcoupler)
 	epicsMutexUnlock(pcoupler->mutex_lock);
 	/* if(Bx9000_DRV_DEBUG) */
 	printf("Successfully connected to Bx9000 %s!\n", MBT_GetName(pcoupler->mbt_link));
+
+	/* See if the watchdog timer has elapsed */
+	MBT_CheckWatchdog( pcoupler->mbt_link, FALSE );
 	return 0;
 }
 
