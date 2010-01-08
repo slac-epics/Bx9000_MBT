@@ -191,7 +191,8 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2521 = 2521,	/* 1-channel pulse train output terminal RS422/24 V DC */
 
 	/* pulse width output terminal */
-	BT_TYPE_KL2502 = 2502,	/* 2-channel pulse width output terminal 24 V DC */
+	BT_TYPE_KL2502 = 2502,  /* 2-channel Pulse width modulated digital output terminal 24 V DC, switched pos, 100ma */
+	BT_TYPE_KL2512 = 2512,  /* 2-channel Pulse width modulated digital output terminal 24 V DC, switched neg, 1A */
 
 	/* Digital terminal with both input/output */
 	BT_TYPE_KL2641 = 2641,	/* 1-channel relay output terminal 230 V AC, 16 A, manual operation */
@@ -251,7 +252,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2408 = 2408,  /* 8-channel digital output terminal 24 V DC */
 	BT_TYPE_KL2488 = 2488,  /* 8-channel digital output terminal 24 V DC, n-switch */
 
-	/* Analong terminal with both input and output */
+	/* Analog terminal with both input and output */
 	BT_TYPE_KL4494 = 4494,  /* 2-channel analog input, 2-channel analog output terminal -10 V ... 10 V, 12 bits */
 
 	/* Analog Input, last digit means num of channels */	

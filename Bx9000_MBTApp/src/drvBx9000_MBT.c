@@ -51,7 +51,7 @@ static BUSTERM_IMG_DEF * Bx9000_Get_BTDef_By_Ename(E_BUSTERM_TYPE bttype)
 }
 
 /* This function returns the pointer to the BUSTERM_SIG_DEF by string name */
-static BUSTERM_SIG_DEF * Bx9000_Get_SigDef_By_Cname(char * btcname, char * func, E_EPICS_RTYPE epics_rtype)
+BUSTERM_SIG_DEF * Bx9000_Get_SigDef_By_Cname(char * btcname, char * func, E_EPICS_RTYPE epics_rtype)
 {
 	UINT32	loop;
 	for(loop=0; loop < N_BT_SIG_PREDEF; loop++)
@@ -69,7 +69,7 @@ static BUSTERM_SIG_DEF * Bx9000_Get_SigDef_By_Cname(char * btcname, char * func,
 }
 
 /* This function returns the pointer to the BUSTERM_SIG_DEF by enum name */
-static BUSTERM_SIG_DEF * Bx9000_Get_SigDef_By_Ename(E_BUSTERM_TYPE bttype, char * func, E_EPICS_RTYPE epics_rtype)
+BUSTERM_SIG_DEF * Bx9000_Get_SigDef_By_Ename(E_BUSTERM_TYPE bttype, char * func, E_EPICS_RTYPE epics_rtype)
 {
 	UINT32	loop;
 	for(loop=0; loop < N_BT_SIG_PREDEF; loop++)
@@ -723,7 +723,7 @@ static int Bx9000_Operation(Bx9000_COUPLER * pcoupler)
 					/* Make sure we don't ask more than we have */
 					if(rd_inpimg_wstart >= pcoupler->total_in_words)
 					{
-						/* somebody asks some totally non-eisting image */
+						/* somebody asks some totally non-existing image */
 						/* We should do nothing to hardware, process_fptr should set err_code */
 						rd_inpimg_wstart = 0;
 						rd_inpimg_wcnt = 0;
@@ -748,7 +748,7 @@ static int Bx9000_Operation(Bx9000_COUPLER * pcoupler)
 					/* Make sure we don't ask more than we have */
 					if(wrt_outimg_wstart >= pcoupler->total_out_words)
 					{
-						/* somebody asks some totally non-eisting image */
+						/* somebody asks some totally non-existing image */
 						/* We should do nothing to hardware, process_fptr should set err_code */
 						wrt_outimg_wstart = 0;
 						wrt_outimg_wcnt = 0;
@@ -919,7 +919,7 @@ static int Bx9000_Operation(Bx9000_COUPLER * pcoupler)
 					 * let's reset coupler, no matter if we have fatal error
 					 */
 					Bx9000_MBT_Reset(pcoupler->mbt_link, DFT_MBT_TOUT);
-					/* After reset, the link definiately lost, we force link close without mess up last error */
+					/* After reset, the link definitely lost, we force link close without mess up last error */
 					MBT_Disconnect(pcoupler->mbt_link, 0);
 					epicsTimeGetCurrent( &(pcoupler->time_lost_conn) );
 					
