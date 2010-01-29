@@ -3,11 +3,11 @@
 
 extern	SINT32	Bx9000_DEV_DEBUG;
 
-/* The KL2502 duty cycle value is 0x0000 for 0% and 0x7FFF for 100% */
-#define	RAW_DUTY_CYCLE_0	0x0000
-#define	RAW_DUTY_CYCLE_100	0x7FFF
+/* KL2512 raw duty cycle values */
+#define	RAW_DUTY_CYCLE_0	0x7FFF
+#define	RAW_DUTY_CYCLE_100	0x0000
 
-static long lincvt_ao_KL2502(struct aoRecord	*pao, int after)
+static long lincvt_ao_KL2512(struct aoRecord	*pao, int after)
 {
 	if(!after)
 		return(0);
@@ -22,7 +22,7 @@ static long lincvt_ao_KL2502(struct aoRecord	*pao, int after)
 }
 
 
-static long init_ao_KL2502(struct aoRecord * pao)
+static long init_ao_KL2512(struct aoRecord * pao)
 {
 	SINT32 status;
 	Bx9000_SIGNAL * psignal;
@@ -30,7 +30,7 @@ static long init_ao_KL2502(struct aoRecord * pao)
 	if (pao->out.type!=INST_IO)
 	{
 		recGblRecordError(S_db_badField, (void *)pao,
-			"devAoKL2502 Init_record, Illegal OUT");
+			"devAoKL2512 Init_record, Illegal OUT");
 		pao->pact=TRUE;
 		return (S_db_badField);
 	}
@@ -38,14 +38,14 @@ static long init_ao_KL2502(struct aoRecord * pao)
 	/*
 	 * Update Linear conversion slope
 	 */
-	lincvt_ao_KL2502( pao, 1 );
+	lincvt_ao_KL2512( pao, 1 );
 
 	/*
 	 * Initialize Signal
 	 */
 	if ( Bx9000_Signal_Init(	(dbCommon *) pao, EPICS_RTYPE_AO,
 								pao->out.value.instio.string,
-								BT_TYPE_KL2502, Bx9000_Dft_ProcFunc, NULL ) != 0 )
+								BT_TYPE_KL2512, Bx9000_Dft_ProcFunc, NULL ) != 0 )
 	{
 		if(Bx9000_DEV_DEBUG)	errlogPrintf("Fail to init signal for record %s!!", pao->name);
 		recGblRecordError(S_db_badField, (void *) pao, "Init signal Error");
@@ -85,7 +85,7 @@ static long init_ao_KL2502(struct aoRecord * pao)
 	return CONVERT;
 }
 
-static long write_ao_KL2502(struct aoRecord * pao)
+static long write_ao_KL2512(struct aoRecord * pao)
 {
 	UINT16				rawDutyCycle;
 	Bx9000_SIGNAL	*	psignal = (Bx9000_SIGNAL *) (pao->dpvt);
@@ -135,15 +135,15 @@ struct {
 	DEVSUPFUN       get_ioint_info;
 	DEVSUPFUN       write_ao;
 	DEVSUPFUN       special_linconv;
-}	devAoKL2502 =
+}	devAoKL2512 =
 {
 	6,
 	NULL,
 	NULL,
-	init_ao_KL2502,
+	init_ao_KL2512,
 	NULL,
-	write_ao_KL2502,
-	lincvt_ao_KL2502
+	write_ao_KL2512,
+	lincvt_ao_KL2512
 };
-epicsExportAddress(dset, devAoKL2502);
+epicsExportAddress(dset, devAoKL2512);
 
