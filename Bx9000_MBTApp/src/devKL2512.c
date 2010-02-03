@@ -93,9 +93,9 @@ static long write_ao_KL2512(struct aoRecord * pao)
 	if (!pao->pact)
 	{
 		/*	Limit range of raw value */
-		if( pao->rval < RAW_DUTY_CYCLE_0 )
+		if( pao->rval > RAW_DUTY_CYCLE_0 )
 			rawDutyCycle = RAW_DUTY_CYCLE_0;
-		else if( pao->rval > RAW_DUTY_CYCLE_100 )
+		else if( pao->rval < RAW_DUTY_CYCLE_100 )
 			rawDutyCycle = RAW_DUTY_CYCLE_100;
 		else
 			rawDutyCycle = (UINT16)(pao->rval);
