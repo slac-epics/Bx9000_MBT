@@ -14,6 +14,9 @@
 #
 #==============================================================
 #
+Bx9000_MBT-R2-1-0: Built against rtems 4.9.3 and EPICS BASE:
+                   base-R3-14-8-2-lcls5
+
 Bx9000_MBT-R2-0-0:
 Build with base-R3-14-8-2-lcls3 and rtems-4.9.1
 
