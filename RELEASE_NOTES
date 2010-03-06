@@ -12,8 +12,19 @@
 #        29-Apr-2009, K. Luchini         (LUCHINI):
 #           release Bx9000-R2-0-0
 #
+#        25-Jan-2010, M. Boyes/S. Hoobler (MBOYES):
+#           release Bx9000-R2-1-1
 #==============================================================
 #
+
+Bx9000_MBT-R2-1-1:
+New database template and display files for lcls:
+  Bx9000_MBTApp/Db:
+    KL2408-lcls.template, KL3202-lcls.template, KL3314-lcls.template, KL3408-lcls.template,
+    analog-conversion-lcls.template
+  Bx9000_MBTApp/srcDisplay:
+    KL3202-RTD-lcls.edl, KL3314-TC-lcls.edl
+
 Bx9000_MBT-R2-1-0: Built against rtems 4.9.3 and EPICS BASE:
                    base-R3-14-8-2-lcls5
 
