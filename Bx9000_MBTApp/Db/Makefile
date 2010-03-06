@@ -28,6 +28,14 @@ DB += KL3468.template
 DB += KL4002.template
 DB += KL4132.template
 
+DB += Bx9000Info-lcls.template
+DB += Bx9000InstalledBTs-lcls.template
+DB += KL2408-lcls.template
+DB += KL3202-lcls.template 
+DB += KL3314-lcls.template 
+DB += KL3408-lcls.template
+DB += analog-conversion-lcls.template
+
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_TEMPLATE = <templatename>

@@ -10,6 +10,10 @@ include $(TOP)/configure/CONFIG
 # EDM Screens to install
 EDLS += Bx9000Info.edl
 EDLS += Bx9000InstalledBTs.edl
+EDLS += Bx9000Info-lcls.edl 
+EDLS += KL3202-RTD-lcls.edl
+EDLS += KL3314-TC-lcls.edl
+
 
 # Install images to be used by EDM (Gif and Png are supported)
 #GIFS += Myfirst.gif
