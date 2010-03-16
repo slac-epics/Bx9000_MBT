@@ -24,6 +24,9 @@ New database template and display files for lcls:
     analog-conversion-lcls.template
   Bx9000_MBTApp/srcDisplay:
     KL3202-RTD-lcls.edl, KL3314-TC-lcls.edl
+New analog conversion subroutine:
+  Bx9000_MBTApp/src:
+     analogSub.dbd, analogIn.c
 
 Bx9000_MBT-R2-1-0: Built against rtems 4.9.3 and EPICS BASE:
                    base-R3-14-8-2-lcls5
