@@ -32,6 +32,7 @@ PROD_IOC_vxWorks += Bx9000_MBTLib
 # Bx9000_MBT.dbd will be created from Bx9000_MBTInclude.dbd
 DBD += Bx9000_MBT.dbd
 
+
 # Add locally compiled object code
 Bx9000_MBT_SRCS += Bx9000_MBT_Ext.c
 Bx9000_MBT_SRCS += drvBx9000_MBT.c
@@ -54,8 +55,7 @@ Bx9000_MBT_SRCS += devKL4132.c
 Bx9000_MBT_SRCS += drvBx9000_MBTRegister.cpp
 
 #Adding support for LCLS Analog Support 
- 
-Bx9000_MBT_DBD +=  analogSub.dbd
+DBD +=  analogSub.dbd
 Bx9000_MBT_SRCS += analogIn.c
 
 # The following builds sncExample as a component of Bx9000_MBT
