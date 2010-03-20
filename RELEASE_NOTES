@@ -9,13 +9,16 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
-#        29-Apr-2009, K. Luchini         (LUCHINI):
-#           release Bx9000-R2-0-0
-#
+#        20-Mar-2010, S. Hoobler         (SONYA):
+#           release Bx9000-R2-2-0
 #        25-Jan-2010, M. Boyes/S. Hoobler (MBOYES):
 #           release Bx9000-R2-1-1
+#        29-Apr-2009, K. Luchini         (LUCHINI):
+#           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-2-0: Built against rtems 4.9.4 and EPICS BASE:
+                   base-R3-14-8-2-lcls6
 
 Bx9000_MBT-R2-1-1:
 New database template and display files for lcls:
