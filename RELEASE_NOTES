@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#	 07-Apr-2010, A. Chaiken 	 (ALISON):
+#	    release Bx9000-R2-2-1
 #        20-Mar-2010, S. Hoobler         (SONYA):
 #           release Bx9000-R2-2-0
 #        25-Jan-2010, M. Boyes/S. Hoobler (MBOYES):
@@ -17,6 +19,14 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+
+Bx9000_MBT-R2-2-1: Added support for KL3204, KL3162 and KL9020.
+	Tested against BK9050 and KL9050.
+	New database files: KL3204.template, KL3162.template
+	New driver files: devKL3162.c, devKL3204.c
+	Built with base-R3-14-8-2-lcls3.
+	Extensive additions to docs for BK9050, KL9050 and KL9020.
+
 Bx9000_MBT-R2-2-0: Built against rtems 4.9.4 and EPICS BASE:
                    base-R3-14-8-2-lcls6
 

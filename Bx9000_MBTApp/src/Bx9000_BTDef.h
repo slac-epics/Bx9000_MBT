@@ -31,7 +31,11 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"KL2622",      BT_TYPE_KL2622, 0,      0,      0,      0,      0,      2},
 	{"KL3064",      BT_TYPE_KL3064, 1,      0x1106, 8,      8,      0,      0},
 	{"KL3102",	BT_TYPE_KL3102,	1,	0x0000,	4,	4,	0,	0},
+/* per files Access from User Program-Register Overveiw.pdf and Access from User Program-Mapping.pdf; "Complete evaluation in Intel format with word alignment" --AC */
+	{"KL3162",	BT_TYPE_KL3162,	1,	0x0180,	4,	4,	0,	0},
 	{"KL3202",      BT_TYPE_KL3202, 1,      0x1006, 4,      4,      0,      0},
+/* per KL320xen.pdf, top of p. 14 -- AC */
+	{"KL3204",      BT_TYPE_KL3204, 1,      0x0106, 8,     8,      0,      0},
 	{"KL3312",      BT_TYPE_KL3312, 1,      0x1006, 4,      4,      0,      0},
 	{"KL3314",      BT_TYPE_KL3314, 1,      0x1006, 8,      8,      0,      0},
 	{"KL3408",      BT_TYPE_KL3408, 1,      0x1106, 16,     16,     0,      0},
@@ -39,6 +43,7 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"KL4002",	BT_TYPE_KL4002,	1,	0x0006,	4,	4,	0,	0},
 	{"KL4132",	BT_TYPE_KL4132,	1,	0x0006,	4,	4,	0,	0},
 	{"KL9505",	BT_TYPE_KL9505,	0,	0,	0,	0,	0,	0},	/* Power Supply Module */
+	{"KL9020",	BT_TYPE_KL9020,	0,	0,	0,	0,	0,	0},
 	{"KL9010",	BT_TYPE_KL9010,	0,	0,	0,	0,	0,	0}	/* This must be last one */
 };
 

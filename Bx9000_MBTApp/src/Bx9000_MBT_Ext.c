@@ -85,8 +85,6 @@ int	Bx9000_MBT_Verify_Image_Size(ModBusTCP_Link mbt_link, unsigned short int cal
 	int	status;
 	unsigned short int	temp;
 
-	/* We don't explicitly check link here because MBT_FunctionX does it */
-	/* int MBT_Function3(mbt_link, wRIORoffset, RWordCount, *pRWordData, toutsec); */
 	status = MBT_Function3(mbt_link, COMPLEX_OUT_IMG_BITS_MREG, 1, &temp, toutsec);
 	if(status != 0 || temp != cal_complex_out_bits)		return -1;
 
