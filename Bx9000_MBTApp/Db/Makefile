@@ -29,6 +29,26 @@ DB += KL3468.template
 DB += KL4002.template
 DB += KL4132.template
 
+
+# Also install substitutions files for easy access
+DB += Bx9000.substitutions
+DB += KL1104.substitutions
+DB += KL1124.substitutions
+DB += KL1408.substitutions
+DB += KL2124.substitutions
+DB += KL2408.substitutions
+DB += KL2502.substitutions
+DB += KL2512.substitutions
+DB += KL2622.substitutions
+DB += KL3064.substitutions
+DB += KL3102.substitutions
+DB += KL3312.substitutions
+DB += KL3314.substitutions
+DB += KL3408.substitutions
+DB += KL3468.substitutions
+DB += KL4002.substitutions
+DB += KL4132.substitutions
+
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_TEMPLATE = <templatename>
