@@ -20,6 +20,11 @@
 #==============================================================
 #
 
+Bx9000_MBT-R*-*-*:  
+Add support for KL1488 module.
+New database files: KL1488.template, KL1488-lcls.template
+New driver files: devKL1488.c
+
 Bx9000_MBT-R2-2-1: Added support for KL3204, KL3162 and KL9020.
 	Tested against BK9050 and KL9050.
 	New database files: KL3204.template, KL3162.template
