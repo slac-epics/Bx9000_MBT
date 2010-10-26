@@ -23,12 +23,14 @@ DB += KL2622.template
 DB += KL3064.template
 DB += KL3102.template
 DB += KL3202.template
+DB += KL3204.template
 DB += KL3312.template
 DB += KL3314.template
 DB += KL3408.template
 DB += KL3468.template
 DB += KL4002.template
 DB += KL4132.template
+
 
 
 # Also install substitutions files for easy access
@@ -44,6 +46,7 @@ DB += KL2622.substitutions
 DB += KL3064.substitutions
 DB += KL3102.substitutions
 DB += KL3202.substitutions
+DB += KL3204.substitutions
 DB += KL3312.substitutions
 DB += KL3314.substitutions
 DB += KL3408.substitutions
