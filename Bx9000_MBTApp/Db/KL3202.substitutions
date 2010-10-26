@@ -1,0 +1,15 @@
+#==============================================================================
+#
+# Abs:  Beckhoff KL3202 2 Ch RTD
+#
+# Name: KL3202.substitutions
+#
+# Auth: 10-oct-2010, Ravi Mirakhur			(rmirakhu)
+# Rev : dd-mmm-yyyy, Reviewer's Name	(USERNAME)
+#
+#==============================================================================
+#
+file KL3202.template{
+ pattern{APC       , COUPLER         , D            ,SLOT ,CH  , L ,  H    , LL , LO  , HI    ,  HH   , E    ,  P  , HY ,  AD   , MD            , ALIAS                      }
+	
+

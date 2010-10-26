@@ -55,6 +55,7 @@ Bx9000_MBT_SRCS += devKL3408.c
 Bx9000_MBT_SRCS += devKL3468.c
 Bx9000_MBT_SRCS += devKL4002.c
 Bx9000_MBT_SRCS += devKL4132.c
+Bx9000_MBT_SRCS += devKL3202.c
 Bx9000_MBT_SRCS += drvBx9000_MBTRegister.cpp
 # The following builds sncExample as a component of Bx9000_MBT
 # Also in Bx9000_MBTInclude.dbd uncomment #registrar(sncExampleRegistrar)
