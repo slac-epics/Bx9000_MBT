@@ -1,8 +1,8 @@
 record(ai, "$(SIG1)") {
-  field(DESC, "Temperature 1 Readback")
+  field(DESC, "$(SIG1.DESC)")
   field(SCAN, "$(SIG1.SCAN)")
-  field(DTYP, "Bx9000_KL3202")
-  field(INP,  "@@$(COUPLER):$(SLOT):R_ANA_IN_1")
+  field(DTYP, "Bx9000_KL3204")
+  field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_1")
   field(PREC, "1")
   field(HOPR, "$(SIG1.HOPR)")
   field(HIHI, "$(SIG1.HIHI)")
@@ -14,7 +14,7 @@ record(ai, "$(SIG1)") {
   field(ADEL, "$(SIG1.ADEL)")
   field(MDEL, "$(SIG1.MDEL)")
   field(SMOO, "$(SIG1.SMOO)")
-  field(EGU,  "Degree C")
+  field(EGU,  "C")
   field(HHSV, "MAJOR")
   field(LLSV, "MAJOR")
   field(HSV,  "MINOR")
@@ -22,10 +22,10 @@ record(ai, "$(SIG1)") {
 }
 
 record(ai, "$(SIG2)") {
-  field(DESC, "Temperature 2 Readback")
+  field(DESC, "$(SIG2.DESC)")
   field(SCAN, "$(SIG2.SCAN)")
-  field(DTYP, "Bx9000_KL3202")
-  field(INP,  "@@$(COUPLER):$(SLOT):R_ANA_IN_2")
+  field(DTYP, "Bx9000_KL3204")
+  field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_2")
   field(PREC, "1")
   field(HOPR, "$(SIG2.HOPR)")
   field(HIHI, "$(SIG2.HIHI)")
@@ -37,7 +37,7 @@ record(ai, "$(SIG2)") {
   field(ADEL, "$(SIG2.ADEL)")
   field(MDEL, "$(SIG2.MDEL)")
   field(SMOO, "$(SIG2.SMOO)")
-  field(EGU,  "Degree C")
+  field(EGU,  "C")
   field(HHSV, "MAJOR")
   field(LLSV, "MAJOR")
   field(HSV,  "MINOR")
@@ -45,10 +45,10 @@ record(ai, "$(SIG2)") {
 }
 
 record(ai, "$(SIG3)") {
-  field(DESC, "Temperature 3 Readback")
+  field(DESC, "$(SIG3.DESC)")
   field(SCAN, "$(SIG3.SCAN)")
-  field(DTYP, "Bx9000_KL3202")
-  field(INP,  "@@$(COUPLER):$(SLOT):R_ANA_IN_3")
+  field(DTYP, "Bx9000_KL3204")
+  field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_3")
   field(PREC, "1")
   field(HOPR, "$(SIG3.HOPR)")
   field(HIHI, "$(SIG3.HIHI)")
@@ -60,7 +60,7 @@ record(ai, "$(SIG3)") {
   field(ADEL, "$(SIG3.ADEL)")
   field(MDEL, "$(SIG3.MDEL)")
   field(SMOO, "$(SIG3.SMOO)")
-  field(EGU,  "Degree C")
+  field(EGU,  "C")
   field(HHSV, "MAJOR")
   field(LLSV, "MAJOR")
   field(HSV,  "MINOR")
@@ -68,10 +68,10 @@ record(ai, "$(SIG3)") {
 }
 
 record(ai, "$(SIG4)") {
-  field(DESC, "Temperature 4 Readback")
+  field(DESC, "$(SIG4.DESC)")
   field(SCAN, "$(SIG4.SCAN)")
-  field(DTYP, "Bx9000_KL3202")
-  field(INP,  "@@$(COUPLER):$(SLOT):R_ANA_IN_4")
+  field(DTYP, "Bx9000_KL3204")
+  field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_4")
   field(PREC, "1")
   field(HOPR, "$(SIG4.HOPR)")
   field(HIHI, "$(SIG4.HIHI)")
@@ -83,7 +83,7 @@ record(ai, "$(SIG4)") {
   field(ADEL, "$(SIG4.ADEL)")
   field(MDEL, "$(SIG4.MDEL)")
   field(SMOO, "$(SIG4.SMOO)")
-  field(EGU,  "Degree C")
+  field(EGU,  "C")
   field(HHSV, "MAJOR")
   field(LLSV, "MAJOR")
   field(HSV,  "MINOR")
