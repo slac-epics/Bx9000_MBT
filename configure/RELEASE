@@ -29,7 +29,7 @@ EPICS_MODULES=$(EPICS_SITE_TOP)/modules
 # IOC apps or other Support apps
 # =============================================================
 # The Bx9000 driver is based on the ModBusTCPClnt
-MODBUSTCPCLNT_MODULE_VERSION=ModBusTCPClnt-R2-0-0
+MODBUSTCPCLNT_MODULE_VERSION=ModBusTCPClnt-R2-2-0
 
 # ============================================================
 # External Support
