@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        12-Jan-2011, S. Hoobler         (SONYA):
+#           release Bx9000-R2-2-2
 #	 07-Apr-2010, A. Chaiken 	 (ALISON):
 #	    release Bx9000-R2-2-1
 #        20-Mar-2010, S. Hoobler         (SONYA):
@@ -20,10 +22,15 @@
 #==============================================================
 #
 
-Bx9000_MBT-R*-*-*:  
-Add support for KL1488 module.
-New database files: KL1488.template, KL1488-lcls.template
-New driver files: devKL1488.c
+Bx9000_MBT-R2-2-2:  
+  Add support for KL1488 module:
+    New files: Bx9000_MBTApp/Db/KL1488.template, KL1488-lcls.template
+               Bx9000_MBTApp/src/devKL1488.c
+               documentation/KL14X8en.pdf
+    Mod files: README
+               Bx9000_MBTApp/Db/Makefile
+               Bx9000_MBTApp/src/Bx9000_BTDef.h, BX9000_MBT.dbd, 
+                                 Bx9000_MBT.dbd, Bx9000_SigDef.h, Makefile
 
 Bx9000_MBT-R2-2-1: Added support for KL3204, KL3162 and KL9020.
 	Tested against BK9050 and KL9050.
