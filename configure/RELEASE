@@ -39,7 +39,7 @@ MODBUSTCPCLNT=$(EPICS_MODULES)/ModBusTCPClnt/$(MODBUSTCPCLNT_MODULE_VERSION)
 # ==============================================================
 # Define the cvs module version of EPICS BASE that you will use
 # =============================================================
-BASE_MODULE_VERSION=base-R3-14-8-2-lcls3
+BASE_MODULE_VERSION=base-R3-14-8-2-lcls6
 
 # =================================================================
 # Define EPICS_BASE
