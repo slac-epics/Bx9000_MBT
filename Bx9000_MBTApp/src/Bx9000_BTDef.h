@@ -27,6 +27,7 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"KL1124",      BT_TYPE_KL1124, 0,      0,      0,      0,      4,      0},
 	{"KL1408",      BT_TYPE_KL1408, 0,      0,      0,      0,      8,      0},
 	{"KL1488",      BT_TYPE_KL1488, 0,      0,      0,      0,      8,      0},
+	{"KL2012",	BT_TYPE_KL2012,	0,	0,	0,	0,	0,	2},
 	{"KL2124",	BT_TYPE_KL2124,	0,	0,	0,	0,	0,	4},
 	{"KL2408",      BT_TYPE_KL2408, 0,      0,      0,      0,      0,      8},
 	{"KL2622",      BT_TYPE_KL2622, 0,      0,      0,      0,      0,      2},
