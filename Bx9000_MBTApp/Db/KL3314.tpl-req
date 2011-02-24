@@ -1,0 +1,19 @@
+# Autosave list for Beckhoff KL3314 Thermocouple
+$(TEMP).DESC
+$(TEMP).SCAN
+$(TEMP).PREC
+$(TEMP).HOPR
+$(TEMP).HIHI
+$(TEMP).HIGH
+$(TEMP).LOW
+$(TEMP).LOLO
+$(TEMP).LOPR
+$(TEMP).HYST
+$(TEMP).ADEL
+$(TEMP).MDEL
+$(TEMP).SMOO
+$(TEMP).EGU
+$(TEMP).HHSV
+$(TEMP).LLSV
+$(TEMP).HSV
+$(TEMP).LSV

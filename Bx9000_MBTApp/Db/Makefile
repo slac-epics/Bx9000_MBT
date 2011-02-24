@@ -32,7 +32,6 @@ DB += KL4002.template
 DB += KL4132.template
 
 
-
 # Also install substitutions files for easy access
 DB += Bx9000.substitutions
 DB += KL1104.substitutions
@@ -57,6 +56,12 @@ DB += KL4132.substitutions
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_TEMPLATE = <templatename>
+
+# Install Archive templates
+ARCHIVE += KL3314.tpl-arch
+
+# Install Autosave Request templates
+REQ  += KL3314.tpl-req
 
 include $(TOP)/configure/RULES
 #----------------------------------------
