@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        11-Mar-2011, A. Alarcon         (ALARCON):
+#           release Bx9000-R2-2-3
 #        12-Jan-2011, S. Hoobler         (SONYA):
 #           release Bx9000-R2-2-2
 #	 07-Apr-2010, A. Chaiken 	 (ALISON):
@@ -21,6 +23,14 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-2-3:  
+  Add support for KL2012 module:
+    New files: 
+               Bx9000_MBTApp/src/devKL2012.c
+               documentation/KL20x2.pdf
+    Mod files: 
+               Bx9000_MBTApp/src/Bx9000_BTDef.h, BX9000_MBT.dbd, 
+                                 Bx9000_MBT.dbd, Bx9000_SigDef.h, Makefile
 
 Bx9000_MBT-R2-2-2:  
   Add support for KL1488 module:
