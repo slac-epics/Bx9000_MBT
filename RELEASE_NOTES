@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        15-Mar-2011, A. Alarcon         (ALARCON):
+#           release Bx9000-R2-2-4
 #        11-Mar-2011, A. Alarcon         (ALARCON):
 #           release Bx9000-R2-2-3
 #        12-Jan-2011, S. Hoobler         (SONYA):
@@ -23,6 +25,9 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-2-4:
+  Modified configure/RELEASE to work with eco, new version of ModBusTCPClnt
+
 Bx9000_MBT-R2-2-3:  
   Add support for KL2012 module:
     New files: 
