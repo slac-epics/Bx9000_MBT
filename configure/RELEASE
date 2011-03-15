@@ -11,18 +11,10 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 #INSTALL_LOCATION_APP=<fullpathname>
 
 # =============================================================
-# Define the top of the EPICS tree for your site.
-# We will build some tools/scripts that allow us to
-# change this easily when relocating software.
-# ==============================================================
-#EPICS_SITE_TOP=/usr/local/lcls/epics
-EPICS_SITE_TOP=/afs/slac/g/lcls/epics
-
-# =============================================================
 # Define location of module tree with respect to
 # EPICS_SITE_TOP
 # =============================================================
-EPICS_MODULES=$(EPICS_SITE_TOP)/modules
+EPICS_MODULES=$(MODULES_SITE_TOP)
 
 # =============================================================
 # Define the version of modules needed by
@@ -45,6 +37,6 @@ BASE_MODULE_VERSION=base-R3-14-8-2-lcls6
 # Define EPICS_BASE
 # EPICS_BASE usually appears last so other apps can override stuff:
 # =================================================================
-EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
+EPICS_BASE=$(EPICS_SITE_TOP)/base/$(EPICS_BASE_VER)
 
 # End of file
