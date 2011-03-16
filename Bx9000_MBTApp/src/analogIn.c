@@ -33,6 +33,22 @@
 #include <epicsExport.h>
 #include <subRecord.h>
 
+
+/* Add MACRO Definitions for min/max */
+/* Needed as of EPICS BASE R3-14-11 */
+/* provide an macro that implements max() and min() */
+
+#ifndef __cplusplus
+#ifndef max
+#define max(a,b) (((a)>(b)) ? (a) : (b))
+#endif
+
+#ifndef min
+#define min(a,b) (((a)<(b)) ? (a) : (b))
+#endif
+#endif
+
+
 static long
 InitAnalogCalc( subRecord *psub)
         {

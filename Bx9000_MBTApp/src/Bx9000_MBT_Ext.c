@@ -2,6 +2,23 @@
 /* It is based on ModBusTCPClnt, but for Beckhoff Bx9000 only */
 #include "Bx9000_MBT_Common.h"
 
+
+/* Add MACRO Definitions for min/max */
+/* Needed as of EPICS BASE R3-14-11 */
+/* provide an macro that implements max() and min() */
+
+#ifndef __cplusplus
+#ifndef max
+#define max(a,b) (((a)>(b)) ? (a) : (b))
+#endif
+
+#ifndef min
+#define min(a,b) (((a)<(b)) ? (a) : (b))
+#endif
+#endif
+
+
+
 extern	SINT32	Bx9000_DRV_DEBUG;
 /******************************************************************************************/
 /* By default, return value 0 means OK, return value -1 means something wrong             */
