@@ -27,6 +27,7 @@
 #
 Bx9000_MBT-R2-2-4:
   Modified configure/RELEASE to work with eco, new version of ModBusTCPClnt
+  Also, add min/max macros to be comapatible with EPICS R3-14-11 and greater
 
 Bx9000_MBT-R2-2-3:  
   Add support for KL2012 module:
