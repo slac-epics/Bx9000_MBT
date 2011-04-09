@@ -1,0 +1,18 @@
+# Autosave list for Beckhoff KL3314 Thermocouple Signal
+$(SIG).ADEL
+$(SIG).DESC
+$(SIG).EGU
+$(SIG).HHSV
+$(SIG).HIGH
+$(SIG).HIHI
+$(SIG).HOPR
+$(SIG).HSV
+$(SIG).HYST
+$(SIG).LLSV
+$(SIG).LOLO
+$(SIG).LOPR
+$(SIG).LOW
+$(SIG).LSV
+$(SIG).MDEL
+$(SIG).SCAN
+$(SIG).SMOO

@@ -1,0 +1,19 @@
+# Archive list for Beckhoff KL3314 Thermocouple Signal
+$(SIG)			5
+$(SIG).ADEL		10
+$(SIG).DESC		10
+$(SIG).EGU		10
+$(SIG).HHSV		10
+$(SIG).HIGH		10
+$(SIG).HIHI		10
+$(SIG).HOPR		10
+$(SIG).HSV		10
+$(SIG).HYST		10
+$(SIG).LLSV		10
+$(SIG).LOLO		10
+$(SIG).LOPR		10
+$(SIG).LOW		10
+$(SIG).LSV		10
+$(SIG).MDEL		10
+$(SIG).SCAN		10
+$(SIG).SMOO		10

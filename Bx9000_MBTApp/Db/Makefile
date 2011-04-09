@@ -30,6 +30,10 @@ DB += KL3408.template
 DB += KL3468.template
 DB += KL4002.template
 DB += KL4132.template
+# Use soft linked tpl-db files to install
+# both .template and .tpl-db variants
+DB += KL3314.tpl-db
+DB += KL4132.tpl-db
 
 
 # Also install substitutions files for easy access
@@ -53,15 +57,34 @@ DB += KL3468.substitutions
 DB += KL4002.substitutions
 DB += KL4132.substitutions
 
+# Use soft linked tpl-db files to install
+# both .template and .tpl-db variants
+DB += KL3314.sub-db
+DB += KL4132.sub-db
+
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_TEMPLATE = <templatename>
 
-# Install Archive templates
-ARCHIVE += KL3314.tpl-arch
+# Install Archive files
+#ARCHIVE += Bx9000.archive
+#ARCHIVE += KL3314-signal.archive
+#ARCHIVE += KL4132-signal.archive
 
-# Install Autosave Request templates
-REQ  += KL3314.tpl-req
+# Install Archive templates
+ARCHIVE += Bx9000.tpl-arch
+ARCHIVE += KL3314-signal.tpl-arch
+ARCHIVE += KL4132-signal.tpl-arch
+
+# Install Autosave Request files
+#REQ += Bx9000.req
+#REQ += KL3314-signal.req
+#REQ += KL4132-signal.req
+
+# Install Autosave templates
+REQ += Bx9000.tpl-req
+REQ += KL3314-signal.tpl-req
+REQ += KL4132-signal.tpl-req
 
 include $(TOP)/configure/RULES
 #----------------------------------------
