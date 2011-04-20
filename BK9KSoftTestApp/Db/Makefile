@@ -16,6 +16,7 @@ DB += Bx9000.db
 DB += KL1104.db
 DB += KL1124.db
 DB += KL1408.db
+DB += KL2114.db
 DB += KL2124.db
 DB += KL2408.db
 DB += KL2502.db
