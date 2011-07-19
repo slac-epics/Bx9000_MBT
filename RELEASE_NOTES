@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        19-Jul-2011, A. Alarcon         (ALARCON):
+#           release Bx9000-R2-3-4
 #        15-Mar-2011, A. Alarcon         (ALARCON):
 #           release Bx9000-R2-2-4
 #        11-Mar-2011, A. Alarcon         (ALARCON):
@@ -25,6 +27,9 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-3-4:
+ Fixed KL3162 conversion bug
+
 Bx9000_MBT-R2-2-4:
   Modified configure/RELEASE to work with eco, new version of ModBusTCPClnt
   Also, add min/max macros to be comapatible with EPICS R3-14-11 and greater
