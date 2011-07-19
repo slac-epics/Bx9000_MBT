@@ -56,17 +56,8 @@ static long read_ai_KL3162(struct aiRecord * pai)
 		else
 		{
 			pai->udf = FALSE;
-			/* psignal->pdevdata->pbusterm_sig_def->data_type is a little bit overkill */
-			/* We don't check term_reg_exist, because we know we do */
-			/*    Bit 3 "1" means Signed amount representation: The signed amount format is active instead of the 2's complement. p. 12, KL3102en.pdf*/
-			if(psignal->pdevdata->pcoupler->installedBusTerm[psignal->pdevdata->slot].term_r32_value & 0x8)/* check bit 3 */
-			{/* signed amount */
-				pai->rval = ( (psignal->pdevdata->value)&0x7FFF ) * ( ((psignal->pdevdata->value)&0x8000)?-1:1 );
-			}
-			else
-			{/* two's complement */
-				pai->rval = (SINT16)(psignal->pdevdata->value);
-			}
+		        /* KL3162 is only 0 to 10V  */
+			pai->rval = (UINT16)(psignal->pdevdata->value);
 		}
 	}
 	return (CONVERT);
