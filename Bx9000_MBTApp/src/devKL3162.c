@@ -21,7 +21,7 @@ static long init_ai_KL3162(struct aiRecord * pai)
 		return (S_db_badField);
 	}
 	/* KL3162 is single-ended 16-bit */
-	pai->eslo = (pai->eguf - pai->egul)/(float)0x10000;
+	pai->eslo = (pai->eguf - pai->egul)/(float)0xFFFF;
 	/*	pai->roff = 0x8000; */
 	pai->roff = 0x0;
 
@@ -67,8 +67,8 @@ static long lincvt_ai_KL3162(struct aiRecord	*pai, int after)
 {
 
 	if(!after) return(0);
-	/* set linear conversion slope; 3162 is single-ended 16-bit */
-	pai->eslo = (pai->eguf - pai->egul)/(float)0x10000;
+	/* set linear conversion slope; 3162 is single-ended unsigned 16-bit */
+	pai->eslo = (pai->eguf - pai->egul)/(float)0xFFFF;
 	/* pai->roff = 0x8000; */
 	pai->roff = 0x0;
 	return(0);

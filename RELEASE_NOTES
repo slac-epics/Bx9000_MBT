@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        21-Jul-2011, M. Boyes         (MBOYES):
+#           release Bx9000_MBT-R2-3-5
 #        19-Jul-2011, A. Alarcon         (ALARCON):
 #           release Bx9000_MBT-R2-3-4
 #        15-Mar-2011, A. Alarcon         (ALARCON):
@@ -27,6 +29,10 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-3-5:
+ Fixed KL3162 conversion bug with proper 16 bit unsigned slope calcualtion.
+ Added KL3162 lcls database file, and display examples.
+
 Bx9000_MBT-R2-3-4:
  Fixed KL3162 conversion bug
 
