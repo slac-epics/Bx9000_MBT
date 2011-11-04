@@ -1,7 +1,7 @@
 record(ai, "$(SIG1)") {
   field(DESC, "$(SIG1.DESC)")
   field(SCAN, "$(SIG1.SCAN)")
-  field(DTYP, "Bx9000_KL3202")
+  field(DTYP, "Bx9000_KL3222")
   field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_1")
   field(PREC, "1")
   field(HOPR, "$(SIG1.HOPR)")
@@ -24,7 +24,7 @@ record(ai, "$(SIG1)") {
 record(ai, "$(SIG2)") {
   field(DESC, "$(SIG2.DESC)")
   field(SCAN, "$(SIG2.SCAN)")
-  field(DTYP, "Bx9000_KL3202")
+  field(DTYP, "Bx9000_KL3222")
   field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_2")
   field(PREC, "1")
   field(HOPR, "$(SIG2.HOPR)")

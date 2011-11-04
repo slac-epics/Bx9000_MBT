@@ -284,6 +284,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL3152 = 3152,  /* 2-channel analog input terminal, 4 ... 20 mA, 16 bits */
 	BT_TYPE_KL3312 = 3312,	/* 2-channel thermocouple with open-circuit recognition, 16 bits */
 	BT_TYPE_KL3202 = 3202,  /* 2-channel input terminal PT100 (RTD), 16 bits */
+	BT_TYPE_KL3222 = 3222,  /* 2-channel input terminal PT100 (RTD) 4 wire type, 16 bits */
 	BT_TYPE_KL3362 = 3362,  /* 2-channel oscilloscope terminal -10 V ... +10 V, 15 bits */
 	BT_TYPE_KL3403 = 3403,  /* 3-phase power measurement terminal, 16 bits */
 	BT_TYPE_KL3064 = 3064,  /* 4-channel analog input terminal, 0 ... 10 V, 12 bits */
