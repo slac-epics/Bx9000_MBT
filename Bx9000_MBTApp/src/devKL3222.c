@@ -1,7 +1,7 @@
 #include <Bx9000_MBT_Common.h>
 #include <aiRecord.h>
 
-/* KL3222 is RTD module, 0.1 degree C per count, so no conversion needed */
+/* KL3222 is RTD module, 0.01 degree C per count, so no conversion needed */
 extern	SINT32	Bx9000_DEV_DEBUG;
 	
 static long init_ai_KL3222(struct aiRecord * pai)
@@ -63,7 +63,7 @@ static long read_ai_KL3222(struct aiRecord * pai)
 			{/* two's complement */
 				pai->rval = (SINT16)(psignal->pdevdata->value);
 			}
-			pai->val = 0.1 * pai->rval;
+			pai->val = 0.01 * pai->rval;
 		}
 	}
 	return (NO_CONVERT);
