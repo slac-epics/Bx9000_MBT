@@ -273,3 +273,14 @@ documentation/BeckhoffTopology.png for more info.
    Bx9000Info.edl shows the coupler connections' status and some other info.
    Bx9000InstalledBTs.edl shows the installed bus terminals on slot 0~16,
    if you need more, you should build your own one.
+
+5. Optional signal averaging has been added for RTD and thermocouple signals,
+   KL3314, KL3202, KL3222. Averaging is done in record processing. Two new 
+   macros are used to configure this as follows:
+     If no averaging is desired,
+       set $(NSAM) to "1"
+       set $(SCAN) to "1 second"
+     If averaging is desired,
+       set $(NSAM) to number of samples to average
+       set $(SCAN) to rate to poll Beckhoff at (high-level PVs still update at 1 Hz)
+   This is also described in Bx9000_MBTApp/Db/KL****-lcls.template 
