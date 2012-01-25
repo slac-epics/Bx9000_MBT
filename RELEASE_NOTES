@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        25-Jan-2012,S. Hoobler          (SONYA):
+#           release Bx9000_MBT-R2-5-0
 #        29-Dec-2011,A. Alarcon          (ALARCON):
 #           release Bx9000_MBT-R2-4-5
 #        21-Jul-2011, M. Boyes         (MBOYES):
@@ -31,8 +33,9 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
-Bx9000_MBT-R2-4-5:
- Added support for KL2114 and missing documentation
+Bx9000_MBT-R2-5-0:
+ Add support for KL3222
+ Add support for thermocouple and RTD signal averaging
 
 Bx9000_MBT-R2-3-5:
  Fixed KL3162 conversion bug with proper 16 bit unsigned slope calcualtion.
