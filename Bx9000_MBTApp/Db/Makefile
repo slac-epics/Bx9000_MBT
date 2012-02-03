@@ -77,17 +77,28 @@ DB += KL4132.sub-db
 
 # Install Archive templates
 ARCHIVE += Bx9000.tpl-arch
+ARCHIVE += KL2502-signal.tpl-arch
+ARCHIVE += KL2512-signal.tpl-arch
+ARCHIVE += KL3064-signal.tpl-arch
+ARCHIVE += KL3102-signal.tpl-arch
+ARCHIVE += KL3202-signal.tpl-arch
+ARCHIVE += KL3312-signal.tpl-arch
 ARCHIVE += KL3314-signal.tpl-arch
+ARCHIVE += KL3408-signal.tpl-arch
+ARCHIVE += KL4002-signal.tpl-arch
 ARCHIVE += KL4132-signal.tpl-arch
-
-# Install Autosave Request files
-#REQ += Bx9000.req
-#REQ += KL3314-signal.req
-#REQ += KL4132-signal.req
 
 # Install Autosave templates
 REQ += Bx9000.tpl-req
+REQ += KL2502-signal.tpl-req
+REQ += KL2512-signal.tpl-req
+REQ += KL3064-signal.tpl-req
+REQ += KL3102-signal.tpl-req
+REQ += KL3202-signal.tpl-req
+REQ += KL3312-signal.tpl-req
 REQ += KL3314-signal.tpl-req
+REQ += KL3408-signal.tpl-req
+REQ += KL4002-signal.tpl-req
 REQ += KL4132-signal.tpl-req
 
 include $(TOP)/configure/RULES

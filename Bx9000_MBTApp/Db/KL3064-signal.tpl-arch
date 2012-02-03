@@ -1,4 +1,4 @@
-# Archive Beckhoff KL3314 Analog Input Signal PV list
+# Archive Beckhoff KL3064 Analog Input Signal PV list
 $(SIG).VAL		1
 $(SIG).ADEL		30
 $(SIG).DESC		30

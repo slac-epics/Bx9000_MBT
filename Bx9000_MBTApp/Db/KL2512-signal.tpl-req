@@ -1,4 +1,4 @@
-# Autosave Beckhoff KL4132 Analog Output Signal PV list
+# Autosave Beckhoff KL2512 Analog Output Signal PV list
 $(SIG)
 $(SIG).ADEL
 $(SIG).DESC
