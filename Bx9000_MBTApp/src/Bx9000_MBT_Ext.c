@@ -88,6 +88,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 	unsigned int toutsec)
 {
 	int	status;
+	int	retStatus	= 0;
 	unsigned short int	temp;
 
 	/* We don't explicitly check link here because MBT_FunctionX does it */
@@ -100,7 +101,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 			printf(	"Bx9000_MBT_Verify_Image_Size: COMPLEX_OUT_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
 					temp, cal_complex_out_bits );
 		}
-		return -1;
+		retStatus = -1;
 	}
 
 	status = MBT_Function3(mbt_link, COMPLEX_IN_IMG_BITS_MREG, 1, &temp, toutsec);
@@ -111,7 +112,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 			printf(	"Bx9000_MBT_Verify_Image_Size: COMPLEX_IN_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
 					temp, cal_complex_in_bits );
 		}
-		return -1;
+		retStatus = -1;
 	}
 
 	status = MBT_Function3(mbt_link, DIGITAL_OUT_IMG_BITS_MREG, 1, &temp, toutsec);
@@ -122,7 +123,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 			printf(	"Bx9000_MBT_Verify_Image_Size: DIGITAL_OUT_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
 					temp, cal_digital_out_bits );
 		}
-		return -1;
+		retStatus = -1;
 	}
 
 	status = MBT_Function3(mbt_link, DIGITAL_IN_IMG_BITS_MREG, 1, &temp, toutsec);
@@ -133,10 +134,10 @@ int	Bx9000_MBT_Verify_Image_Size(
 			printf(	"Bx9000_MBT_Verify_Image_Size: DIGITAL_IN_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
 					temp, cal_digital_in_bits );
 		}
-		return -1;
+		retStatus = -1;
 	}
 
-	return 0;
+	return retStatus;
 }
 
 /* This function uses MBT function 3 to read memory image based register of Bx9000 coupler */

@@ -326,8 +326,8 @@ int	Bx9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 					break;
 			}
 		}
-		pcoupler->complex_in_bits = temp_cin_woffset * 16;
-		pcoupler->complex_out_bits = temp_cout_woffset * 16;
+		pcoupler->complex_in_bits	= temp_cin_woffset	* 16;
+		pcoupler->complex_out_bits	= temp_cout_woffset	* 16;
 		if ( Bx9000_DRV_DEBUG )
 			printf(	"%d words complex in and %d words complex out mapped for Bx9000 %s!\n",
 					temp_cin_woffset, temp_cout_woffset, cplrname);
@@ -351,9 +351,9 @@ int	Bx9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 					break;
 			}
 		}
-		pcoupler->digital_in_bits = temp_din_boffset - pcoupler->complex_in_bits;
-		pcoupler->digital_out_bits = temp_dout_boffset - pcoupler->complex_out_bits;
-		if(Bx9000_DRV_DEBUG)
+		pcoupler->digital_in_bits	= temp_din_boffset	- pcoupler->complex_in_bits;
+		pcoupler->digital_out_bits	= temp_dout_boffset	- pcoupler->complex_out_bits;
+		if ( Bx9000_DRV_DEBUG )
 			printf(	"%d bits digital in and %d bits digital out mapped for Bx9000 %s!\n",
 					pcoupler->digital_in_bits, pcoupler->digital_out_bits, cplrname);
 
