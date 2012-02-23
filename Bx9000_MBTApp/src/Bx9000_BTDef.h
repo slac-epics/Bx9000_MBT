@@ -47,6 +47,7 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"KL4002",	BT_TYPE_KL4002,	1,	0x0006,	4,	4,	0,	0},
 	{"KL4132",	BT_TYPE_KL4132,	1,	0x0006,	4,	4,	0,	0},
 	{"KL9505",	BT_TYPE_KL9505,	0,	0,	0,	0,	0,	0},	/* Power Supply Module */
+	{"KL9080",	BT_TYPE_KL9080,	0,	0,	0,	0,	0,	0}, /* Separation terminal, just a blank */
 	{"KL9010",	BT_TYPE_KL9010,	0,	0,	0,	0,	0,	0}	/* This must be last one */
 };
 

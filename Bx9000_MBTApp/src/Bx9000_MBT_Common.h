@@ -175,6 +175,7 @@ typedef enum BUSTERM_TYPE
 {
 	BT_TYPE_Bx9000 = 9000,	/* This is coupler */
 	BT_TYPE_KL9010 = 9010,	/* This is terminator */
+	BT_TYPE_KL9080 = 9080,	/* Blank/separator */
 	BT_TYPE_KL9505 = 9505,	/* Power Supply Module */
 
 	/* 32 bits counter */
