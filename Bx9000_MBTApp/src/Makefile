@@ -25,6 +25,8 @@ LIBRARY_IOC += Bx9000_MBT
 # create munch file for dynamic loading will install in <bin>
 PROD_IOC_vxWorks += Bx9000_MBTLib
 
+INC += Bx9000_Watchdog.h
+
 # The following line makes the Bx9000_MBT.h file
 # This is needed for Record support. So uncomment
 # the following line if you are making record support.
@@ -34,16 +36,22 @@ DBD += Bx9000_MBT.dbd
 
 # Add locally compiled object code
 Bx9000_MBT_SRCS += Bx9000_MBT_Ext.c
+Bx9000_MBT_SRCS += Bx9000_Watchdog.cpp
 Bx9000_MBT_SRCS += drvBx9000_MBT.c
 Bx9000_MBT_SRCS += devBx9000Info.c
 Bx9000_MBT_SRCS += devKL1104.c
 Bx9000_MBT_SRCS += devKL1124.c
 Bx9000_MBT_SRCS += devKL1408.c
+Bx9000_MBT_SRCS += devKL2114.c
 Bx9000_MBT_SRCS += devKL2124.c
 Bx9000_MBT_SRCS += devKL2408.c
+Bx9000_MBT_SRCS += devKL2502.c
+Bx9000_MBT_SRCS += devKL2512.c
 Bx9000_MBT_SRCS += devKL2622.c
 Bx9000_MBT_SRCS += devKL3064.c
 Bx9000_MBT_SRCS += devKL3102.c
+Bx9000_MBT_SRCS += devKL3202.c
+Bx9000_MBT_SRCS += devKL3222.c
 Bx9000_MBT_SRCS += devKL3312.c
 Bx9000_MBT_SRCS += devKL3314.c
 Bx9000_MBT_SRCS += devKL3408.c
