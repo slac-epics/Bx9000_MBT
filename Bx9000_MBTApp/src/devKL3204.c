@@ -1,20 +1,20 @@
 #include <Bx9000_MBT_Common.h>
 #include <aiRecord.h>
 
-/* KL3202 is RTD module, 0.1 degree C per count, so no conversion needed */
+/* KL3204 is RTD module, 0.1 degree C per count, so no conversion needed */
 extern	SINT32	Bx9000_DEV_DEBUG;
 	
-static long init_ai_KL3202(struct aiRecord * pai)
+static long init_ai_KL3204(struct aiRecord * pai)
 {
 	if (pai->inp.type!=INST_IO)
 	{
 		recGblRecordError(S_db_badField, (void *)pai,
-			"devAiKL3202 Init_record, Illegal INP");
+			"devAiKL3204 Init_record, Illegal INP");
 		pai->pact=TRUE;
 		return (S_db_badField);
 	}
 
-	if(Bx9000_Signal_Init((dbCommon *) pai, EPICS_RTYPE_AI, pai->inp.value.instio.string, BT_TYPE_KL3202, Bx9000_Dft_ProcFunc, NULL) != 0)
+	if(Bx9000_Signal_Init((dbCommon *) pai, EPICS_RTYPE_AI, pai->inp.value.instio.string, BT_TYPE_KL3204, Bx9000_Dft_ProcFunc, NULL) != 0)
 	{
 		if(Bx9000_DEV_DEBUG)	errlogPrintf("Fail to init signal for record %s!!", pai->name);
 		recGblRecordError(S_db_badField, (void *) pai, "Init signal Error");
@@ -25,7 +25,7 @@ static long init_ai_KL3202(struct aiRecord * pai)
 	return 0;
 }
 
-static long read_ai_KL3202(struct aiRecord * pai)
+static long read_ai_KL3204(struct aiRecord * pai)
 {
 	Bx9000_SIGNAL	* psignal = (Bx9000_SIGNAL *) (pai->dpvt);
 
@@ -77,15 +77,15 @@ struct {
 	DEVSUPFUN       get_ioint_info;
 	DEVSUPFUN       read_ai;
 	DEVSUPFUN       special_linconv;
-}	devAiKL3202 =
+}	devAiKL3204 =
 {
 	6,
 	NULL,
 	NULL,
-	init_ai_KL3202,
+	init_ai_KL3204,
 	NULL,
-	read_ai_KL3202,
+	read_ai_KL3204,
 	NULL
 };
-epicsExportAddress(dset, devAiKL3202);
+epicsExportAddress(dset, devAiKL3204);
 

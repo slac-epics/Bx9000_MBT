@@ -1,31 +1,34 @@
 #include <Bx9000_MBT_Common.h>
 #include <aiRecord.h>
 
-/* KL3202 is RTD module, 0.1 degree C per count, so no conversion needed */
 extern	SINT32	Bx9000_DEV_DEBUG;
 	
-static long init_ai_KL3202(struct aiRecord * pai)
+static long init_ai_KL3162(struct aiRecord * pai)
 {
 	if (pai->inp.type!=INST_IO)
 	{
 		recGblRecordError(S_db_badField, (void *)pai,
-			"devAiKL3202 Init_record, Illegal INP");
+			"devAiKL3162 Init_record, Illegal INP");
 		pai->pact=TRUE;
 		return (S_db_badField);
 	}
 
-	if(Bx9000_Signal_Init((dbCommon *) pai, EPICS_RTYPE_AI, pai->inp.value.instio.string, BT_TYPE_KL3202, Bx9000_Dft_ProcFunc, NULL) != 0)
+	if(Bx9000_Signal_Init((dbCommon *) pai, EPICS_RTYPE_AI, pai->inp.value.instio.string, BT_TYPE_KL3162, Bx9000_Dft_ProcFunc, NULL) != 0)
 	{
 		if(Bx9000_DEV_DEBUG)	errlogPrintf("Fail to init signal for record %s!!", pai->name);
 		recGblRecordError(S_db_badField, (void *) pai, "Init signal Error");
 		pai->pact = TRUE;
 		return (S_db_badField);
 	}
+	/* KL3162 is single-ended 16-bit */
+	pai->eslo = (pai->eguf - pai->egul)/(float)0xFFFF;
+	/*	pai->roff = 0x8000; */
+	pai->roff = 0x0;
 
 	return 0;
 }
 
-static long read_ai_KL3202(struct aiRecord * pai)
+static long read_ai_KL3162(struct aiRecord * pai)
 {
 	Bx9000_SIGNAL	* psignal = (Bx9000_SIGNAL *) (pai->dpvt);
 
@@ -53,21 +56,24 @@ static long read_ai_KL3202(struct aiRecord * pai)
 		else
 		{
 			pai->udf = FALSE;
-			/* psignal->pdevdata->pbusterm_sig_def->data_type is a little bit overkill */
-			/* We don't check term_reg_exist, because we know we do */
-			if(psignal->pdevdata->pcoupler->installedBusTerm[psignal->pdevdata->slot].term_r32_value & 0x8)/* check bit 3 */
-			{/* signed amount */
-				pai->rval = ( (psignal->pdevdata->value)&0x7FFF ) * ( ((psignal->pdevdata->value)&0x8000)?-1:1 );
-			}
-			else
-			{/* two's complement */
-				pai->rval = (SINT16)(psignal->pdevdata->value);
-			}
-			pai->val = 0.1 * pai->rval;
+		        /* KL3162 is only 0 to 10V  */
+			pai->rval = (UINT16)(psignal->pdevdata->value);
 		}
 	}
-	return (NO_CONVERT);
+	return (CONVERT);
 }
+
+static long lincvt_ai_KL3162(struct aiRecord	*pai, int after)
+{
+
+	if(!after) return(0);
+	/* set linear conversion slope; 3162 is single-ended unsigned 16-bit */
+	pai->eslo = (pai->eguf - pai->egul)/(float)0xFFFF;
+	/* pai->roff = 0x8000; */
+	pai->roff = 0x0;
+	return(0);
+}
+
 
 struct {
 	long            number;
@@ -77,15 +83,15 @@ struct {
 	DEVSUPFUN       get_ioint_info;
 	DEVSUPFUN       read_ai;
 	DEVSUPFUN       special_linconv;
-}	devAiKL3202 =
+}	devAiKL3162 =
 {
 	6,
 	NULL,
 	NULL,
-	init_ai_KL3202,
+	init_ai_KL3162,
 	NULL,
-	read_ai_KL3202,
-	NULL
+	read_ai_KL3162,
+	lincvt_ai_KL3162
 };
-epicsExportAddress(dset, devAiKL3202);
+epicsExportAddress(dset, devAiKL3162);
 

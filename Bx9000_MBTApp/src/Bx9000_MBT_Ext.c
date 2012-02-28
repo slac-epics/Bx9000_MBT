@@ -2,6 +2,23 @@
 /* It is based on ModBusTCPClnt, but for Beckhoff Bx9000 only */
 #include "Bx9000_MBT_Common.h"
 
+
+/* Add MACRO Definitions for min/max */
+/* Needed as of EPICS BASE R3-14-11 */
+/* provide an macro that implements max() and min() */
+
+#ifndef __cplusplus
+#ifndef max
+#define max(a,b) (((a)>(b)) ? (a) : (b))
+#endif
+
+#ifndef min
+#define min(a,b) (((a)<(b)) ? (a) : (b))
+#endif
+#endif
+
+
+
 extern	SINT32	Bx9000_DRV_DEBUG;
 /******************************************************************************************/
 /* By default, return value 0 means OK, return value -1 means something wrong             */
@@ -91,8 +108,6 @@ int	Bx9000_MBT_Verify_Image_Size(
 	int	retStatus	= 0;
 	unsigned short int	temp;
 
-	/* We don't explicitly check link here because MBT_FunctionX does it */
-	/* int MBT_Function3(mbt_link, wRIORoffset, RWordCount, *pRWordData, toutsec); */
 	status = MBT_Function3(mbt_link, COMPLEX_OUT_IMG_BITS_MREG, 1, &temp, toutsec);
 	if(status != 0 || temp != cal_complex_out_bits)
 	{

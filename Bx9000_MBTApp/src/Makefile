@@ -42,6 +42,8 @@ Bx9000_MBT_SRCS += devBx9000Info.c
 Bx9000_MBT_SRCS += devKL1104.c
 Bx9000_MBT_SRCS += devKL1124.c
 Bx9000_MBT_SRCS += devKL1408.c
+Bx9000_MBT_SRCS += devKL1488.c
+Bx9000_MBT_SRCS += devKL2012.c
 Bx9000_MBT_SRCS += devKL2114.c
 Bx9000_MBT_SRCS += devKL2124.c
 Bx9000_MBT_SRCS += devKL2408.c
@@ -50,7 +52,9 @@ Bx9000_MBT_SRCS += devKL2512.c
 Bx9000_MBT_SRCS += devKL2622.c
 Bx9000_MBT_SRCS += devKL3064.c
 Bx9000_MBT_SRCS += devKL3102.c
+Bx9000_MBT_SRCS += devKL3162.c
 Bx9000_MBT_SRCS += devKL3202.c
+Bx9000_MBT_SRCS += devKL3204.c
 Bx9000_MBT_SRCS += devKL3222.c
 Bx9000_MBT_SRCS += devKL3312.c
 Bx9000_MBT_SRCS += devKL3314.c
@@ -59,6 +63,11 @@ Bx9000_MBT_SRCS += devKL3468.c
 Bx9000_MBT_SRCS += devKL4002.c
 Bx9000_MBT_SRCS += devKL4132.c
 Bx9000_MBT_SRCS += drvBx9000_MBTRegister.cpp
+
+#Adding support for LCLS Analog Support 
+DBD +=  analogSub.dbd
+Bx9000_MBT_SRCS += analogIn.c
+
 # The following builds sncExample as a component of Bx9000_MBT
 # Also in Bx9000_MBTInclude.dbd uncomment #registrar(sncExampleRegistrar)
 #Bx9000_MBT_SRCS += sncExample.stt
