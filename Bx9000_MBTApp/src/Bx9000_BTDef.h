@@ -43,7 +43,7 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
     {"KL3204",      BT_TYPE_KL3204, 1,      0x1006, 8,      8,      0,      0},
     /* Why is the 0x parameter different for the KL3222 between ours and lcls? */
     /* For feature register: NI100 type, 2 wire, 0.1C resolution, watchdog active, manufacturer scaling active */
-/*	{"KL3222",      BT_TYPE_KL3222, 1,      0x1006, 4,      4,      0,      0},
+/*	{"KL3222",      BT_TYPE_KL3222, 1,      0x1006, 4,      4,      0,      0}, */
 	/* For feature retister: PT100 type, 4 wire, 0.1C resolution, watchdog inactive */
     {"KL3222",      BT_TYPE_KL3222, 1,      0x0080, 4,      4,      0,      0},
 	{"KL3312",      BT_TYPE_KL3312, 1,      0x1006, 4,      4,      0,      0},

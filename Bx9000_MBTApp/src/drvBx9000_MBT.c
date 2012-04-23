@@ -169,7 +169,7 @@ int	Bx9000_Coupler_Add( char * cplrname, char * ipaddr, char * init_string )
 	pcoupler = (Bx9000_COUPLER *) malloc ( sizeof(Bx9000_COUPLER) );
 	if( pcoupler == NULL )
 	{
-		errlogPrintf(	"Bx9000_Coupler_Add %s Error: Failed to malloc %u bytes for coupler!\n",
+		errlogPrintf(	"Bx9000_Coupler_Add %s Error: Failed to malloc %zu bytes for coupler!\n",
 						cplrname, sizeof(Bx9000_COUPLER) );
 		return -1;
 	}
@@ -1061,7 +1061,7 @@ int	Bx9000_Signal_Init(
 	pdevsupdata = (Bx9000_DEVSUPDATA *)malloc(sizeof(Bx9000_DEVSUPDATA));
 	if(pdevsupdata == NULL)
 	{
-		errlogPrintf(	"Bx9000_Signal_Init %s Error: Failed to malloc %u bytes!\n",
+		errlogPrintf(	"Bx9000_Signal_Init %s Error: Failed to malloc %zu bytes!\n",
 						precord->name, sizeof(Bx9000_DEVSUPDATA) );
 		return -1;
 	}
