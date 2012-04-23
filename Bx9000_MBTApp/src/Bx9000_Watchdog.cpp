@@ -13,14 +13,14 @@ public:
 			return;
 
 		Bx9000_COUPLER	*	pCplr	= NULL;
-		pCplr	= Bx9000_Get_Coupler_By_Name( const_cast<char *>( pNameOrIpAddr ));
+		pCplr	= Bx9000_Get_Coupler_By_Name( pNameOrIpAddr );
 		if ( pCplr != NULL )
 		{
 			m_pModBusLink	= pCplr->mbt_link;
 			return;
 		}
 
-		m_pModBusLink = MBT_Init( "BH1", const_cast<char *>( pNameOrIpAddr ), 502, 0xFF );
+		m_pModBusLink = MBT_Init( "BH1", pNameOrIpAddr, 502, 0xFF );
 		if ( !m_pModBusLink )
 			return;
 

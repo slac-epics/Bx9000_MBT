@@ -75,7 +75,7 @@
 #error "We need EPICS 3.14 or above to support OSI calls!"
 #endif
 
-#include "drvModBusTCPClnt.h"
+#include "ModBusTCPClnt.h"
 
 /******************************************************************************************/
 /***** important!!! important!!! important!!! important!!! important!!! important!!! ******/
@@ -568,7 +568,7 @@ typedef	struct Bx9000_DEVDATA
 
 	UINT16			value;	/* the value of input or ouput, 16 bits fits most of signals */
 
-	BOOL			op_done;
+	int				op_done;
 	UINT32			err_code;	/* high 16 will be local error, low 16 will copy MBTC err code, 0 means no error */
 
 }	Bx9000_DEVDATA;
@@ -691,7 +691,7 @@ int Bx9000_MBT_Sync_Both_Image(ModBusTCP_Link mbt_link, unsigned short int wRIof
 /******************************************************************************************/
 
 /* This function returns the pointer to the coupler with name */
-Bx9000_COUPLER	* Bx9000_Get_Coupler_By_Name(char * cplrname);
+Bx9000_COUPLER	* Bx9000_Get_Coupler_By_Name( const char * cplrname );
 
 /* This must be called in st.cmd first before any operation to the coupler */
 /* name must be unique, and ipaddr is not necessary to be unique */

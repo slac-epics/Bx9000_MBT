@@ -1,11 +1,6 @@
 # RULES
 
 include $(CONFIG)/RULES
-include $(TOP)/configure/RULES.autosave
-include $(TOP)/configure/RULES.archive
-
-UNINSTALL_DIRS += $(INSTALL_AUTOSAVE)
-UNINSTALL_DIRS += $(INSTALL_ARCHIVE)
 
 # Library should be rebuilt because LIBOBJS may have changed.
 $(LIBNAME): ../Makefile

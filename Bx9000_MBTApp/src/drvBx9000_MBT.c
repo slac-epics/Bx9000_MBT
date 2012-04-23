@@ -27,7 +27,7 @@ SINT32	Bx9000_DEV_DEBUG = 0;
 static  UINT32 cplr_list_inited=0;
 
 /* This function returns the pointer to the coupler with name */
-Bx9000_COUPLER * Bx9000_Get_Coupler_By_Name(char * cplrname)
+Bx9000_COUPLER * Bx9000_Get_Coupler_By_Name( const char * cplrname )
 {
 	Bx9000_COUPLER	* pcoupler = NULL;
 
