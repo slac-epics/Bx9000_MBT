@@ -63,6 +63,9 @@ void drvBx9000_MBT_Register()
 	iocshRegister(&Bx9000_Coupler_AddDef, Bx9000_Coupler_AddCall);
 	iocshRegister(&Bx9000_Terminal_AddDef, Bx9000_Terminal_AddCall);
 }
+
+epicsExportRegistrar(drvBx9000_MBT_Register);
+
 #ifdef __cplusplus
 }
 #endif	/* __cplusplus */
