@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        25-May-2012,S. Hoobler          (SONYA):
+#           release Bx9000_MBT-R2-5-1
 #        25-Jan-2012,S. Hoobler          (SONYA):
 #           release Bx9000_MBT-R2-5-0
 #        29-Dec-2011,A. Alarcon          (ALARCON):
@@ -33,6 +35,9 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-5-1:
+ Add Bx9000_MBTApp/Db/KL3102-lcls.template
+
 Bx9000_MBT-R2-5-0:
  Add support for KL3222
  Add support for thermocouple and RTD signal averaging
