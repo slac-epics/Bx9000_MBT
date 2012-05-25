@@ -37,13 +37,17 @@ DB += Bx9000InstalledBTs-lcls.template
 DB += KL1488-lcls.template
 DB += KL1408-lcls.template
 DB += KL2408-lcls.template
-DB += KL3162-lcls.template
 DB += KL2408-lcls.template
 DB += KL3202-lcls.template 
 DB += KL3222-lcls.template 
 DB += KL3314-lcls.template 
 DB += KL3408-lcls.template
+
 DB += analog-conversion-lcls.template
+DB += KL3162-lcls.template
+DB += KL3102-lcls.template
+
+# For use in conjunction with analog-conversion-lcls.template
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
