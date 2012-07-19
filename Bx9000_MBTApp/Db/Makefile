@@ -49,6 +49,7 @@ DB += KL2512.substitutions
 DB += KL2622.substitutions
 DB += KL3064.substitutions
 DB += KL3102.substitutions
+DB += KL3162.substitutions
 DB += KL3202.substitutions
 DB += KL3204.substitutions
 DB += KL3222.substitutions
