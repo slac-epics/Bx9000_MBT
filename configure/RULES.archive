@@ -1,2 +1,2 @@
-#RULES.archive
+# RULES.archive
 include $(EPICS_BASE)/configure/RULES.archive
