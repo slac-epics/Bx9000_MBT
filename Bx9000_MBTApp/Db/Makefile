@@ -16,8 +16,11 @@ DB += KL1104.template
 DB += KL1124.template
 DB += KL1408.template
 DB += KL1488.template
+DB += KL2114.template
 DB += KL2124.template
 DB += KL2408.template
+DB += KL2502.template
+DB += KL2512.template
 DB += KL2622.template
 DB += KL3064.template
 DB += KL3102.template
@@ -32,20 +35,22 @@ DB += KL3468.template
 DB += KL4002.template
 DB += KL4132.template
 
+DB += Bx9000-lcls.db
 DB += Bx9000Info-lcls.template
 DB += Bx9000InstalledBTs-lcls.template
 DB += KL1488-lcls.template
 DB += KL1408-lcls.template
 DB += KL2408-lcls.template
-DB += KL2408-lcls.template
+DB += KL3102-lcls.template
+DB += KL3162-lcls.template
 DB += KL3202-lcls.template 
 DB += KL3222-lcls.template 
 DB += KL3314-lcls.template 
 DB += KL3408-lcls.template
+DB += KM1004-lcls.template
+DB += KM2004-lcls.template
 
 DB += analog-conversion-lcls.template
-DB += KL3162-lcls.template
-DB += KL3102-lcls.template
 
 # For use in conjunction with analog-conversion-lcls.template
 

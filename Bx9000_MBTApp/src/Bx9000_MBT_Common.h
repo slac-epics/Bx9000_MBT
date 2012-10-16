@@ -176,6 +176,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_Bx9000 = 9000,	/* This is coupler */
 	BT_TYPE_KL9010 = 9010,	/* This is terminator */
 	BT_TYPE_KL9020 = 9020,	/* This is expander */
+	BT_TYPE_KL9080 = 9080,	/* Blank/separator */
 	BT_TYPE_KL9505 = 9505,	/* Power Supply Module */
 
 	/* 32 bits counter */
@@ -192,7 +193,8 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2521 = 2521,	/* 1-channel pulse train output terminal RS422/24 V DC */
 
 	/* pulse width output terminal */
-	BT_TYPE_KL2502 = 2502,	/* 2-channel pulse width output terminal 24 V DC */
+	BT_TYPE_KL2502 = 2502,  /* 2-channel Pulse width modulated digital output terminal 24 V DC, switched pos, 100ma */
+	BT_TYPE_KL2512 = 2512,  /* 2-channel Pulse width modulated digital output terminal 24 V DC, switched neg, 1A */
 
 	/* Digital terminal with both input/output */
 	BT_TYPE_KL2641 = 2641,	/* 1-channel relay output terminal 230 V AC, 16 A, manual operation */
@@ -230,6 +232,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL1418 = 1418,	/* 24V DC, filter 0.2ms */
 	BT_TYPE_KL1488 = 1488,  /* 24V DC, filter 3.0ms, n switching */
 	BT_TYPE_KL1498 = 1498,  /* 24V DC, filter 0.2ms, n switching */
+	BT_TYPE_KM1004 = 1004,	/* 24V DC, filter 3.0ms, 32 inputs */
 
 	/* Digital Output, last digit means num of channels */
 	BT_TYPE_KL2631 = 2631,  /* 1-channel relay output terminal 400 V AC, 300 V DC */
@@ -251,8 +254,9 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2424 = 2424,  /* 4-channel digital output terminal 24 V DC, Imax=2.0A, 4x2-wire conn */
 	BT_TYPE_KL2408 = 2408,  /* 8-channel digital output terminal 24 V DC */
 	BT_TYPE_KL2488 = 2488,  /* 8-channel digital output terminal 24 V DC, n-switch */
+	BT_TYPE_KM2004 = 2004,  /* 32-channel digital output terminal 24 V DC, Imax=0.5A */
 
-	/* Analong terminal with both input and output */
+	/* Analog terminal with both input and output */
 	BT_TYPE_KL4494 = 4494,  /* 2-channel analog input, 2-channel analog output terminal -10 V ... 10 V, 12 bits */
 
 	/* Analog Input, last digit means num of channels */	
@@ -326,7 +330,7 @@ typedef enum BUSTERM_TYPE
 }	E_BUSTERM_TYPE;
 
 /******************************************************************************************/
-/* We try to describe bus terminal here, some info maybe overkill                         */
+/* We try to describe bus terminal here, some info may be overkill                        */
 /* We can't use input/output to describe terminal because some terminals have both        */
 /* We don't use analog/digital to describe terminal because complex is more accurate      */
 /* complex_in_bits is always same as complex_out_bits, for more general, we define both   */
@@ -335,7 +339,7 @@ typedef enum BUSTERM_TYPE
 typedef	struct BUSTERM_IMG_DEF
 {
 	UINT8			busterm_string[8];	/* String name of bus terminal, must be 6 characters */
-	E_BUSTERM_TYPE		busterm_type;		/* number name of bus terminal */
+	E_BUSTERM_TYPE	busterm_type;		/* number name of bus terminal */
 	UINT32			term_reg_exist;		/* 1: This terminal has registers, for coupler, this is not used, stay 0 */
 	UINT16			term_r32_dft;		/* default value of feature register, if not exist, stay 0 */
 	UINT16			complex_in_words;	/* how many words in complex input processing image */
@@ -424,10 +428,10 @@ typedef	enum	DATA_TYPE
 typedef	struct BUSTERM_SIG_PREDEF
 {/* We use this one to define signals */
 	UINT8			busterm_string[8];		/* String name of bus terminal, must be 6 characters */
-	E_BUSTERM_TYPE		busterm_type;			/* number name of bus terminal */
+	E_BUSTERM_TYPE	busterm_type;			/* number name of bus terminal */
 	UINT8			function[MAX_CA_STRING_SIZE];	/* Function name, should be the third part of INP/OUT field */
 	E_BUSTERM_OPTYPE	busterm_optype;			/* The operation type, one of above list */
-	E_EPICS_RTYPE		epics_rtype;			/* EPICS record type to use this signal, EPICS_RTYP_NONE means not for EPICS or waive check */
+	E_EPICS_RTYPE	epics_rtype;			/* EPICS record type to use this signal, EPICS_RTYP_NONE means not for EPICS or waive check */
 	E_DATA_TYPE		data_type;
 	UINT32			arg1;
 	UINT32			arg2;
@@ -540,7 +544,7 @@ typedef struct Bx9000_COUPLER
 	epicsTimeStamp		time_set_conn;	/* Last time we successfully set up connection */
 	epicsTimeStamp		time_last_try;	/* Last time we try to connect */
 
-	UINT8			couplerID[COUPLER_ID_SIZE*2+2];
+	char			couplerID[COUPLER_ID_SIZE*2+2];
 	
 	/* We use hardcoded size, this wastes a little bit memory, but no malloc and error check */
 	UINT16			outputImage[MAX_WORDS_OF_OUTIMG];
@@ -551,7 +555,7 @@ typedef struct Bx9000_COUPLER
 	epicsMessageQueueId	msgQ_id;	/* Through this message queue, record processing sends request to opthread */
 
 	epicsThreadId		opthread_id;	/* operation thread ID for this Bx9000 */
-	UINT8			opthread_name[MAX_CA_STRING_SIZE];
+	char			opthread_name[MAX_CA_STRING_SIZE];
 
 }	Bx9000_COUPLER;
 
@@ -601,11 +605,11 @@ typedef	struct Bx9000_DEVSUPDATA
 /******************************************************************************************/
 /* Define err_code here                                                                   */
 /******************************************************************************************/
-#define	ERR_CODE_NO_ERROR		0x00000000
+#define	ERR_CODE_NO_ERROR			0x00000000
 #define	ERR_CODE_CPLR_NOT_READY		0x00010000
 #define	ERR_CODE_SYNC_IMG_FAIL		0x00020000
 #define	ERR_CODE_PROC_NOT_SUPT		0x00030000
-#define ERR_CODE_OUTINIT_NOT_SUPT       0x00040000
+#define ERR_CODE_OUTINIT_NOT_SUPT   0x00040000
 /******************************************************************************************/
 /* Below we define the function prototype                                                 */
 /******************************************************************************************/
@@ -689,21 +693,21 @@ int Bx9000_MBT_Sync_Both_Image(ModBusTCP_Link mbt_link, unsigned short int wRIof
 /******************************************************************************************/
 
 /* This function returns the pointer to the coupler with name */
-Bx9000_COUPLER	* Bx9000_Get_Coupler_By_Name(UINT8 * cplrname);
+Bx9000_COUPLER	* Bx9000_Get_Coupler_By_Name(const char * cplrname);
 
 /* This must be called in st.cmd first before any operation to the coupler */
 /* name must be unique, and ipaddr is not necessary to be unique */
 /* This function can be only called in st.cmd */
 /* init_string will be "signame1=1234,signame2=0x2345" */
-int	Bx9000_Coupler_Add( UINT8 * cplrname, UINT8 * ipaddr, UINT8 * init_string);
+int	Bx9000_Coupler_Add( char * cplrname, char * ipaddr, char * init_string);
 
 /* This function add a bus terminal to an existing coupler */
 /* init_string will be "signame1=1234,signame2=0x2345" */
-int	Bx9000_Terminal_Add( UINT8 * cplrname, UINT16 slot, UINT8 * btname, UINT8 * init_string);
+int	Bx9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * init_string);
 
 /* This function will be called by all device support */
 /* The memory for Bx9000_SIGNAL will be malloced inside */
-int	Bx9000_Signal_Init(dbCommon * precord, E_EPICS_RTYPE epics_rtype, UINT8 * ioString, E_BUSTERM_TYPE bttype, Bx9000_FPTR process_fptr, void * pextra_arg);
+int	Bx9000_Signal_Init(dbCommon * precord, E_EPICS_RTYPE epics_rtype, char * ioString, E_BUSTERM_TYPE bttype, Bx9000_FPTR process_fptr, void * pextra_arg);
 
 /* This is the default process function, it deals with coupler reg/Mreg and terminal reg */
 /* For image based operation, it supports single bit op and single word op only */
