@@ -40,6 +40,7 @@ DB += Bx9000Info-lcls.template
 DB += Bx9000InstalledBTs-lcls.template
 DB += KL1488-lcls.template
 DB += KL1408-lcls.template
+DB += KL2124-lcls.template
 DB += KL2408-lcls.template
 DB += KL3102-lcls.template
 DB += KL3162-lcls.template
