@@ -30,10 +30,13 @@ DB += KL3204.template
 DB += KL3222.template
 DB += KL3312.template
 DB += KL3314.template
+DB += KL3404.template
 DB += KL3408.template
 DB += KL3468.template
 DB += KL4002.template
 DB += KL4132.template
+
+DB += KL3404-signal.template
 
 
 # Also install substitutions files for easy access
@@ -55,6 +58,7 @@ DB += KL3204.substitutions
 DB += KL3222.substitutions
 DB += KL3312.substitutions
 DB += KL3314.substitutions
+DB += KL3404.substitutions
 DB += KL3408.substitutions
 DB += KL3468.substitutions
 DB += KL4002.substitutions
@@ -89,6 +93,7 @@ ARCHIVE += KL3102-signal.tpl-arch
 ARCHIVE += KL3202-signal.tpl-arch
 ARCHIVE += KL3312-signal.tpl-arch
 ARCHIVE += KL3314-signal.tpl-arch
+ARCHIVE += KL3404-signal.tpl-arch
 ARCHIVE += KL3408-signal.tpl-arch
 ARCHIVE += KL4002-signal.tpl-arch
 ARCHIVE += KL4132-signal.tpl-arch
@@ -102,6 +107,7 @@ REQ += KL3102-signal.tpl-req
 REQ += KL3202-signal.tpl-req
 REQ += KL3312-signal.tpl-req
 REQ += KL3314-signal.tpl-req
+REQ += KL3404-signal.tpl-req
 REQ += KL3408-signal.tpl-req
 REQ += KL4002-signal.tpl-req
 REQ += KL4132-signal.tpl-req

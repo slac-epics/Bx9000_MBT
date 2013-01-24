@@ -277,7 +277,7 @@ static long read_li_Bx9000Info(struct longinRecord * pli)
 		pli->val = ellCount( (ELLLIST *)&(pinforeq->pcoupler->sigptr_list) );
 		break;
 	case Bx9000Info_LI_OPTHRDID:
-		pli->val = (int)(pinforeq->pcoupler->opthread_id);
+		pli->val = (UINT32)((long)(pinforeq->pcoupler->opthread_id));
 		break;
 	}
 	pli->udf=FALSE;
