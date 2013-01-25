@@ -86,7 +86,9 @@ ARCHIVE += KL2502-signal.tpl-arch
 ARCHIVE += KL2512-signal.tpl-arch
 ARCHIVE += KL3064-signal.tpl-arch
 ARCHIVE += KL3102-signal.tpl-arch
+ARCHIVE += KL3162-signal.tpl-arch
 ARCHIVE += KL3202-signal.tpl-arch
+ARCHIVE += KL3204-signal.tpl-arch
 ARCHIVE += KL3312-signal.tpl-arch
 ARCHIVE += KL3314-signal.tpl-arch
 ARCHIVE += KL3404-signal.tpl-arch
@@ -101,13 +103,16 @@ REQ += KL2502-signal.tpl-req
 REQ += KL2512-signal.tpl-req
 REQ += KL3064-signal.tpl-req
 REQ += KL3102-signal.tpl-req
+REQ += KL3162-signal.tpl-req
 REQ += KL3202-signal.tpl-req
+REQ += KL3204-signal.tpl-req
 REQ += KL3312-signal.tpl-req
 REQ += KL3314-signal.tpl-req
 REQ += KL3404-signal.tpl-req
 REQ += KL3408-signal.tpl-req
 REQ += KL4002-signal.tpl-req
 REQ += KL4132-signal.tpl-req
+
 
 include $(TOP)/configure/RULES
 #----------------------------------------
