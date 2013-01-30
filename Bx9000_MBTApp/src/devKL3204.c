@@ -1,7 +1,7 @@
 #include <Bx9000_MBT_Common.h>
 #include <aiRecord.h>
 
-/* KL3204 is RTD module, 0.1 degree C per count, so no conversion needed */
+/* KL3204 is 4-Ch RTD module, 0.1 degree C per count, so no conversion needed */
 extern	SINT32	Bx9000_DEV_DEBUG;
 	
 static long init_ai_KL3204(struct aiRecord * pai)

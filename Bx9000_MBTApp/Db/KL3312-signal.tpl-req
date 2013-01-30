@@ -1,7 +1,7 @@
 # Autosave Beckhoff KL3312 Analog Input Signal PV list
-$(SIG)
 $(SIG).ADEL
 $(SIG).DESC
+$(SIG).EGU
 $(SIG).EGUF
 $(SIG).EGUL
 $(SIG).HHSV

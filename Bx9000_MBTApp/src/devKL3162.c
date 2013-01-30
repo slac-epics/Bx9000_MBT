@@ -1,6 +1,8 @@
 #include <Bx9000_MBT_Common.h>
 #include <aiRecord.h>
 
+/* KL3162 2-Ch 16 bit Analog Input Module */
+
 extern	SINT32	Bx9000_DEV_DEBUG;
 	
 static long init_ai_KL3162(struct aiRecord * pai)

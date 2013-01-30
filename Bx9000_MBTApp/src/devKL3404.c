@@ -1,6 +1,8 @@
 #include <Bx9000_MBT_Common.h>
 #include <aiRecord.h>
 
+/* KL3404 is a 4-ch 12 bit analog input module */
+
 extern	SINT32	Bx9000_DEV_DEBUG;
 	
 static long init_ai_KL3404(struct aiRecord * pai)

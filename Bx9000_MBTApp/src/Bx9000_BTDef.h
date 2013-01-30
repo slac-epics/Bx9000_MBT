@@ -21,6 +21,50 @@ typedef	struct BUSTERM_IMG_DEF
 }	BUSTERM_IMG_DEF;
 #endif
 
+/*
+ *	Feature Register Options
+ *	Note:	Added w/ KL3404 support
+ *	TODO:	See if any features are shared between modules
+ *	TODO:	Expand to other modules
+ */
+#define	FEAT_IIR_FILTER_OFF	0x0000
+#define	FEAT_IIR_FILTER_ON	0x0800
+
+#define	FEAT_LIMIT_1_OFF	0x0000
+#define	FEAT_LIMIT_1_ON		0x0400
+
+#define	FEAT_LIMIT_2_OFF	0x0000
+#define	FEAT_LIMIT_2_ON		0x0200
+
+#define	FEAT_OR_PROT_OFF	0x0000
+#define	FEAT_OR_PROT_ON		0x0100
+
+#define	FEAT_FMT_STANDARD	0x0000
+#define	FEAT_FMT_SIEMENS	0x0010
+
+#define	FEAT_REP_TWOS_COMP	0x0000
+#define	FEAT_REP_SIGN_MAG	0x0008
+
+#define	FEAT_WD_TIMER_OFF	0x0000
+#define	FEAT_WD_TIMER_ON	0x0004
+
+#define	FEAT_MFG_SCALE_OFF	0x0000
+#define	FEAT_MFG_SCALE_ON	0x0002
+
+#define	FEAT_USR_SCALE_OFF	0x0000
+#define	FEAT_USR_SCALE_ON	0x0001
+
+/* KL3404 Default Feature Register */
+#define FEAT_KL3404	(	FEAT_IIR_FILTER_ON	\
+					|	FEAT_LIMIT_1_OFF	\
+					|	FEAT_LIMIT_2_OFF	\
+					|	FEAT_OR_PROT_OFF	\
+					|	FEAT_FMT_STANDARD	\
+					|	FEAT_REP_TWOS_COMP	\
+					|	FEAT_WD_TIMER_ON	\
+					|	FEAT_MFG_SCALE_ON	\
+					|	FEAT_USR_SCALE_OFF	)
+
 static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"Bx9000",	BT_TYPE_Bx9000,	0,	0,	0,	0,	0,	0},
 	{"KL1104",      BT_TYPE_KL1104, 0,      0,      0,      0,      4,      0},
@@ -48,7 +92,7 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
     {"KL3222",      BT_TYPE_KL3222, 1,      0x0080, 4,      4,      0,      0},
 	{"KL3312",      BT_TYPE_KL3312, 1,      0x1006, 4,      4,      0,      0},
 	{"KL3314",      BT_TYPE_KL3314, 1,      0x1006, 8,      8,      0,      0},
-	{"KL3404",      BT_TYPE_KL3404, 1,      0x1106, 8,      8,      0,      0},
+	{"KL3404",      BT_TYPE_KL3404, 1, FEAT_KL3404, 8,      8,      0,      0},
 	{"KL3408",      BT_TYPE_KL3408, 1,      0x1106, 16,     16,     0,      0},
 	{"KL3468",      BT_TYPE_KL3468, 1,      0x1106, 16,     16,     0,      0},
 	{"KL4002",		BT_TYPE_KL4002,	1,		0x0006,	4,		4,		0,		0},

@@ -1,28 +1,40 @@
+# KL3162 2-Ch 16 bit Analog Input Module
+#
+# Macros:
+#	COUPLER		- Coupler name, required
+#	SLOT		- Slot number, required
+#	SIG1		- PV name, required
+#	SIG1.SCAN	- Scan interval, required
+#	SIG1.ADEL	- Archive Deadband, defaults to 0.1
+#	SIG1.DESC	- Description, defaults to "Signal Description"
+#	SIG1.EGUF	- Eng Units Full, defaults to 10
+#	SIG1.EGUL	- Eng Units Low, defaults to 0
+#	SIG1.HHSV	- High High Severity, defaults to NO_ALARM
+#	SIG1.HIGH	- High limit, defaults to 10
+#	SIG1.HIHI	- High High Limit, defaults to 10
+#	SIG1.HOPR	- High Operator Limit, defaults to 10
+#	SIG1.HSV	- High Severity, defaults to NO_ALARM
+#	SIG1.HYST	- Hysterisis, defaults to 0
+#	SIG1.LINR	- Scaling type, defaults to LINEAR
+#	SIG1.LLSV	- Low Low Severity, defaults to NO_ALARM
+#	SIG1.LOLO	- Low Low Limit, defaults to 0
+#	SIG1.LOPR	- Low Oper Limit, defaults to 0
+#	SIG1.LOW	- Low Limit, defaults to 0
+#	SIG1.LSV	- Low Severity, defaults to NO_ALARM
+#	SIG1.MDEL	- Montior Deadbanc, defaults to 0
+#	SIG1.PREC	- Precision, defaults to 3
+#	SIG1.SMOO	- Smoothing, defaults to 0
+#	SIG1.UNIT	- Eng Units, defaults to V
 
 file KL3162.template
 {
-	pattern
-	{	SLOT,
-		SIG1,		SIG1.DESC,
-			SIG1.ADEL,	SIG1.MDEL,	SIG1.SMOO,	SIG1.UNIT, SIG1.EGUF,	SIG1.EGUL,	
-			SIG1.HOPR,	SIG1.HIHI,	SIG1.HIGH,	SIG1.HYST,	
-			SIG1.LOW,	SIG1.LOLO,	SIG1.LOPR,	SIG1.SCAN,
-		SIG2,		SIG2.DESC,
-			SIG2.ADEL,	SIG2.MDEL,	SIG2.SMOO,	SIG2.UNIT, SIG2.EGUF,	SIG2.EGUL,	
-			SIG2.HOPR,	SIG2.HIHI,	SIG2.HIGH,	SIG2.HYST,	
-			SIG2.LOW,	SIG2.LOLO,	SIG2.LOPR,	SIG2.SCAN,
-	}
-#	Include one instance of the pattern for each instance
+#	Include one bracketed expansion for each instance
 #	of this module, substituting the appropriate slot number
 #	and signal attributes
-	{	8,
-		$(COUPLER_LOC):KL3162:SLOT$(SLOT):AIN1, "Signal 1 Description",
-			0.01,		0,			0,			Volt,		10,			0,
-			10,			10,			10,			0,
-			0,			0,			0,			".1 second",
-		$(COUPLER_LOC):KL3162:SLOT$(SLOT):AIN2, "Signal 2 Description",
-			0.01,		0,			0,			Volt,		10,			0,
-			10,			10,			10,			0,
-			0,			0,			0,			".1 second",
+	{	
+		SLOT		=	8,
+		SIG1		=	$(PRE):AIN1,
+		SIG1.SCAN	=	".1 second",
+		SIG1.DESC	=	"Signal 1 Description",
 	}
 }

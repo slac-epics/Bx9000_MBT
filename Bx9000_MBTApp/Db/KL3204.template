@@ -1,3 +1,5 @@
+# KL3204 is 4-Ch RTD module, 0.1 degree C per count
+
 record(ai, "$(SIG1)") {
   field(DESC, "$(SIG1.DESC)")
   field(SCAN, "$(SIG1.SCAN)")
