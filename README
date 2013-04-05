@@ -16,6 +16,7 @@ There are three solutions:
 1. Turn off this watchdog timer in Beckhoff KS2000 software:
 	a. Disable write-protection by going to Online / Coupler / Services / Write Protection Abolished.
 	b. Set Table 100, Register 24 to 0 (default 1000 ms) by going to Pos 0 (controller) / Tables / 100 / Offset 24
+	c. You may need to reboot the coupler after this
 2. If you have input modules installed with same coupler, you keep scanning then you are ok.
 3. If you have output modules only, then you have to make one output record scanned @ 10Hz
 !!!!!!!!!!!!!!!!!!!!!!!!!! WARNING WARNING WARNING WARNING WARNING WARNING !!!!!!!!!!!!!!!!!!!!!!!!!
