@@ -3,6 +3,7 @@ device(mbbi,INST_IO,devMbbiBx9000Info,"Bx9000_Info")
 device(stringin,INST_IO,devSiBx9000Info,"Bx9000_Info")
 
 device(bi,INST_IO,devBiKL1104,"Bx9000_KL1104")
+device(bi,INST_IO,devBiKL1002,"Bx9000_KL1002")
 device(bi,INST_IO,devBiKL1124,"Bx9000_KL1124")
 device(bi,INST_IO,devBiKL1408,"Bx9000_KL1408")
 device(bo,INST_IO,devBoKL2114,"Bx9000_KL2114")

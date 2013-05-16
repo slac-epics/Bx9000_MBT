@@ -24,6 +24,7 @@ typedef	struct BUSTERM_IMG_DEF
 static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"Bx9000",	BT_TYPE_Bx9000,	0,	0,	0,	0,	0,	0},
 	{"KL1104",      BT_TYPE_KL1104, 0,      0,      0,      0,      4,      0},
+	{"KL1002",      BT_TYPE_KL1002, 0,      0,      0,      0,      2,      0},
 	{"KL1124",      BT_TYPE_KL1124, 0,      0,      0,      0,      4,      0},
 	{"KL1408",      BT_TYPE_KL1408, 0,      0,      0,      0,      8,      0},
 	{"KL2114",		BT_TYPE_KL2114,	0,		0,		0,		0,		0,		4},

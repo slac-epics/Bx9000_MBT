@@ -13,6 +13,7 @@ include $(TOP)/configure/CONFIG
 DB += Bx9000Info.template
 DB += Bx9000InstalledBTs.template
 DB += KL1104.template
+DB += KL1002.template
 DB += KL1124.template
 DB += KL1408.template
 DB += KL2114.template
@@ -42,6 +43,7 @@ DB += KL4132.tpl-db
 # Also install substitutions files for easy access
 DB += Bx9000.substitutions
 DB += KL1104.substitutions
+DB += KL1002.substitutions
 DB += KL1124.substitutions
 DB += KL1408.substitutions
 DB += KL2114.substitutions

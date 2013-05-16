@@ -201,7 +201,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2692 = 2692,	/* Cycle monitoring terminal (watchdog) */
 	
 	/* Digital Input, last digit means num of channels */
-	BT_TYPE_KL1002 = 1002,	/* 24V DC, filter 3.0ms */
+
 	BT_TYPE_KL1012 = 1012,	/* 24V DC, filter 0.2ms */
 	BT_TYPE_KL1052 = 1052,	/* 24V DC, filter 3.0ms, p/n switching */
 	BT_TYPE_KL1212 = 1212,	/* 24V DC, filter 3.0ms, short protect */
@@ -217,6 +217,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL1352 = 1352,	/* 24 V DC, filter 3.0ms, for NAMUR sensors */
 	BT_TYPE_KL1124 = 1124,  /* 5V DC, filter 3.0ms */
 	BT_TYPE_KL1104 = 1104,  /* 24V DC, filter 3.0ms */
+	BT_TYPE_KL1002 = 1002,  /* 24V DC, filter 3.0ms */
 	BT_TYPE_KL1114 = 1114,  /* 24V DC, filter 0.2ms */
 	BT_TYPE_KL1154 = 1154,  /* 24V DC, filter 3.0ms, p/n switching */
 	BT_TYPE_KL1164 = 1164,  /* 24V DC, filter 0.2ms, p/n switching */
