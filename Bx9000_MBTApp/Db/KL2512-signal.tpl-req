@@ -19,3 +19,4 @@ $(SIG).LOPR
 $(SIG).LOW
 $(SIG).LSV
 $(SIG).MDEL
+$(SIG).PREC
