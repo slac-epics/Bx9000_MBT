@@ -42,6 +42,7 @@ DB += KL1488-lcls.template
 DB += KL1408-lcls.template
 DB += KL2124-lcls.template
 DB += KL2408-lcls.template
+DB += KL2872-lcls.template
 DB += KL3102-lcls.template
 DB += KL3162-lcls.template
 DB += KL3202-lcls.template 

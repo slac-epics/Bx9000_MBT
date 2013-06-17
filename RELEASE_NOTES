@@ -37,9 +37,13 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+
+Bx9000_MBT-R2-5-4:
+ Add support for KL2872
+
 Bx9000_MBT-R2-5-3:
  Addition of KL2124 extra template file (used by ProfileMonitorDIO IOC)
-
+  
 Bx9000_MBT-R2-5-2:
  Add support for KM1004, KM2004
  Import KL2502 and KL2512, code cleanup from pcds

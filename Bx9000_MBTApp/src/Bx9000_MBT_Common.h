@@ -254,6 +254,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2424 = 2424,  /* 4-channel digital output terminal 24 V DC, Imax=2.0A, 4x2-wire conn */
 	BT_TYPE_KL2408 = 2408,  /* 8-channel digital output terminal 24 V DC */
 	BT_TYPE_KL2488 = 2488,  /* 8-channel digital output terminal 24 V DC, n-switch */
+	BT_TYPE_KL2872 = 2872,  /* 16-channel digital output terminal 24 V DC, Imax=0.5A */
 	BT_TYPE_KM2004 = 2004,  /* 32-channel digital output terminal 24 V DC, Imax=0.5A */
 
 	/* Analog terminal with both input and output */
