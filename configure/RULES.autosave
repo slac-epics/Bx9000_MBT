@@ -34,12 +34,12 @@ rebuild:        clean install
 
 buildInstall:	$(INSTALL_REQS)
 
-realclean:: clean
+#realclean:: clean
 
-clean::
-	@$(RM) $(COMMONS)
-	@$(RM) $(TARGETS)
-	@echo "Cleaning"
+#clean::
+#	@$(RM) $(COMMONS)
+#	@$(RM) $(TARGETS)
+#	@echo "Cleaning"
 
 ####################################################
 # Build and install Rules

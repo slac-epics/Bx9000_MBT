@@ -77,6 +77,14 @@
 
 #include "drvModBusTCPClnt.h"
 
+#ifndef max
+#define max(x, y)       (((x) < (y)) ? (y) : (x))
+#endif
+#ifndef min
+#define min(x, y)       (((x) < (y)) ? (x) : (y))
+#endif
+
+
 /******************************************************************************************/
 /***** important!!! important!!! important!!! important!!! important!!! important!!! ******/
 /* We support only default image mapping. That means:                                     */

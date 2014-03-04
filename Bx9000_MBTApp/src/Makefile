@@ -71,6 +71,8 @@ Bx9000_MBT_SRCS += drvBx9000_MBTRegister.cpp
 Bx9000_MBTLib_SRCS += $(Bx9000_MBT_SRCS)
 Bx9000_MBTLib_SRCS += Bx9000_MBT_registerRecordDeviceDriver.cpp
 
+Bx9000_MBT_LIBS = ModBusTCPClnt
+
 #===========================
 
 include $(TOP)/configure/RULES
