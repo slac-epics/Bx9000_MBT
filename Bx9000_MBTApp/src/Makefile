@@ -22,9 +22,6 @@ LIBRARY_IOC += Bx9000_MBT
 # create library for linking will install in <lib>
 # LIBRARY_vxWorks += Bx9000_MBT
 
-# create munch file for dynamic loading will install in <bin>
-PROD_IOC_vxWorks += Bx9000_MBTLib
-
 INC += Bx9000_Watchdog.h
 
 # The following line makes the Bx9000_MBT.h file

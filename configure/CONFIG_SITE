@@ -24,7 +24,3 @@
 #   take effect.
 #IOCS_APPL_TOP = </IOC/path/to/application/top>
 
-# SLAC install locations
-INSTALL_ARCHIVE  = $(TOP)/archive
-INSTALL_AUTOSAVE = $(TOP)/autosave
-
