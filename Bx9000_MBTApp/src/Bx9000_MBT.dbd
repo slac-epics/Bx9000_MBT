@@ -30,3 +30,4 @@ device(ao,INST_IO,devAoKL4002,"Bx9000_KL4002")
 device(ao,INST_IO,devAoKL4132,"Bx9000_KL4132")
 driver(drvBx9000_MBT)
 
+registrar(drvBx9000_MBT_Register)
