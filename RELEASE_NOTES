@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        12-Jun-2014, S. Hoobler        (SONYA):
+#           release Bx9000_MBT-R2-5-6
 #        12-Apr-2014, G. Brown          (GWBROWN):
 #           release Bx9000_MBT-R2-5-5
 #        17-Jun-2013, G. Brown          (GWBROWN):
@@ -41,6 +43,9 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+
+Bx9000_MBT-R2-5-6:
+ Bx9000_MBTApp/src/Bx9000_MBT.dbd: Add registrar(drvBx9000_MBT_Register) 
 
 Bx9000_MBT-R2-5-5:
  Add lcls style db files for KL1104, KL1124, KL2114
