@@ -97,6 +97,7 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"KL3404",      BT_TYPE_KL3404, 1, FEAT_KL3404, 8,      8,      0,      0},
 	{"KL3408",      BT_TYPE_KL3408, 1,      0x1106, 16,     16,     0,      0},
 	{"KL3468",      BT_TYPE_KL3468, 1,      0x1106, 16,     16,     0,      0},
+	{"KL3464",      BT_TYPE_KL3464, 1,      0x1106, 8,     8,     0,      0},
 	{"KL4002",		BT_TYPE_KL4002,	1,		0x0006,	4,		4,		0,		0},
 	{"KL4132",		BT_TYPE_KL4132,	1,		0x0006,	4,		4,		0,		0},
 	{"KL9505",		BT_TYPE_KL9505,	0,	0,	0,	0,	0,	0},	/* Power Supply Module */

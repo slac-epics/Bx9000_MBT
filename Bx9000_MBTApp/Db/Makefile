@@ -37,6 +37,7 @@ DB += KL3408.template
 DB += KL3468.template
 DB += KL4002.template
 DB += KL4132.template
+DB += KL3464.template
 
 DB += KL3404-signal.template
 
@@ -67,6 +68,7 @@ DB += KL3408.substitutions
 DB += KL3468.substitutions
 DB += KL4002.substitutions
 DB += KL4132.substitutions
+DB += KL3464.substitutions
 
 DB += Bx9000Info-lcls.template
 DB += Bx9000InstalledBTs-lcls.template
