@@ -7,6 +7,7 @@ record(bi, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
   field(ZNAM, "$(ZNAM)")
   field(ONAM, "$(ONAM)")
   field(FLNK, "$(ALIAS)")
+  info(autosaveFields, "DESC ZNAM ONAM ZSV OSV")
 }
 
 record(bi, "$(ALIAS)") {
@@ -17,5 +18,6 @@ record(bi, "$(ALIAS)") {
   field(ZSV,  "$(ZSV)")
   field(OSV,  "$(OSV)")
   field(COSV, "$(COSV)")
+  info(autosaveFields, "DESC ZNAM ONAM ZSV OSV COSV")
 }
 
