@@ -9,6 +9,7 @@
    field(VAL,  "0")
    field(PINI, "YES")
    field(HIGH, "$(HIGH)")
+  info(autosaveFields, "VAL DESC ZNAM ONAM ZSV OSV HIGH")
  }
 
  record(bo, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
@@ -19,6 +20,7 @@
    field(OMSL, "closed_loop")
    field(ZNAM, "$(ZNAM)")
    field(ONAM, "$(ONAM)")
+  info(autosaveFields, "VAL DESC ZNAM ONAM ZSV OSV HIGH")
 }
 
 
