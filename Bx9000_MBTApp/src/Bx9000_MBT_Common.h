@@ -155,6 +155,16 @@ typedef double			DOUBLE64;
 #define	DIGITAL_IN_IMG_BITS_MREG	0x1013
 /******************************************************************************************/
 
+/* Beckhoff Diagnostic Sub-Functions */
+#define	BT_DIAG_SUB_FUNC_ECHO		0x0000	/* Echos write data */
+#define	BT_DIAG_SUB_FUNC_RESET		0x0001	/* Reset and self-test Coupler, clear diag counters */
+#define	BT_DIAG_SUB_FUNC_CLR_CTRS	0x000A	/* Clear all diagnostic counters */
+#define	BT_DIAG_SUB_FUNC_RD_ANS_CTR	0x000B	/* Read Bus comm. answer counter */
+#define	BT_DIAG_SUB_FUNC_RD_ANS_ERR	0x000D	/* Read Answer error counter */
+#define	BT_DIAG_SUB_FUNC_RD_SLV_ANS	0x000E	/* Read Slave answer counter */
+#define	BT_DIAG_SUB_FUNC_RD_UNANS	0x000F	/* Read Slave unanswered telegram counter */
+#define	BT_DIAG_SUB_FUNC_RD_SLV_ERR	0x0010	/* Read Slave error answer counter */
+
 /******************************************************************************************/
 /* We define the default time out for ModBusTCP transaction and when we issue reset       */
 /******************************************************************************************/

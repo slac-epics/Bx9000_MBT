@@ -43,7 +43,7 @@ int Bx9000_MBT_Reset(ModBusTCP_Link mbt_link, unsigned int toutsec)
 
 	/* We don't explicitly check link here because MBT_FunctionX does it */
 	/* int MBT_Function8(mbt_link, subFunction, WDworddata,  *pRDworddata, toutsec); */
-	status = MBT_Function8(mbt_link, 1, 0, &dummy, toutsec);
+	status = MBT_Function8(mbt_link, BT_DIAG_SUB_FUNC_RESET, 0, &dummy, toutsec);
 	return status;
 }
 
@@ -55,11 +55,34 @@ int Bx9000_MBT_TestLink(ModBusTCP_Link mbt_link, unsigned int toutsec)
 
 	/* We don't explicitly check link here because MBT_FunctionX does it */
 	/* int MBT_Function8(mbt_link, subFunction, WDworddata,  *pRDworddata, toutsec); */
-	MBT_Function8(mbt_link, 0, 0x5186, &echo, toutsec);
+	MBT_Function8(mbt_link, BT_DIAG_SUB_FUNC_ECHO, 0x5186, &echo, toutsec);
 	if(echo != 0x5186)
 		return -1;
 	else
 		return 0;
+}
+
+/* This function uses MBT function 8 to read diagnostic counters */
+int Bx9000_MBT_Diag(ModBusTCP_Link mbt_link, unsigned int toutsec)
+{
+	unsigned short	answerCtr;	/* Number of bus communication answers */
+	unsigned short	ansErrCtr;	/* Answer error counter */
+	unsigned short	slvAnsCtr;	/* Slave answer counter */
+	unsigned short	unAnsCtr;	/* Slave unanswered telegram counter */
+	unsigned short	slvErrCtr;	/* Slave error answer counter */
+
+	/* int MBT_Function8(mbt_link, subFunction, WDworddata,  *pRDworddata, toutsec); */
+	MBT_Function8(mbt_link, BT_DIAG_SUB_FUNC_RD_ANS_CTR,	0x0000, &answerCtr, toutsec);
+	MBT_Function8(mbt_link,	BT_DIAG_SUB_FUNC_RD_ANS_ERR,	0x0000, &ansErrCtr,	toutsec);
+	MBT_Function8(mbt_link,	BT_DIAG_SUB_FUNC_RD_SLV_ANS,	0x0000, &slvAnsCtr,	toutsec);
+	MBT_Function8(mbt_link,	BT_DIAG_SUB_FUNC_RD_UNANS,		0x0000, &unAnsCtr,	toutsec);
+	MBT_Function8(mbt_link,	BT_DIAG_SUB_FUNC_RD_SLV_ERR,	0x0000, &slvErrCtr,	toutsec);
+	printf( "Bus communication answers:  %d\n",	answerCtr	);
+	printf( "Answer Errors Sent by cplr: %d\n",	ansErrCtr	);
+	printf( "Slave answers:              %d\n",	slvAnsCtr	);
+	printf( "# of missing slave answers: %d\n",	unAnsCtr	);
+	printf( "# of slave error answers:   %d\n",	slvErrCtr	);
+	return 0;
 }
 
 /* This function uses MBT function 3 to read coupler id from image */
@@ -113,7 +136,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 	{
 		if ( Bx9000_DRV_DEBUG && status == 0 )
 		{
-			printf(	"Bx9000_MBT_Verify_Image_Size: COMPLEX_OUT_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
+			printf(	"Bx9000_MBT_Verify_Image_Size: Controller reports %d bits of complex output, not %d\n",
 					temp, cal_complex_out_bits );
 		}
 		retStatus = -1;
@@ -124,7 +147,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 	{
 		if ( Bx9000_DRV_DEBUG && status == 0 )
 		{
-			printf(	"Bx9000_MBT_Verify_Image_Size: COMPLEX_IN_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
+			printf(	"Bx9000_MBT_Verify_Image_Size: Controller reports %d bits of complex  input, not %d\n",
 					temp, cal_complex_in_bits );
 		}
 		retStatus = -1;
@@ -135,7 +158,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 	{
 		if ( Bx9000_DRV_DEBUG && status == 0 )
 		{
-			printf(	"Bx9000_MBT_Verify_Image_Size: DIGITAL_OUT_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
+			printf(	"Bx9000_MBT_Verify_Image_Size: Controller reports %d bits of digital output, not %d\n",
 					temp, cal_digital_out_bits );
 		}
 		retStatus = -1;
@@ -146,7 +169,7 @@ int	Bx9000_MBT_Verify_Image_Size(
 	{
 		if ( Bx9000_DRV_DEBUG && status == 0 )
 		{
-			printf(	"Bx9000_MBT_Verify_Image_Size: DIGITAL_IN_IMG_BITS_MREG was 0x%08x, not 0x%08x\n",
+			printf(	"Bx9000_MBT_Verify_Image_Size: Controller reports %d bits of digital  input, not %d\n",
 					temp, cal_digital_in_bits );
 		}
 		retStatus = -1;

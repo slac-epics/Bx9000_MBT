@@ -320,85 +320,88 @@ int	Bx9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 	/* Calculate the processing image */
 	if( 0 == strcmp("KL9010", btname) )
 	{/* Reach here, means you just add the terminator */
-		UINT32	temp_cin_woffset, temp_cout_woffset, temp_din_boffset, temp_dout_boffset;
-		
+		UINT32	temp_cin_woffset,	temp_cout_woffset,	temp_din_boffset,	temp_dout_boffset;
+		UINT32	cum_cin_woffset,	cum_cout_woffset,	cum_din_boffset,	cum_dout_boffset;
+
 		epicsMutexLock(pcoupler->mutex_lock);
 
-		temp_cin_woffset = 0;
-		temp_cout_woffset = 0;
-		/* Calculate mapping for complex*/
+		cum_cin_woffset  = 0;
+		cum_cout_woffset = 0;
+		/* Calculate mapping for complex */
 		/* All modules are continuously installed, we go though all of them until we see KL9010 */
 		for(loop=0; loop < MAX_NUM_OF_BUSTERM+2; loop++)	/* +2 means include coupler 9000 and terminator 9010 */
 		{
 			if(pcoupler->installedBusTerm[loop].pbusterm_img_def)
 			{
-				pcoupler->installedBusTerm[loop].complex_in_wordoffset = temp_cin_woffset;
-				pcoupler->installedBusTerm[loop].complex_out_wordoffset = temp_cout_woffset;
+				/* Lookup complex I/O sizes for this terminal */
+				temp_cin_woffset  = pcoupler->installedBusTerm[loop].pbusterm_img_def->complex_in_words;
+				temp_cout_woffset = pcoupler->installedBusTerm[loop].pbusterm_img_def->complex_out_words;
+				if ( Bx9000_DRV_DEBUG )
+					printf(	"%s terminal has %d complex in words and %d complex out words.\n",
+							pcoupler->installedBusTerm[loop].pbusterm_img_def->busterm_string,
+							temp_cin_woffset, temp_cout_woffset );
+
+				/* Set complex I/O offsets for this terminal */
+				pcoupler->installedBusTerm[loop].complex_in_wordoffset	= cum_cin_woffset;
+				pcoupler->installedBusTerm[loop].complex_out_wordoffset	= cum_cout_woffset;
 
 				/* calculate offset for next terminal */
-				temp_cin_woffset += pcoupler->installedBusTerm[loop].pbusterm_img_def->complex_in_words;
-				temp_cout_woffset += pcoupler->installedBusTerm[loop].pbusterm_img_def->complex_out_words;
+				cum_cin_woffset  += temp_cin_woffset;
+				cum_cout_woffset += temp_cout_woffset;
 
 				if(pcoupler->installedBusTerm[loop].pbusterm_img_def->busterm_type == BT_TYPE_KL9010)
 					break;
 			}
 		}
-		pcoupler->complex_in_bits	= temp_cin_woffset	* 16;
-		pcoupler->complex_out_bits	= temp_cout_woffset	* 16;
 		if ( Bx9000_DRV_DEBUG )
-			printf(	"%d words complex in and %d words complex out mapped for Bx9000 %s!\n",
-					temp_cin_woffset, temp_cout_woffset, cplrname);
+			printf(	"%3d words complex in and %3d words complex out mapped for Bx9000 %s!\n",
+					cum_cin_woffset, cum_cout_woffset, cplrname);
 
-		/* Calculate mapping for digital*/
+		/* Compute total number of complex input and output bits for controller */
+		pcoupler->complex_in_bits	= cum_cin_woffset	* 16;
+		pcoupler->complex_out_bits	= cum_cout_woffset	* 16;
+
+		/* Calculate mapping for digital I/O bits */
 		/* All modules are continuously installed, we go though all of them until we see KL9010 */
-		temp_din_boffset = pcoupler->complex_in_bits;
-		temp_dout_boffset = pcoupler->complex_out_bits;
+		cum_din_boffset  = pcoupler->complex_in_bits;
+		cum_dout_boffset = pcoupler->complex_out_bits;
 		for(loop=0; loop < MAX_NUM_OF_BUSTERM+2; loop++)	/* +2 means include coupler 9000 and terminator 9010 */
 		{
 			if(pcoupler->installedBusTerm[loop].pbusterm_img_def)
 			{
-				pcoupler->installedBusTerm[loop].digital_in_bitoffset = temp_din_boffset;
-				pcoupler->installedBusTerm[loop].digital_out_bitoffset = temp_dout_boffset;
+				/* Lookup complex I/O sizes for this terminal */
+				temp_din_boffset  = pcoupler->installedBusTerm[loop].pbusterm_img_def->digital_in_bits;
+				temp_dout_boffset = pcoupler->installedBusTerm[loop].pbusterm_img_def->digital_out_bits;
+				if ( Bx9000_DRV_DEBUG )
+					printf(	"%s terminal has %d digital input bits and %d digital output bits.\n",
+							pcoupler->installedBusTerm[loop].pbusterm_img_def->busterm_string,
+							temp_din_boffset, temp_dout_boffset );
+
+				/* Set digital I/O offsets for this terminal */
+				pcoupler->installedBusTerm[loop].digital_in_bitoffset  = cum_din_boffset;
+				pcoupler->installedBusTerm[loop].digital_out_bitoffset = cum_dout_boffset;
 
 				/* calculate offset for next terminal */
-				temp_din_boffset += pcoupler->installedBusTerm[loop].pbusterm_img_def->digital_in_bits;
-				temp_dout_boffset += pcoupler->installedBusTerm[loop].pbusterm_img_def->digital_out_bits;
+				cum_din_boffset  += temp_din_boffset;
+				cum_dout_boffset += temp_dout_boffset;
 
 				if(pcoupler->installedBusTerm[loop].pbusterm_img_def->busterm_type == BT_TYPE_KL9010)
 					break;
 			}
 		}
-		pcoupler->digital_in_bits	= temp_din_boffset	- pcoupler->complex_in_bits;
-		pcoupler->digital_out_bits	= temp_dout_boffset	- pcoupler->complex_out_bits;
 		if ( Bx9000_DRV_DEBUG )
-			printf(	"%d bits digital in and %d bits digital out mapped for Bx9000 %s!\n",
+			printf(	"%3d bits  digital in and %3d bits  digital out mapped for Bx9000 %s!\n",
 					pcoupler->digital_in_bits, pcoupler->digital_out_bits, cplrname);
+		
+		/* Compute total number of digital input and output bits for controller */
+		pcoupler->digital_in_bits	= cum_din_boffset	- pcoupler->complex_in_bits;
+		pcoupler->digital_out_bits	= cum_dout_boffset	- pcoupler->complex_out_bits;
 
 		/* Below two numbers indicate how many words we should update in image */
-		pcoupler->total_in_words = (temp_din_boffset+15)/16;
-		pcoupler->total_out_words = (temp_dout_boffset + 15)/16;
+		pcoupler->total_in_words  = (cum_din_boffset  + 15)/16;
+		pcoupler->total_out_words = (cum_dout_boffset + 15)/16;
 
 		epicsMutexUnlock(pcoupler->mutex_lock);
-
-#if	0	/* We decide not do this here because we need epicsTime	*/
-		/* If we do this here, epicsTimeGetCurrent will get iocClock init */
-		/* To avoid this, we must guarantee generalTime was load and inited before this, that's too complicated */
-		/* So we decide to move this to Bx9000_Couplers_Init_Once and will be executed in iocInit */
-		Bx9000_Coupler_Init(pcoupler);
-
-		epicsMutexLock(pcoupler->mutex_lock);
-		/* Create the operation thread */
-		pcoupler->opthread_id = epicsThreadCreate(	pcoupler->opthread_name, OPTHREAD_PRIORITY, OPTHREAD_STACK,
-													(EPICSTHREADFUNC)Bx9000_Operation, (void *)pcoupler );
-		if(pcoupler->opthread_id == (epicsThreadId)(-1))
-		{
-			epicsMutexUnlock(pcoupler->mutex_lock);
-			errlogPrintf("Bx9000_Terminal_Add %s Error: Failed to create operation thread!\n", cplrname);
-			epicsThreadSuspendSelf();
-			return -1;
-		}
-		epicsMutexUnlock(pcoupler->mutex_lock);
-#endif
 	}
 
 	return 0;
@@ -507,15 +510,18 @@ static int Bx9000_Coupler_Init(Bx9000_COUPLER * pcoupler)
 								 pcoupler->digital_out_bits, pcoupler->digital_in_bits, DFT_MBT_TOUT);
 	if(status != 0)
 	{	/* somehow we can't verify, either fail to read or doesn't match */
+		if(Bx9000_DRV_DEBUG)
+		{
+			printf(	"Bx9000_Coupler_Init %s Error: Failed to validate I/O processing image size!\n"
+					"Make sure the installed terminals match those added in st.cmd.\n",
+					MBT_GetName(pcoupler->mbt_link) );
+			Bx9000_MBT_Diag( pcoupler->mbt_link, DFT_MBT_TOUT );
+		}
 		pcoupler->couplerReady = 0;	/* Not so necessary */
 		/* Force MBT to close link, we don't mess up existing err code */
 		MBT_Disconnect(pcoupler->mbt_link, 0);
 		epicsTimeGetCurrent( &(pcoupler->time_lost_conn) );
 		epicsMutexUnlock(pcoupler->mutex_lock);
-		if(Bx9000_DRV_DEBUG)
-			printf(	"Bx9000_Coupler_Init %s Error: Failed to validate I/O processing image size!\n"
-					"Make sure the installed terminals match those added in st.cmd.\n",
-					MBT_GetName(pcoupler->mbt_link) );
 		return -1;
 	}
 
