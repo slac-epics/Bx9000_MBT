@@ -11,8 +11,8 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install)
 # databases, templates, substitutions like this
 # DB += dbExample1.db
-USR_VPATH=../../../Bx9000_MBTApp/Db
-DB += Bx9000.db
+USR_VPATH=../../../Bk9000_MBTApp/Db
+DB += Bk9000.db
 DB += KL1104.db
 DB += KL1124.db
 DB += KL1408.db

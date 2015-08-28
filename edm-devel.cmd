@@ -21,7 +21,7 @@ export EDMDATAFILES=".:.."
 edm -x	-eolc		\
 	-m "IOC=LAS:R52:IOC:49"	\
 	-m "TC=LAS:R50:BHC:09:KL3314:SLOT2:TEMP3"	\
-	Bx9000Screens/emb-thermocouple-detail.edl	\
-	Bx9000Screens/thermocouple-detail-1.edl		\
+	Bk9000Screens/emb-thermocouple-detail.edl	\
+	Bk9000Screens/thermocouple-detail-1.edl		\
 	&
 
