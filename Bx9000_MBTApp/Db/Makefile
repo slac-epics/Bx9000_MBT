@@ -33,6 +33,7 @@ DB += KL3314.template
 DB += KL3408.template
 DB += KL3468.template
 DB += KL4002.template
+DB += KL4004.template
 DB += KL4132.template
 
 DB += Bx9000-lcls.db
@@ -46,12 +47,15 @@ DB += KL2114-lcls.template
 DB += KL2124-lcls.template
 DB += KL2408-lcls.template
 DB += KL2872-lcls.template
+DB += KL3064-lcls.template
 DB += KL3102-lcls.template
 DB += KL3162-lcls.template
 DB += KL3202-lcls.template 
 DB += KL3222-lcls.template 
 DB += KL3314-lcls.template 
 DB += KL3408-lcls.template
+DB += KL4002-lcls.template
+DB += KL4004-lcls.template
 DB += KM1004-lcls.template
 DB += KM2004-lcls.template
 
