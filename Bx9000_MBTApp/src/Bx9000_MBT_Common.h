@@ -312,12 +312,12 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL4011 = 4011,  /* 1-channel analog output terminal 0 ... 20 mA, 12 bits */
 	BT_TYPE_KL4021 = 4021,  /* 1-channel analog output terminal 4 ... 20 mA, 12 bits */
 	BT_TYPE_KL4002 = 4002,  /* 2-channel analog output terminal 0 ... 10 V, 12 bits */
+	BT_TYPE_KL4004 = 4004,  /* 4-channel analog output terminal 0 ... 10 V, 12 bits */
 	BT_TYPE_KL4032 = 4032,  /* 2-channel analog output terminal -10 ... 10 V, 12 bits */
 	BT_TYPE_KL4132 = 4132,  /* 2-channel analog output terminal -10 ... 10 V, 16 bits */
 	BT_TYPE_KL4012 = 4012,  /* 2-channel analog output terminal 0 ... 20 mA, 12 bits */
 	BT_TYPE_KL4112 = 4112,  /* 2-channel analog output terminal 0 ... 20 mA, 16 bits */
 	BT_TYPE_KL4022 = 4022,  /* 2-channel analog output terminal 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL4004 = 4004,  /* 4-channel analog output terminal 0 ... 10 V, 12 bits */
 	BT_TYPE_KL4404 = 4404,  /* 4-channel analog output terminal 0 ... 10 V, 12 bits, 4x2-wire */
 	BT_TYPE_KL4034 = 4034,  /* 4-channel analog output terminal -10 ... 10 V, 12 bits */
 	BT_TYPE_KL4434 = 4434,  /* 4-channel analog output terminal -10 ... 10 V, 12 bits, 4x2-wire */
