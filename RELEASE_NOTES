@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        12-Feb-2016, K. Luchini        (LUCHINI):
+#           release Bx9000_MBT-R2-5-7
 #        12-Jun-2014, S. Hoobler        (SONYA):
 #           release Bx9000_MBT-R2-5-6
 #        12-Apr-2014, G. Brown          (GWBROWN):
@@ -43,6 +45,10 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-5-7:
+  Add support for KL4004 4-channel 12-bit analog output module
+  Added KL4002-lcls.template and KL3064-lcls.template
+  fix devKL3064.c driver, calcualte eslo for 12-bits adc.
 
 Bx9000_MBT-R2-5-6:
  Bx9000_MBTApp/src/Bx9000_MBT.dbd: Add registrar(drvBx9000_MBT_Register) 
