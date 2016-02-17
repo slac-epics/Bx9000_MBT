@@ -22,7 +22,7 @@ static long init_ai_KL3064(struct aiRecord * pai)
 	}
 
 	/* This is a unipolar 12 bits(12b<<3) module */
-	pai->eslo = (pai->eguf - pai->egul)/(float)0x7FFF;
+	pai->eslo = (pai->eguf - pai->egul)/(float)0x0FFF;
 	pai->roff = 0x0;
 
 	return 0;
@@ -77,7 +77,7 @@ static long lincvt_ai_KL3064(struct aiRecord	*pai, int after)
 
 	if(!after) return(0);
 	/* set linear conversion slope, this is a unipolar 12 bits(12b<<3) module */
-	pai->eslo = (pai->eguf - pai->egul)/(float)0x7FFF;
+	pai->eslo = (pai->eguf - pai->egul)/(float)0x0FFF;
 	pai->roff = 0x0;
 	return(0);
 }
