@@ -37,6 +37,8 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"KL2872",      BT_TYPE_KL2872, 0,      0,      0,      0,      0, 		16},
 	{"KL3064",      BT_TYPE_KL3064, 1,      0x1106, 8,      8,      0,      0},
 	{"KL3102",		BT_TYPE_KL3102,	1,		0x0000,	4,		4,		0,		0},
+	{"KL3022",		BT_TYPE_KL3022,	1,		0x0000,	4,		4,		0,		0},
+	{"KL3012",		BT_TYPE_KL3012,	1,		0x0000,	4,		4,		0,		0},
 /* per files Access from User Program-Register Overveiw.pdf and Access from User Program-Mapping.pdf; "Complete evaluation in Intel format with word alignment" --AC */
 	{"KL3162",		BT_TYPE_KL3162,	1,		0x0180,	4,		4,		0,		0},
 	{"KL3202",      BT_TYPE_KL3202, 1,      0x1006, 4,      4,      0,      0},
