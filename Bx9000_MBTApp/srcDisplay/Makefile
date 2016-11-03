@@ -15,6 +15,7 @@ EDLS += KL3202-RTD-lcls.edl
 EDLS += KL3314-TC-lcls.edl
 EDLS += KL3162_sum.edl
 EDLS += KL3162.edl
+EDLS += Bx9000_analog_2chan.edl
 
 # Install images to be used by EDM (Gif and Png are supported)
 #GIFS += Myfirst.gif
