@@ -21,8 +21,8 @@ static long init_ai_KL3012(struct aiRecord * pai)
 		return (S_db_badField);
 	}
 
-	pai->eslo = (pai->eguf - pai->egul)/(float)0x10000;
-	pai->roff = 0x8000;
+	pai->eslo = (pai->eguf - pai->egul)/(float)0x7FFF;
+	pai->roff = 0;
 
 	return 0;
 }
