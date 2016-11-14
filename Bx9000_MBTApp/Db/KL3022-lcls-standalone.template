@@ -1,4 +1,4 @@
-record(ai, "$(ALIAS)") {
+record(ai, "$(NAME)") {
   field(DESC, "$(DESC)")
   field(SCAN, "1 second")
   field(DTYP, "Bx9000_KL3022")
