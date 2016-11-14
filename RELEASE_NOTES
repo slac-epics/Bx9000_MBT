@@ -49,8 +49,6 @@ Bx9000_MBT-R2-5-8:
   Add support for KL3022 2-channel 4-20 mA analog input module
                   KL3012 2-channel 0-20 mA analog input module
 
-  Add Bx9000-anlgchan-standalone.db, general purpose db for single
-	analog channel; low-level PV only
   Add Bx9000_analog_2chan.edl, general purpose 2-channel analog display
 
 Bx9000_MBT-R2-5-7:
