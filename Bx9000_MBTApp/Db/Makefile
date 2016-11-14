@@ -54,6 +54,7 @@ DB += KL3102-lcls.template
 DB += KL3022-lcls.template
 DB += KL3022-lcls-standalone.template
 DB += KL3012-lcls.template
+DB += KL3012-lcls-standalone.template
 DB += KL3162-lcls.template
 DB += KL3202-lcls.template 
 DB += KL3222-lcls.template 
