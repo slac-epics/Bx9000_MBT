@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        26-Mar-2017, J. Mock           (JMOCK):
+#           release Bx9000_MBT-R2-5-9
 #        12-Feb-2016, K. Luchini        (LUCHINI):
 #           release Bx9000_MBT-R2-5-7
 #        12-Jun-2014, S. Hoobler        (SONYA):
@@ -45,6 +47,8 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-5-9:
+  Create KL4132-lcls.template like other lcls templates
 Bx9000_MBT-R2-5-8:
   Add support for KL3022 2-channel 4-20 mA analog input module
                   KL3012 2-channel 0-20 mA analog input module

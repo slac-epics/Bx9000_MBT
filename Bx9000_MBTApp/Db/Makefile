@@ -62,6 +62,7 @@ DB += KL3314-lcls.template
 DB += KL3408-lcls.template
 DB += KL4002-lcls.template
 DB += KL4004-lcls.template
+DB += KL4132-lcls.template
 DB += KM1004-lcls.template
 DB += KM2004-lcls.template
 
@@ -69,7 +70,7 @@ DB += analog-conversion-lcls.template
 
 # Single channel general purpose analog channel
 # Does not contain or reference higher-level PV(s)
-DB += Bx9000-anlgchan-standalone.db
+#DB += Bx9000-anlgchan-standalone.db
 
 # For use in conjunction with analog-conversion-lcls.template
 
