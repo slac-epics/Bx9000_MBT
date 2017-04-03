@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        03-Apr-2017, J. Mock           (JMOCK):
+            release Bx9000_MBT-R2-5-10
 #        26-Mar-2017, J. Mock           (JMOCK):
 #           release Bx9000_MBT-R2-5-9
 #        12-Feb-2016, K. Luchini        (LUCHINI):
@@ -47,6 +49,8 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+Bx9000_MBT-R2-5-10:
+  Add alias to KL4132-lcls.template
 Bx9000_MBT-R2-5-9:
   Create KL4132-lcls.template like other lcls templates
 Bx9000_MBT-R2-5-8:
