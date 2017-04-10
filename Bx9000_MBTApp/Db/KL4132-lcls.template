@@ -10,6 +10,7 @@ record(ao, "$(ALIAS)") {
   field(EGU,  "$(UNIT)")
   field(PINI, "$(PINI)")
   field(LINR, "LINEAR")
+  field(OMSL, "supervisory")
   field(FLNK, "$(APC):M$(SLOT)_CH$(CH)_SIG")
 }
 
@@ -26,5 +27,7 @@ record(ao, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
   field(LOPR, "$(LOPR)")
   field(EGU,  "$(UNIT)")
   field(PINI, "NO")
+   field(DOL, "$(ALIAS)")
+   field(OMSL, "closed_loop")
   field(LINR, "LINEAR")
 }
