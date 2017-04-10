@@ -51,6 +51,8 @@
 #
 Bx9000_MBT-R2-5-10:
   Add alias to KL4132-lcls.template
+  Build for all architectures
+  fix library link order in the Test Application
 Bx9000_MBT-R2-5-9:
   Create KL4132-lcls.template like other lcls templates
 Bx9000_MBT-R2-5-8:
