@@ -49,6 +49,9 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+R2.6.0:		Apr-21-2017 - Marcio Donadio
+		- Module migrated to EPICS 3.15, GIT and GIT workflow.
+
 Bx9000_MBT-R2-5-10:
   Add alias to KL4132-lcls.template
   Build for all architectures
