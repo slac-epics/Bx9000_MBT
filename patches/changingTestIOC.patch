@@ -1,0 +1,99 @@
+diff --git a/iocBoot/Makefile b/iocBoot/Makefile
+index d097ef0..252a137 100644
+--- a/iocBoot/Makefile
++++ b/iocBoot/Makefile
+@@ -1,6 +1,3 @@
+ TOP = ..
+ include $(TOP)/configure/CONFIG
+-DIRS += $(wildcard *ioc*)
+-DIRS += $(wildcard as*)
+-include $(EPICS_BASE)/configure/RULES_DIRS
+-
++include $(TOP)/configure/RULES.iocBoot
+diff --git a/iocBoot/iocBK9KSoftTest/Bx9000Info-test.instance b/iocBoot/iocBK9KSoftTest/Bx9000Info-test.instance
+index 282b412..c6640d5 100644
+--- a/iocBoot/iocBK9KSoftTest/Bx9000Info-test.instance
++++ b/iocBoot/iocBK9KSoftTest/Bx9000Info-test.instance
+@@ -1,24 +1,26 @@
+ file ../../db/Bx9000Info.template{
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,REPROCEVT=188}
++{
++	{ REPROCEVT=188	}
+ }
+ 
+-file ../../db/Bx9000InstalledBTs.template{
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=0}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=1}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=2}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=3}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=4}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=5}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=6}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=7}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=8}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=9}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=10}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=11}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=12}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=13}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=14}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=15}
+-{S=ICS,SS=Test,DVC=Beck,N=_BH,DI=3,COUPLER=ics-test-bh3,SLOT=16}
++file ../../db/Bx9000InstalledBTs.template
++{
++	{	SLOT=0	}
++	{	SLOT=1	}
++	{	SLOT=2	}
++	{	SLOT=3	}
++	{	SLOT=4	}
++	{	SLOT=5	}
++	{	SLOT=6	}
++	{	SLOT=7	}
++	{	SLOT=8	}
++	{	SLOT=9	}
++	{	SLOT=10	}
++	{	SLOT=11	}
++	{	SLOT=12	}
++	{	SLOT=13	}
++	{	SLOT=14	}
++	{	SLOT=15	}
++	{	SLOT=16	}
+ }
+ 
+diff --git a/iocBoot/iocBK9KSoftTest/KL1104-test.instance b/iocBoot/iocBK9KSoftTest/KL1104-test.instance
+index 17f1c05..605665e 100644
+--- a/iocBoot/iocBK9KSoftTest/KL1104-test.instance
++++ b/iocBoot/iocBK9KSoftTest/KL1104-test.instance
+@@ -1,8 +1,12 @@
+-file ../../db/KL1104.template{
+-{S=ICS,SS=Test,DVC=Beck,N=_BH3,DI=KL1104,COUPLER=ics-test-bh3,SLOT=5,
+- SIG1=DIN1,SIG1.ZNAM=Off,SIG1.ONAM=On,SIG1.ZSV=NO_ALARM,SIG1.OSV=NO_ALARM,SIG1.COSV=NO_ALARM,SIG1.SCAN=".1 second",
+- SIG2=DIN2,SIG2.ZNAM=Off,SIG2.ONAM=On,SIG2.ZSV=NO_ALARM,SIG2.OSV=NO_ALARM,SIG2.COSV=NO_ALARM,SIG2.SCAN=".1 second",
+- SIG3=DIN3,SIG3.ZNAM=Off,SIG3.ONAM=On,SIG3.ZSV=NO_ALARM,SIG3.OSV=NO_ALARM,SIG3.COSV=NO_ALARM,SIG3.SCAN=".1 second",
+- SIG4=DIN4,SIG4.ZNAM=Off,SIG4.ONAM=On,SIG4.ZSV=NO_ALARM,SIG4.OSV=NO_ALARM,SIG4.COSV=NO_ALARM,SIG4.SCAN=".1 second"}
++file ../../db/KL1104.template
++{
++	{
++		SLOT=5,
++		SIG1=DIN1,	SIG1.DESC="Signal 1 Description",
++		SIG1.ZNAM=Off,SIG1.ONAM=On,SIG1.ZSV=NO_ALARM,SIG1.OSV=NO_ALARM,SIG1.COSV=NO_ALARM,SIG1.SCAN=".1 second",
++		SIG2=DIN2,SIG2.ZNAM=Off,SIG2.ONAM=On,SIG2.ZSV=NO_ALARM,SIG2.OSV=NO_ALARM,SIG2.COSV=NO_ALARM,SIG2.SCAN=".1 second",
++		SIG3=DIN3,SIG3.ZNAM=Off,SIG3.ONAM=On,SIG3.ZSV=NO_ALARM,SIG3.OSV=NO_ALARM,SIG3.COSV=NO_ALARM,SIG3.SCAN=".1 second",
++		SIG4=DIN4,SIG4.ZNAM=Off,SIG4.ONAM=On,SIG4.ZSV=NO_ALARM,SIG4.OSV=NO_ALARM,SIG4.COSV=NO_ALARM,SIG4.SCAN=".1 second"
++	}
+ }
+ 
+diff --git a/iocBoot/iocBK9KSoftTest/KL2114-test.instance b/iocBoot/iocBK9KSoftTest/KL2114-test.instance
+new file mode 100644
+index 0000000..7385c5a
+--- /dev/null
++++ b/iocBoot/iocBK9KSoftTest/KL2114-test.instance
+@@ -0,0 +1,8 @@
++file ../../db/KL2114.template{
++{S=ICS,SS=Test,DVC=Beck,N=_BH3,DI=KL2114,COUPLER=ics-test-bh3,SLOT=10,REPROCEVT=188,
++ SIG1=DOUT1,SIG1.ZNAM=Off,SIG1.ONAM=On,SIG1.PINI=NO,
++ SIG2=DOUT2,SIG2.ZNAM=Off,SIG2.ONAM=On,SIG2.PINI=NO,
++ SIG3=DOUT3,SIG3.ZNAM=Off,SIG3.ONAM=On,SIG3.PINI=NO,
++ SIG4=DOUT4,SIG4.ZNAM=Off,SIG4.ONAM=On,SIG4.PINI=NO}
++}
++
