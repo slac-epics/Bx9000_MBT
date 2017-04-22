@@ -1,0 +1,16 @@
+diff --git a/configure/RULES.archive b/configure/RULES.archive
+new file mode 100644
+index 0000000..a8efb44
+--- /dev/null
++++ b/configure/RULES.archive
+@@ -0,0 +1,2 @@
++# RULES.archive
++include $(EPICS_BASE)/configure/RULES.archive
+diff --git a/configure/RULES.autosave b/configure/RULES.autosave
+new file mode 100644
+index 0000000..c3b5cb0
+--- /dev/null
++++ b/configure/RULES.autosave
+@@ -0,0 +1,2 @@
++# RULES.autosave
++include $(EPICS_BASE)/configure/RULES.autosave
