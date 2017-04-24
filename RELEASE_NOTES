@@ -49,6 +49,12 @@
 #           release Bx9000-R2-0-0
 #==============================================================
 #
+R2.6.0-0.1.0:	Apr-24-2017 - Marcio Donadio
+		This is version R2.6.0 plus changings made by PCDS:
+		- Run patches/*
+		- Modified KL14x8en.pdf manual
+		- Modified RELEASE.local to have correct dependent modules
+
 R2.6.0:		Apr-21-2017 - Marcio Donadio
 		- Module migrated to EPICS 3.15, GIT and GIT workflow.
 
