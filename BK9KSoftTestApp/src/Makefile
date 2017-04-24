@@ -23,8 +23,8 @@ BK9KSoftTest_SRCS_vxWorks += -nil-
 # The following adds support from base/src/vxWorks
 BK9KSoftTest_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-# We need ModBusTCPClnt and Bx9000_MBT
-BK9KSoftTest_LIBS += Bx9000_MBT
+# We need ModBusTCPClnt and Bk9000_MBT
+BK9KSoftTest_LIBS += Bk9000_MBT
 BK9KSoftTest_LIBS += ModBusTCPClnt
 
 
