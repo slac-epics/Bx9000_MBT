@@ -32,19 +32,19 @@ There are three solutions:
 	BX9000_MBT=$(EPICS_MODULES)/Bx9000_MBT/$(BX9000_MBT_MODULE_VERSION)
 
 2.	Add the following lines to your XXXApp/src/Makefile
-	XXX_DBD  += Bx9000_MBT.dbd
-	XXX_LIBS += Bx9000_MBT
+	XXX_DBD  += Bk9000_MBT.dbd
+	XXX_LIBS += Bk9000_MBT
 	XXX_LIBS += ModBusTCPClnt
 
 3.	Copy the following files to your XXXApp/Db directory
 	and customize them to match your needs
-	Bx9000.substitutions
+	Bk9000.substitutions
 # For a KL3314 module (substitute modules as needed)
 	KL3314.substitutions
 
 4.	Add the following lines to your XXXApp/Db/Makefile
 	EPICS will create these files from your substitutions files.
-	DB += Bx9000.db
+	DB += Bk9000.db
 # For a KL3314 module (substitute modules as needed)
 	DB += KL3314.db
 
@@ -53,7 +53,7 @@ There are three solutions:
 	# however, I have not tested this on vxWorks.
 
 	# ------------------------------------------------------------------------
-	# ---------  Load ModBusTCPClnt + Bx9000_MBT Library ---------------------
+	# ---------  Load ModBusTCPClnt + Bk9000_MBT Library ---------------------
 	# ------------------------------------------------------------------------
 	cd modbustcpclntbin
 	ld < ModBusTCPClntLib.munch
@@ -63,29 +63,29 @@ There are three solutions:
 	ModBusTCPClnt_registerRecordDeviceDriver(pdbbase)
 
 	cd bx9000_mbtbin
-	ld < Bx9000_MBTLib.munch
+	ld < Bk9000_MBTLib.munch
 
 	cd bx9000_mbt
-	dbLoadDatabase("dbd/Bx9000_MBT.dbd",0,0)
-	Bx9000_MBT_registerRecordDeviceDriver(pdbbase)
+	dbLoadDatabase("dbd/Bk9000_MBT.dbd",0,0)
+	Bk9000_MBT_registerRecordDeviceDriver(pdbbase)
 
 	......
 
 	# Add coupler
-	# Bx9000_Coupler_Add( UINT8 * cplrname, UINT8 * ipaddr, UINT8 * init_string)
+	# Bk9000_Coupler_Add( UINT8 * cplrname, UINT8 * ipaddr, UINT8 * init_string)
 	# Substitute your COUPLER hostname for ics-test-bh3
-	Bx9000_Coupler_Add("ics-test-bh3","160.91.229.182",0)
+	Bk9000_Coupler_Add("ics-test-bh3","160.91.229.182",0)
 	# Add terminals to the coupler
-	# Bx9000_Terminal_Add( UINT8 * cplrname, UINT16 slot, UINT8 * btname, UINT8 * init_string)
-	Bx9000_Terminal_Add("ics-test-bh3", 1, "KL4002", 0)
-	Bx9000_Terminal_Add("ics-test-bh3", 2, "KL3468", 0)
-	Bx9000_Terminal_Add("ics-test-bh3", 3, "KL3408", 0)
-	Bx9000_Terminal_Add("ics-test-bh3", 4, "KL2408", 0)
-	Bx9000_Terminal_Add("ics-test-bh3", 5, "KL1104", 0)
+	# Bk9000_Terminal_Add( UINT8 * cplrname, UINT16 slot, UINT8 * btname, UINT8 * init_string)
+	Bk9000_Terminal_Add("ics-test-bh3", 1, "KL4002", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 2, "KL3468", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 3, "KL3408", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 4, "KL2408", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 5, "KL1104", 0)
 	# ...
 
 	# Be sure to finish with a KL9010!
-	Bx9000_Terminal_Add("ics-test-bh3", 16, "KL9010", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 16, "KL9010", 0)
 
 	......
 
@@ -94,49 +94,49 @@ There are three solutions:
 
 5b. For EPICS, add the following lines into your st.cmd (see 6a for VxWorks)
 	# Add coupler
-	# Bx9000_Coupler_Add( UINT8 * cplrname, UINT8 * ipaddr, UINT8 * init_string)
+	# Bk9000_Coupler_Add( UINT8 * cplrname, UINT8 * ipaddr, UINT8 * init_string)
 	# Substitute your COUPLER hostname for ics-test-bh3
-	Bx9000_Coupler_Add("ics-test-bh3","160.91.229.182",0)
+	Bk9000_Coupler_Add("ics-test-bh3","160.91.229.182",0)
 
 	# Add terminals to the coupler
-	# Bx9000_Terminal_Add( UINT8 * cplrname, UINT16 slot, UINT8 * btname, UINT8 * init_string)
-	Bx9000_Terminal_Add("ics-test-bh3", 1, "KL9505", 0)
-	Bx9000_Terminal_Add("ics-test-bh3", 2, "KL3314", 0)
-	Bx9000_Terminal_Add("ics-test-bh3", 3, "KL3312", 0)
+	# Bk9000_Terminal_Add( UINT8 * cplrname, UINT16 slot, UINT8 * btname, UINT8 * init_string)
+	Bk9000_Terminal_Add("ics-test-bh3", 1, "KL9505", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 2, "KL3314", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 3, "KL3312", 0)
 	# ...
 
 	# Be sure to finish with a KL9010!
-	Bx9000_Terminal_Add("ics-test-bh3", 16, "KL9010", 0)
+	Bk9000_Terminal_Add("ics-test-bh3", 16, "KL9010", 0)
 
 	......
 
 	# Substitute your COUPLER hostname and COUPLER_LOC EPICS prefix
-	dbLoadRecords("db/Bx9000.db", "COUPLER=ics-test-bh3,COUPLER_LOC=AMO:R01:BHC:07")
+	dbLoadRecords("db/Bk9000.db", "COUPLER=ics-test-bh3,COUPLER_LOC=AMO:R01:BHC:07")
 	dbLoadRecords("db/KL3314.db", "COUPLER=ics-test-bh3,COUPLER_LOC=AMO:R01:BHC:07")
 	dbLoadRecords("db/KL3064.db", "COUPLER=ics-test-bh3,COUPLER_LOC=AMO:R01:BHC:07")
 	...
 
 IN THE CASE OF THE KL9020 AND KL9050 BUS COUPLERS:
 
-        Bx9000_Coupler_Add("bkhf-b34-cd02","134.79.219.106",0)
-	Bx9000_Terminal_Add("bkhf-b34-cd02", 1, "KL3408", 0)
-	Bx9000_Terminal_Add("bkhf-b34-cd02", 2, "KL9020", 0)
-	Bx9000_Terminal_Add("bkhf-b34-cd02", 3, "KL3204", 0)
-	Bx9000_Terminal_Add("bkhf-b34-cd02", 4, "KL9010", 0)
+        Bk9000_Coupler_Add("bkhf-b34-cd02","134.79.219.106",0)
+	Bk9000_Terminal_Add("bkhf-b34-cd02", 1, "KL3408", 0)
+	Bk9000_Terminal_Add("bkhf-b34-cd02", 2, "KL9020", 0)
+	Bk9000_Terminal_Add("bkhf-b34-cd02", 3, "KL3204", 0)
+	Bk9000_Terminal_Add("bkhf-b34-cd02", 4, "KL9010", 0)
 
-Note that there is no Bx9000_Terminal_Add entry for KL9050.  See
+Note that there is no Bk9000_Terminal_Add entry for KL9050.  See
 documentation/BeckhoffExtendedExample.png and
 documentation/BeckhoffTopology.png for more info.
 
 6. There is no screen built for each terminal in SHARE area,
    you should build your own one according to your application.
    But we do have two screens in SHARE area,
-   they show the Bx9000 coupler status and installed bus terminals.
+   they show the Bk9000 coupler status and installed bus terminals.
    You can run them like this, substituting your COUPLER_LOC EPICS name
-	edm -x -m "COUPLER_LOC=AMO:R01:BHC:07" Bx9000Info.edl
-	edm -x -m "COUPLER_LOC=AMO:R01:BHC:07" Bx9000InstalledBTs.edl
-   Bx9000Info.edl shows the coupler connections' status and some other info.
-   Bx9000InstalledBTs.edl shows the installed bus terminals on slot 0~16,
+	edm -x -m "COUPLER_LOC=AMO:R01:BHC:07" Bk9000Info.edl
+	edm -x -m "COUPLER_LOC=AMO:R01:BHC:07" Bk9000InstalledBTs.edl
+   Bk9000Info.edl shows the coupler connections' status and some other info.
+   Bk9000InstalledBTs.edl shows the installed bus terminals on slot 0~16,
    if you need more, you should build your own one.
 
 7. Optional signal averaging has been added for RTD and thermocouple signals,
