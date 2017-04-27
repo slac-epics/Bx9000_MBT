@@ -5,80 +5,42 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
-#  Auth: dd-mmm-yyyy, Sheng Peng         (PENGS)
-#  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
-#--------------------------------------------------------------
-#  Mod:
-#        03-Apr-2017, J. Mock           (JMOCK):
-            release Bx9000_MBT-R2-5-10
-#        26-Mar-2017, J. Mock           (JMOCK):
-#           release Bx9000_MBT-R2-5-9
-#        12-Feb-2016, K. Luchini        (LUCHINI):
-#           release Bx9000_MBT-R2-5-7
-#        12-Jun-2014, S. Hoobler        (SONYA):
-#           release Bx9000_MBT-R2-5-6
-#        12-Apr-2014, G. Brown          (GWBROWN):
-#           release Bx9000_MBT-R2-5-5
-#        17-Jun-2013, G. Brown          (GWBROWN):
-#           release Bx9000_MBT-R2-5-4
-#        16-Oct-2012, G. Brown          (GWBROWN):
-#           release Bx9000_MBT-R2-5-2
-#        25-May-2012,S. Hoobler          (SONYA):
-#           release Bx9000_MBT-R2-5-1
-#        25-Jan-2012,S. Hoobler          (SONYA):
-#           release Bx9000_MBT-R2-5-0
-#        29-Dec-2011,A. Alarcon          (ALARCON):
-#           release Bx9000_MBT-R2-4-5
-#        21-Jul-2011, M. Boyes         (MBOYES):
-#           release Bx9000_MBT-R2-3-5
-#        19-Jul-2011, A. Alarcon         (ALARCON):
-#           release Bx9000_MBT-R2-3-4
-#        15-Mar-2011, A. Alarcon         (ALARCON):
-#           release Bx9000-R2-2-4
-#        11-Mar-2011, A. Alarcon         (ALARCON):
-#           release Bx9000-R2-2-3
-#        12-Jan-2011, S. Hoobler         (SONYA):
-#           release Bx9000-R2-2-2
-#	 07-Apr-2010, A. Chaiken 	 (ALISON):
-#	    release Bx9000-R2-2-1
-#        20-Mar-2010, S. Hoobler         (SONYA):
-#           release Bx9000-R2-2-0
-#        25-Jan-2010, M. Boyes/S. Hoobler (MBOYES):
-#           release Bx9000-R2-1-1
-#        29-Apr-2009, K. Luchini         (LUCHINI):
-#           release Bx9000-R2-0-0
-#==============================================================
-#
 R2.6.0-0.1.0:	Apr-24-2017 - Marcio Donadio
 		This is version R2.6.0 plus changings made by PCDS:
 		- Run patches/*
 		- Modified KL14x8en.pdf manual
 		- Modified RELEASE.local to have correct dependent modules
+		NOTE: Prior versions of this module incorrectly used Bx9000 as a coupler name.
+		The Bx9000 naming pre-dates Beckhoff's an introduction of an actual Bx9000
+		coupler that is a PLC version and not compatible with this module.
+		The old Bx9000 naming scheme thus causes confusion and needs to be retired.
 
 R2.6.0:		Apr-21-2017 - Marcio Donadio
 		- Module migrated to EPICS 3.15, GIT and GIT workflow.
 
-Bx9000_MBT-R2-5-10:
+Bx9000_MBT-R2-5-10: 03-Apr-2017, J. Mock           (JMOCK)
   Add alias to KL4132-lcls.template
   Build for all architectures
   fix library link order in the Test Application
-Bx9000_MBT-R2-5-9:
+
+Bx9000_MBT-R2-5-9: 26-Mar-2017, J. Mock           (JMOCK)
   Create KL4132-lcls.template like other lcls templates
+
 Bx9000_MBT-R2-5-8:
   Add support for KL3022 2-channel 4-20 mA analog input module
                   KL3012 2-channel 0-20 mA analog input module
 
   Add Bx9000_analog_2chan.edl, general purpose 2-channel analog display
 
-Bx9000_MBT-R2-5-7:
+Bx9000_MBT-R2-5-7: 12-Feb-2016, K. Luchini        (LUCHINI)
   Add support for KL4004 4-channel 12-bit analog output module
   Added KL4002-lcls.template and KL3064-lcls.template
   fix devKL3064.c driver, calcualte eslo for 12-bits adc.
 
-Bx9000_MBT-R2-5-6:
+Bx9000_MBT-R2-5-6: 12-Jun-2014, S. Hoobler        (SONYA)
  Bx9000_MBTApp/src/Bx9000_MBT.dbd: Add registrar(drvBx9000_MBT_Register) 
 
-Bx9000_MBT-R2-5-5:
+Bx9000_MBT-R2-5-5: 12-Apr-2014, G. Brown          (GWBROWN)
  Add lcls style db files for KL1104, KL1124, KL2114
 
 Bx9000_MBT-R2-5-4:

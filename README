@@ -1,7 +1,11 @@
-Bx9000_MBT is the EPICS driver and device support for Beckhoff Bx9000 and BK9050 couplers.
-Bx9000 so far could be BC9000/BK9000/BX9000.
-This driver talks to Bx9000 through ModBusTCP protocol. So you also need the
+Bx9000_MBT is the EPICS driver and device support for Beckhoff Bk9000 and BK9050 couplers.
+This driver talks to Bk9000 through ModBusTCP protocol. So you also need the
 module called ModBusTCPClnt.
+
+NOTE: Prior versions of this module incorrectly used Bx9000 as a coupler name.
+The Bx9000 naming pre-dates Beckhoff's an introduction of an actual Bx9000
+coupler that is a PLC version and not compatible with this module.
+The old Bx9000 naming scheme thus causes confusion and needs to be retired.
 
 This driver and device support are OSI based, so your have to EPICS base 3.14
 or above to use it.
