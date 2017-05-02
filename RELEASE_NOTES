@@ -5,7 +5,7 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
-R2.6.0-0.1.0:	Apr-24-2017 - Marcio Donadio
+R2.6.0-1.0.0:	Apr-24-2017 - Marcio Donadio
 		This is version R2.6.0 plus changings made by PCDS:
 		- Run patches/*
 		- Modified KL14x8en.pdf manual
