@@ -10,6 +10,7 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------------------
 # Create and install (or just install)
 # databases, templates, substitutions like this
+DB += Bk9000.db
 DB += Bk9000Info.template
 DB += Bk9000InstalledBTs.template
 DB += KL1104.template
