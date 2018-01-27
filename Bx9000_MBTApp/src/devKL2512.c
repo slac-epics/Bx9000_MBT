@@ -17,11 +17,9 @@ static long lincvt_ao_KL2512(struct aoRecord	*pao, int after)
 	 */
 	pao->eslo = (	(pao->eguf - pao->egul)
 				/	(double)(RAW_DUTY_CYCLE_100 - RAW_DUTY_CYCLE_0) );
-	/* This line throws a warning in R3.15.5 re overflow during conversion.
-	 * In R3.14.12.4, roff is epicsInt32, but in R3.14.12.5 it changed to epicsUint32.
-	 * We may need to revisit this conversion!
-	 */
-	pao->roff = -	(float) RAW_DUTY_CYCLE_0;
+	/* In R3.14.12.4, roff is epicsInt32, but in R3.14.12.5 it changed to epicsUint32. */
+	pao->eoff = pao->eguf - pao->egul;
+	pao->roff = 0;
 	return(0);
 }
 
