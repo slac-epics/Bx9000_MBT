@@ -351,3 +351,4 @@ int Bk9000_MBT_Sync_Both_Image(
 	}
 }
 
+epicsExportAddress( int, Bk9000_DRV_DEBUG );
