@@ -16,8 +16,9 @@ static long lincvt_ao_KL2502(struct aoRecord	*pao, int after)
 	 * Linear conversion slope calculated from eng units full - eng units low
 	 */
 	pao->eslo = (	(pao->eguf - pao->egul)
-				/	(float)(RAW_DUTY_CYCLE_100 - RAW_DUTY_CYCLE_0) );
-	pao->roff = -	(float) RAW_DUTY_CYCLE_0;
+				/	(double)(RAW_DUTY_CYCLE_100 - RAW_DUTY_CYCLE_0) );
+	pao->eoff = 0;
+	pao->roff = RAW_DUTY_CYCLE_0;
 	return(0);
 }
 
