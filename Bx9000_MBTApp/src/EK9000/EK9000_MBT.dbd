@@ -1,0 +1,11 @@
+device(longin,INST_IO,devLiEK9000Info,"EK9000_Info")
+device(mbbi,INST_IO,devMbbiEK9000Info,"EK9000_Info")
+device(stringin,INST_IO,devSiEK9000Info,"EK9000_Info")
+
+device(bi,INST_IO,devBiKL1104,"EK9000_KL1104")
+device(bo,INST_IO,devBoKL2012,"EK9000_KL2012")
+device(ao,INST_IO,devAoKL2502,"EK9000_KL2502")
+device(bo,INST_IO,devBoKL2808,"EK9000_KL2808")
+device(ai,INST_IO,devAiKL3064,"EK9000_KL3064")
+driver(drvEK9000_MBT)
+registrar("drvEK9000_MBT_Register")
