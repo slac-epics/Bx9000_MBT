@@ -435,9 +435,9 @@ typedef	enum	DATA_TYPE
 typedef	struct BUSTERM_SIG_PREDEF
 {/* We use this one to define signals */
 	char				busterm_string[8];		/* String name of bus terminal, must be 6 characters */
-	E_BUSTERM_TYPE		busterm_type;			/* number name of bus terminal */
+	E_EC_BUSTERM_TYPE		busterm_type;			/* number name of bus terminal */
 	char				function[MAX_CA_STRING_SIZE];	/* Function name, should be the third part of INP/OUT field */
-	E_BUSTERM_OPTYPE	busterm_optype;			/* The operation type, one of above list */
+	E_EC_BUSTERM_OPTYPE	busterm_optype;			/* The operation type, one of above list */
 	E_EPICS_RTYPE		epics_rtype;			/* EPICS record type to use this signal, EPICS_RTYP_NONE means not for EPICS or waive check */
 	E_DATA_TYPE		data_type;
 	UINT32			arg1;
@@ -446,11 +446,11 @@ typedef	struct BUSTERM_SIG_PREDEF
 }	BUSTERM_SIG_PREDEF;
 
 typedef	struct BUSTERM_SIG_DEF
-{/* We use this one to really handle sigals */
+{/* We use this one to really handle signals */
 	char				busterm_string[8];		/* String name of bus terminal, must be 6 characters */
-	E_BUSTERM_TYPE		busterm_type;			/* number name of bus terminal */
+	E_EC_BUSTERM_TYPE		busterm_type;			/* number name of bus terminal */
 	char				function[MAX_CA_STRING_SIZE];	/* Function name, should be the third part of INP/OUT field */
-	E_BUSTERM_OPTYPE	busterm_optype;			/* The operation type, one of above list */
+	E_EC_BUSTERM_OPTYPE	busterm_optype;			/* The operation type, one of above list */
 	E_EPICS_RTYPE		epics_rtype;			/* EPICS record type to use this signal, EPICS_RTYP_NONE means not for EPICS or waive check */
 	E_DATA_TYPE		data_type;
 	union ARGS
@@ -514,7 +514,7 @@ typedef	struct EK9000_INIT
 
 typedef	struct INSTALLED_BUSTERM
 {
-	BUSTERM_IMG_DEF		* pbusterm_img_def;
+	EC_BUSTERM_IMG_DEF	* pbusterm_img_def;
 	EK9000_INIT_LIST	init_list;
 	UINT16			term_r32_value;		/* If this terminal has registers, this will hold the latest setting of feature register, or else stays 0 */
 	UINT32			complex_in_wordoffset;	/* complex input word offset of this module in input processing image */
@@ -714,7 +714,7 @@ int	EK9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 
 /* This function will be called by all device support */
 /* The memory for EK9000_SIGNAL will be malloced inside */
-int	EK9000_Signal_Init(dbCommon * precord, E_EPICS_RTYPE epics_rtype, char * ioString, E_BUSTERM_TYPE bttype, EK9000_FPTR process_fptr, void * pextra_arg);
+int	EK9000_Signal_Init(dbCommon * precord, E_EPICS_RTYPE epics_rtype, char * ioString, E_EC_BUSTERM_TYPE bttype, EK9000_FPTR process_fptr, void * pextra_arg);
 
 /* This is the default process function, it deals with coupler reg/Mreg and terminal reg */
 /* For image based operation, it supports single bit op and single word op only */
