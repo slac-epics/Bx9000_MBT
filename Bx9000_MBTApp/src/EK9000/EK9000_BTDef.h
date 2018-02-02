@@ -26,9 +26,9 @@ static BUSTERM_IMG_DEF	busterm_img_def[]={
 
 	{"EL5042",		BT_TYPE_EL5042,	1,	0,	10,	0,	0,	0}, /* Biss-C module */
 
-	{"EL9505",		BT_TYPE_EL9505,	0,	0,	0,	0,	0,	0},	/* Power Supply Module */
+	{"EL9505",		BT_TYPE_EL9505,	0,	0,	0,	0,	0,	0}, /* Power Supply Module */
 	{"EL9080",		BT_TYPE_EL9080,	0,	0,	0,	0,	0,	0}, /* Separation terminal, just a blank */
-	{"EL9011",		BT_TYPE_EL9011,	0,	0,	0,	0,	0,	0}	/* This must be last one */
+	{"EL9011",		BT_TYPE_EL9011,	0,	0,	0,	0,	0,	0} /* This must be last one */
 };
 
 #define	N_BT_IMG_DEF	(sizeof(busterm_img_def)/sizeof(BUSTERM_IMG_DEF))

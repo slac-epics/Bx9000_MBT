@@ -343,16 +343,16 @@ int	EK9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 					break;
 			}
 		}
-		pcoupler->complex_in_bits	= temp_cin_woffset	* 16;
-		pcoupler->complex_out_bits	= temp_cout_woffset	* 16;
+		pcoupler->complex_in_bytes	= temp_cin_woffset	* 2; /* Bytes for the EK9000, not bits!! */
+		pcoupler->complex_out_bytes	= temp_cout_woffset	* 2;
 		if ( EK9000_DRV_DEBUG )
 			printf(	"%d words complex in and %d words complex out mapped for EK9000 %s!\n",
 					temp_cin_woffset, temp_cout_woffset, cplrname);
 
 		/* Calculate mapping for digital*/
 		/* All modules are continuously installed, we go though all of them until we see EL9011 */
-		temp_din_boffset = pcoupler->complex_in_bits;
-		temp_dout_boffset = pcoupler->complex_out_bits;
+		temp_din_boffset = pcoupler->complex_in_bytes*8;
+		temp_dout_boffset = pcoupler->complex_out_bytes*8;
 		for(loop=0; loop < MAX_NUM_OF_BUSTERM+2; loop++)	/* +2 means include coupler 9000 and terminator 9011 */
 		{
 			if(pcoupler->installedBusTerm[loop].pbusterm_img_def)
@@ -368,8 +368,8 @@ int	EK9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 					break;
 			}
 		}
-		pcoupler->digital_in_bits	= temp_din_boffset	- pcoupler->complex_in_bits;
-		pcoupler->digital_out_bits	= temp_dout_boffset	- pcoupler->complex_out_bits;
+		pcoupler->digital_in_bits	= temp_din_boffset	- pcoupler->complex_in_bytes*8;
+		pcoupler->digital_out_bits	= temp_dout_boffset	- pcoupler->complex_out_bytes*8;
 		if ( EK9000_DRV_DEBUG )
 			printf(	"%d bits digital in and %d bits digital out mapped for EK9000 %s!\n",
 					pcoupler->digital_in_bits, pcoupler->digital_out_bits, cplrname);
@@ -379,26 +379,6 @@ int	EK9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 		pcoupler->total_out_words = (temp_dout_boffset + 15)/16;
 
 		epicsMutexUnlock(pcoupler->mutex_lock);
-
-#if	0	/* We decide not do this here because we need epicsTime	*/
-		/* If we do this here, epicsTimeGetCurrent will get iocClock init */
-		/* To avoid this, we must guarantee generalTime was load and inited before this, that's too complicated */
-		/* So we decide to move this to EK9000_Couplers_Init_Once and will be executed in iocInit */
-		EK9000_Coupler_Init(pcoupler);
-
-		epicsMutexLock(pcoupler->mutex_lock);
-		/* Create the operation thread */
-		pcoupler->opthread_id = epicsThreadCreate(	pcoupler->opthread_name, OPTHREAD_PRIORITY, OPTHREAD_STACK,
-													(EPICSTHREADFUNC)EK9000_Operation, (void *)pcoupler );
-		if(pcoupler->opthread_id == (epicsThreadId)(-1))
-		{
-			epicsMutexUnlock(pcoupler->mutex_lock);
-			errlogPrintf("EK9000_Terminal_Add %s Error: Failed to create operation thread!\n", cplrname);
-			epicsThreadSuspendSelf();
-			return -1;
-		}
-		epicsMutexUnlock(pcoupler->mutex_lock);
-#endif
 	}
 
 	return 0;
@@ -503,7 +483,7 @@ static int EK9000_Coupler_Init(EK9000_COUPLER * pcoupler)
 		return -1;
 	}
 
-	status = EK9000_MBT_Verify_Image_Size(pcoupler->mbt_link, pcoupler->complex_out_bits, pcoupler->complex_in_bits,
+	status = EK9000_MBT_Verify_Image_Size(pcoupler->mbt_link, pcoupler->complex_out_bytes, pcoupler->complex_in_bytes,
 								 pcoupler->digital_out_bits, pcoupler->digital_in_bits, DFT_MBT_TOUT);
 	if(status != 0)
 	{	/* somehow we can't verify, either fail to read or doesn't match */

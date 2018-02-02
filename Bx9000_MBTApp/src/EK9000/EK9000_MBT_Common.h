@@ -78,14 +78,6 @@
 #include "ModBusTCPClnt.h"
 
 /******************************************************************************************/
-/***** important!!! important!!! important!!! important!!! important!!! important!!! ******/
-/* We support only default image mapping. That means:                                     */
-/* Complete evaluation: map control & status register                                     */
-/* Word alignment                                                                         */
-/* No motorola format                                                                     */
-/******************************************************************************************/
-#define	EK9000_MBT_DRV_VER_STRING	"EK9000_MBT driver version 1.3.0"
-/******************************************************************************************/
 /*********************         define general data type         ***************************/
 /* we don't use epicsType because under vxWorks, char is unsigned by default              */
 /******************************************************************************************/
@@ -144,8 +136,9 @@ typedef double			DOUBLE64;
 #define	PLC_WRITE_INTERFACE	0x110A
 
 /* We can read back the image size to verify our mapping */
-#define	COMPLEX_OUT_IMG_BITS_MREG	0x1010
-#define	COMPLEX_IN_IMG_BITS_MREG	0x1011
+/* NB: EK9000 reports complex I/O size in bytes, NOT bits as the BK9000 does! */
+#define	COMPLEX_OUT_IMG_BYTES_MREG	0x1010
+#define	COMPLEX_IN_IMG_BYTES_MREG	0x1011
 #define	DIGITAL_OUT_IMG_BITS_MREG	0x1012
 #define	DIGITAL_IN_IMG_BITS_MREG	0x1013
 /******************************************************************************************/
@@ -180,7 +173,7 @@ typedef enum EC_BUSTERM_TYPE
 {
 	BT_TYPE_EK9000 = 9000,	/* This is coupler */
 	BT_TYPE_EL9011 = 9011,	/* This is terminator */
-        BT_TYPE_EK1110 = 1110,	/* T`is is extender */
+        BT_TYPE_EK1110 = 1110,	/* This is extender */
 	BT_TYPE_EL9080 = 9080,	/* Blank/separator */
 	BT_TYPE_EL9505 = 9505,	/* 5V Power Supply Module */
 	BT_TYPE_EL9508 = 9508,	/* 8V Power Supply Module */
@@ -188,151 +181,7 @@ typedef enum EC_BUSTERM_TYPE
 	BT_TYPE_EL9512 = 9512,	/* 12V Power Supply Module */
 	BT_TYPE_EL9515 = 9515,	/* 15V Power Supply Module */
 
-	/* 32 bits counter */
-	BT_TYPE_KL1501 = 1501,	/* Up/down counter 24 V DC, 100 kHz */
-
-	/* Multi-I/O Function Terminal */
-	BT_TYPE_KL1528 = 1528,	/* multi-I/O function, fast In-/Outputs */
-
-	/* Stepper motor terminal */
-	BT_TYPE_KL2531 = 2531,	/* Stepper motor terminal, 24 V DC, 1.5 A */
-	BT_TYPE_KL2541 = 2541,	/* Stepper motor terminal with incremental encoder, 50 V DC, 5 A */
-
-	/* pulse train output terminal RS422/24 V DC */
-	BT_TYPE_KL2521 = 2521,	/* 1-channel pulse train output terminal RS422/24 V DC */
-
-	/* pulse width output terminal */
-	BT_TYPE_KL2502 = 2502,  /* 2-channel Pulse width modulated digital output terminal 24 V DC, switched pos, 100ma */
-	BT_TYPE_KL2512 = 2512,  /* 2-channel Pulse width modulated digital output terminal 24 V DC, switched neg, 1A */
-
-	/* Digital terminal with both input/output */
-	BT_TYPE_KL2212 = 2212,	/* Imax = 0.5 A, diagnostic, rotectored sensor supply */
-	BT_TYPE_KL2641 = 2641,	/* 1-channel relay output terminal 230 V AC, 16 A, manual operation */
-	BT_TYPE_KL2692 = 2692,	/* Cycle monitoring terminal (watchdog) */
-	
-	/* Digital Input, last digit means num of channels */
-	BT_TYPE_KL1002 = 1002,	/* 24V DC, filter 3.0ms */
-	BT_TYPE_KL1012 = 1012,	/* 24V DC, filter 0.2ms */
-	BT_TYPE_KL1032 = 1032,	/* 48V DC, filter 3.0ms */
-	BT_TYPE_KL1052 = 1052,	/* 24V DC, filter 3.0ms, p/n switching */
-	BT_TYPE_KL1104 = 1104,  /* 24V DC, filter 3.0ms */
-	BT_TYPE_KL1114 = 1114,  /* 24V DC, filter 0.2ms */
-	BT_TYPE_KL1124 = 1124,  /* 5V DC, filter 3.0ms */
-	BT_TYPE_KL1154 = 1154,  /* 24V DC, filter 3.0ms, p/n switching */
-	BT_TYPE_KL1164 = 1164,  /* 24V DC, filter 0.2ms, p/n switching */
-	BT_TYPE_KL1184 = 1184,	/* 24V DC, filter 3.0ms, p switching */
-	BT_TYPE_KL1194 = 1194,	/* 24V DC, filter 0.2ms, p switching */
-	BT_TYPE_KL1212 = 1212,	/* 24V DC, filter 3.0ms, short protect */
-	BT_TYPE_KL1232 = 1232,	/* 24V DC, filter 0.2ms, pulse expansion */
-	BT_TYPE_KL1302 = 1302,	/* 24V DC, filter 3.0ms, type 2 sensors */
-	BT_TYPE_KL1304 = 1304,	/* 24V DC, filter 3.0ms, type 2 sensors */
-	BT_TYPE_KL1312 = 1312,	/* 24V DC, filter 0.2ms, type 2 sensors */
-	BT_TYPE_KL1314 = 1314,	/* 24V DC, filter 0.2ms, type 2 sensors */
-	BT_TYPE_KL1352 = 1352,	/* 24 V DC, filter 3.0ms, for NAMUR sensors */
-	BT_TYPE_KL1362 = 1362,	/* 24V DC, filter 3.0ms, break-in alarm */
-	BT_TYPE_KL1382 = 1382,	/* 24V DC, filter 30ms, thermistor */ 
-	BT_TYPE_KL1404 = 1404,	/* 24V DC, filter 3.0ms, 4 x 2-wire connection */
-	BT_TYPE_KL1408 = 1408,	/* 24V DC, filter 3.0ms */
-	BT_TYPE_KL1414 = 1414,	/* 24V DC, filter 0.2ms, 4 x 2-wire connection */
-	BT_TYPE_KL1418 = 1418,	/* 24V DC, filter 0.2ms */
-	BT_TYPE_KL1434 = 1434,	/* 24V DC, filter 0.2ms, type 2 sensors, 4 x 2-wire connection */
-	BT_TYPE_KL1488 = 1488,  /* 24V DC, filter 3.0ms, n switching */
-	BT_TYPE_KL1498 = 1498,  /* 24V DC, filter 0.2ms, n switching */
-	BT_TYPE_KL1702 = 1702,	/* 230V AC/DC, power contacts */
-	BT_TYPE_KL1712 = 1712,	/* 120V AC/DC, power contacts */
-	BT_TYPE_KL1722 = 1722,	/* 230V AC/DC, no power contacts */
-
-	/* Digital Output, last digit means num of channels */
-	BT_TYPE_KL2012 = 2012,  /* 24 V DC, Imax = 0.5A */
-	BT_TYPE_KL2022 = 2022,  /* 24 V DC, Imax = 2.0A */
-	BT_TYPE_KL2032 = 2032,  /* 24 V DC, Imax = 0.5A, reverse voltage protection */
-	BT_TYPE_KL2114 = 2114,  /* 4-channel digital output terminal 24 V DC */
-	BT_TYPE_KL2124 = 2124,  /* 4-channel 5 V DC */
-	BT_TYPE_KL2134 = 2134,  /* 4-channel digital output terminal 24 V DC, reverse voltage protection */
-	BT_TYPE_KL2184 = 2184,  /* 4-channel digital output terminal 24 V DC, n switching */
-	BT_TYPE_KL2404 = 2404,  /* 4-channel digital output terminal 24 V DC, Imax=0.5A, 4x2-wire conn */
-	BT_TYPE_KL2408 = 2408,  /* 8-channel digital output terminal 24 V DC */
-	BT_TYPE_KL2808 = 2808,  /* 8-channel digital output terminal 24 V DC (with GND)*/
-	BT_TYPE_KL2488 = 2488,  /* 8-channel digital output terminal 24 V DC, n-switch */
-	BT_TYPE_KL2602 = 2602,  /* relay output terminal 230 VAC, make contacts */
-	BT_TYPE_KL2612 = 2612,  /* relay output terminal 120 VAC, change-over */
-	BT_TYPE_KL2622 = 2622,  /* relay output terminal 230 VAC, make contacts, np power contact */
-	BT_TYPE_KL2631 = 2631,  /* 1-channel relay output terminal 400 V AC, 300 V DC */
-	BT_TYPE_KL2702 = 2702,  /* 2-channel solid state load relay up to 230 V AC/DC, 0.3 A */
-	BT_TYPE_KL2712 = 2712,  /* 2-channel triac output terminal 12 ... 230 V AC , 0.5 A */
-	BT_TYPE_KL2722 = 2722,  /* 2-channel triac output terminal 12 ... 230 V AC , 1 A */
-	BT_TYPE_KL2732 = 2732,  /* 2-channel triac output terminal 12 ... 230 V AC , 1 A, no power contact */
-
-	/* Analog terminal with both input and output */
-	BT_TYPE_KL4494 = 4494,  /* 2-channel analog input, 2-channel analog output terminal -10 V ... 10 V, 12 bits */
-
-	/* Analog Input, last digit means num of channels */	
-	BT_TYPE_KL3001 = 3001,  /* 1-channel analog input terminal -10 ... 10 V, 12 bits */
-	BT_TYPE_KL3002 = 3002,  /* 2-channel analog input terminal, -10 ... 10 V, 12 bits */
-	BT_TYPE_KL3011 = 3011,  /* 1-channel analog input terminal 0 ... 20 mA, 12 bits */
-	BT_TYPE_KL3012 = 3012,  /* 2-channel analog input terminal, 0 ... 20 mA, 12 bits */
-	BT_TYPE_KL3021 = 3021,  /* 1-channel analog input terminal 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL3022 = 3022,  /* 2-channel analog input terminal, 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL3041 = 3041,  /* 1-channel loop-powered input terminal 0 ... 20 mA, 12 bits */
-	BT_TYPE_KL3042 = 3042,  /* 2-channel loop-powered input terminal 0 ... 20 mA, 12 bits */
-	BT_TYPE_KL3044 = 3044,  /* 4-channel analog input terminal, 0 ... 20 mA, 12 bits */
-	BT_TYPE_KL3051 = 3051,  /* 1-channel loop-powered input terminal 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL3052 = 3052,  /* 2-channel loop-powered input terminal 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL3054 = 3054,  /* 4-channel analog input terminal, 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL3061 = 3061,  /* 1-channel analog input terminal 0 ... 10 V, 12 bits */
-	BT_TYPE_KL3062 = 3062,  /* 2-channel analog input terminal, 0 ... 10 V, 12 bits */
-	BT_TYPE_KL3064 = 3064,  /* 4-channel analog input terminal, 0 ... 10 V, 12 bits */
-	BT_TYPE_KL3102 = 3102,  /* 2-channel analog input terminal, -10 ... 10 V, 16 bits */
-	BT_TYPE_KL3112 = 3112,  /* 2-channel analog input terminal, 0 ... 20 mA, 15/16 bits */
-	BT_TYPE_KL3122 = 3122,  /* 2-channel analog input terminal, 4 ... 20 mA, 15/16 bits */
-	BT_TYPE_KL3132 = 3132,  /* 2-channel analog input terminal, -10 ... 10 V, 16 bits */
-	BT_TYPE_KL3142 = 3142,  /* 2-channel analog input terminal, 0 ... 20 mA, 16 bits */
-	BT_TYPE_KL3152 = 3152,  /* 2-channel analog input terminal, 4 ... 20 mA, 16 bits */
-	BT_TYPE_KL3162 = 3162,  /* 2-channel analog input terminal, 0 ... 10 V, 16 bits */
-	BT_TYPE_KL3172 = 3172,  /* 2-channel analog input terminal, 0 ... 2 V, 16 bits */
-	BT_TYPE_KL3182 = 3182,  /* 2-channel analog input terminal, -2 ... 2 V, 16 bits */
-	BT_TYPE_KL3201 = 3201,  /* 1-channel input terminal PT100 (RTD), 16 bits */
-	BT_TYPE_KL3202 = 3202,  /* 2-channel input terminal PT100 (RTD), 16 bits */
-	BT_TYPE_KL3204 = 3204,  /* 4-channel input terminal PT100 (RTD), 16 bits */
-	BT_TYPE_KL3222 = 3222,  /* 2-channel input terminal PT100 (RTD) 4 wire type, 16 bits */
-	BT_TYPE_KL3311 = 3311,  /* 1-channel thermocouple with open-circuit recognition, 16 bits */
-	BT_TYPE_KL3312 = 3312,	/* 2-channel thermocouple with open-circuit recognition, 16 bits */
-	BT_TYPE_KL3314 = 3314,	/* 4-channel thermocouple with open-circuit recognition, 16 bits */
-	BT_TYPE_KL3351 = 3351,  /* 1-channel resistor bridge input terminal (strain gauge), 16 bits */
-	BT_TYPE_KL3356 = 3356,  /* 1-channel accurate resistance bridge evaluation, 16 bits */
-	BT_TYPE_KL3361 = 3361,  /* 1-channel oscilloscope terminal -16 mV ... +16 mV, 15 bits */
-	BT_TYPE_KL3362 = 3362,  /* 2-channel oscilloscope terminal -10 V ... +10 V, 15 bits */
-	BT_TYPE_KL3403 = 3403,  /* 3-phase power measurement terminal, 16 bits */
-	BT_TYPE_KL3404 = 3404,  /* 4-channel analog input terminal, -10 ... 10 V, 12 bits, 4x2-wire */
-	BT_TYPE_KL3408 = 3408,  /* 8-channel analog input terminal, -10 ... 10 V, 12 bits, 8x1-wire */
-	BT_TYPE_KL3444 = 3444,  /* 4-channel analog input terminal, 0 ... 20 mA, 12 bits, 4x2-wire */
-	BT_TYPE_KL3448 = 3448,  /* 8-channel analog input terminal, 0 ... 20 mA, 12 bits, 8x1-wire */
-	BT_TYPE_KL3454 = 3454,  /* 4-channel analog input terminal, 4 ... 20 mA, 12 bits, 4x2-wire */
-	BT_TYPE_KL3458 = 3458,  /* 8-channel analog input terminal, 4 ... 20 mA, 12 bits, 8x1-wire */
-	BT_TYPE_KL3464 = 3464,  /* 4-channel analog input terminal, 0 ... 10 V, 12 bits, 4x2-wire */
-	BT_TYPE_KL3468 = 3468,  /* 8-channel analog input terminal, 0 ... 10 V, 12 bits, 8x1-wire */
-
-	/* Analog Output, last digit means num of channels */
-	BT_TYPE_KL4001 = 4001,  /* 1-channel analog output terminal 0 ... 10 V, 12 bits */
-	BT_TYPE_KL4002 = 4002,  /* 2-channel analog output terminal 0 ... 10 V, 12 bits */
-	BT_TYPE_KL4004 = 4004,  /* 4-channel analog output terminal 0 ... 10 V, 12 bits */
-	BT_TYPE_KL4011 = 4011,  /* 1-channel analog output terminal 0 ... 20 mA, 12 bits */
-	BT_TYPE_KL4012 = 4012,  /* 2-channel analog output terminal 0 ... 20 mA, 12 bits */
-	BT_TYPE_KL4021 = 4021,  /* 1-channel analog output terminal 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL4022 = 4022,  /* 2-channel analog output terminal 4 ... 20 mA, 12 bits */
-	BT_TYPE_KL4031 = 4031,  /* 1-channel analog output terminal -10 ... 10 V, 12 bits */
-	BT_TYPE_KL4032 = 4032,  /* 2-channel analog output terminal -10 ... 10 V, 12 bits */
-	BT_TYPE_KL4034 = 4034,  /* 4-channel analog output terminal -10 ... 10 V, 12 bits */
-	BT_TYPE_KL4112 = 4112,  /* 2-channel analog output terminal 0 ... 20 mA, 16 bits */
-	BT_TYPE_KL4132 = 4132,  /* 2-channel analog output terminal -10 ... 10 V, 16 bits */
-	BT_TYPE_KL4404 = 4404,  /* 4-channel analog output terminal 0 ... 10 V, 12 bits, 4x2-wire */
-	BT_TYPE_KL4408 = 4408,  /* 8-channel analog output terminal 0 ... 10 V, 12 bits, 8x1-wire */
-	BT_TYPE_KL4414 = 4414,  /* 4-channel analog output terminal 0 ... 20 mA, 12 bits, 4x2-wire */
-	BT_TYPE_KL4418 = 4418,  /* 8-channel analog output terminal 0 ... 20 mA, 12 bits, 8x1-wire */
-	BT_TYPE_KL4424 = 4424,  /* 4-channel analog output terminal 4 ... 20 mA, 12 bits, 4x2-wire */
-	BT_TYPE_KL4428 = 4428,  /* 8-channel analog output terminal 4 ... 20 mA, 12 bits, 8x1-wire */
-	BT_TYPE_KL4434 = 4434,  /* 4-channel analog output terminal -10 ... 10 V, 12 bits, 4x2-wire */
-	BT_TYPE_KL4438 = 4438,  /* 8-channel analog output terminal -10 ... 10 V, 12 bits, 8x1-wire */
+	BT_TYPE_EL5042 = 5042,  /* 2-channel BiSS-C interface, 5V or 9V supply */
 
 }	E_EC_BUSTERM_TYPE;
 
@@ -340,7 +189,7 @@ typedef enum EC_BUSTERM_TYPE
 /* We try to describe bus terminal here, some info maybe overkill                         */
 /* We can't use input/output to describe terminal because some terminals have both        */
 /* We don't use analog/digital to describe terminal because complex is more accurate      */
-/* complex_in_bits is always same as complex_out_bits, for more general, we define both   */
+/* complex_in_bytes is NOT always same as complex_out_bytes for EtherCAT terminals        */
 /* This definition is for image mapping only, EK9000_BTDef.h defines terminals            */
 /******************************************************************************************/
 typedef	struct EC_BUSTERM_IMG_DEF
@@ -532,17 +381,17 @@ typedef struct EK9000_COUPLER
 
 	epicsMutexId		mutex_lock;
 
-	INSTALLED_BUSTERM	installedBusTerm[MAX_NUM_OF_BUSTERM+2];	/* +2 means include coupler 9000 and terminator 9010 */
-	UINT32			terminated;		/* Is KL9010 already installed */
+	INSTALLED_BUSTERM	installedBusTerm[MAX_NUM_OF_BUSTERM+2];	/* +2 means include coupler 9000 and terminator 9011 */
+	UINT32			terminated;		/* Is EL9011 already installed */
 
-	/* Below 4 we calculate first, then we read back from  memory imaged register of coupler to verify*/
-	UINT16			complex_out_bits;
-	UINT16			complex_in_bits;
+	/* Below 4 we calculate first, then we read back from memory imaged register of coupler to verify*/
+	UINT16			complex_out_bytes;
+	UINT16			complex_in_bytes;
 	UINT16			digital_out_bits;
 	UINT16			digital_in_bits;
 	/* Below 2 we calculate by software */
-	UINT32			total_out_words; /* This must be equal to (complex_out_bits + digital_out_bits +15)/16 */
-	UINT32			total_in_words; /* This must be equal to (complex_in_bits + digital_in_bits +15)/16 */
+	UINT32			total_out_words; /* This must be equal to (complex_out_bytes*8 + digital_out_bits +15)/16 */
+	UINT32			total_in_words; /* This must be equal to (complex_in_bytes*8 + digital_in_bits +15)/16 */
 
 	UINT32			couplerReady;	/* This indicate if coupler really usable */
 	UINT32			needReset;	/* This is used to bundle all register ops that need reset, so we only reset once to apply all */
@@ -557,7 +406,7 @@ typedef struct EK9000_COUPLER
 	UINT16			outputImage[MAX_WORDS_OF_OUTIMG];
 	UINT16			inputImage[MAX_WORDS_OF_INPIMG];
 
-	EK9000_SIGPTR_LIST	sigptr_list;	/* All singals' poniter link list */
+	EK9000_SIGPTR_LIST	sigptr_list;	/* All signals' pointer link list */
 
 	epicsMessageQueueId	msgQ_id;	/* Through this message queue, record processing sends request to opthread */
 
@@ -653,7 +502,7 @@ int	EK9000_MBT_Read_Cplr_ID(ModBusTCP_Link mbt_link, char * ID, int size, unsign
 
 /* This function uses MBT function 3 to read image size info from image */
 /* Then verify if the calculated size is correct */
-int	EK9000_MBT_Verify_Image_Size(ModBusTCP_Link mbt_link, unsigned short int cal_complex_out_bits, unsigned short int cal_complex_in_bits,
+int	EK9000_MBT_Verify_Image_Size(ModBusTCP_Link mbt_link, unsigned short int cal_complex_out_bytes, unsigned short int cal_complex_in_bytes,
 								 unsigned short int cal_digital_out_bits, unsigned short int cal_digital_in_bits, unsigned int toutsec);
 
 /* This function uses MBT function 3 to read memory image based register of EK9000 coupler */
