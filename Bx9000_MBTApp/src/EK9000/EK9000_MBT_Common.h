@@ -119,9 +119,9 @@ typedef double			DOUBLE64;
 /******************************************************************************************/
 #define	MAX_NUM_OF_BUSTERM	255	/* The max number of bus terminals per coupler */
 
-/* For EK9000 the stated max image size is for combined I/O, putting that number here for each image */
-#define	MAX_WORDS_OF_INPIMG	1440	/* The max number of word of input processing image */
-#define MAX_WORDS_OF_OUTIMG	1440    /* The max number of word of output processing image */
+/* For EK9000 the stated max image size is for combined I/O, putting that here for each image */
+#define	MAX_WORDS_OF_INPIMG	720	/* The max number of word of combined I/O image */
+#define MAX_WORDS_OF_OUTIMG	720    /* The max number of word of combined I/O image */
 
 /* Below we define some special offset of memory based registers */
 #define	INPUT_IMG_BASE		0
@@ -197,7 +197,6 @@ typedef	struct EC_BUSTERM_IMG_DEF
 	char			busterm_string[8];	/* String name of bus terminal, must be 6 characters */
 	E_EC_BUSTERM_TYPE	busterm_type;		/* number name of bus terminal */
 	UINT32			term_reg_exist;		/* 1: This terminal has registers, for coupler, this is not used, stay 0 */
-	UINT16			term_r32_dft;		/* default value of feature register, if not exist, stay 0 */
 	UINT16			complex_in_words;	/* how many words in complex input processing image */
 	UINT16			complex_out_words;	/* how many words in complex output processing image */
 	UINT16			digital_in_bits;	/* how many bits in digital input processing image */
@@ -365,14 +364,13 @@ typedef	struct INSTALLED_BUSTERM
 {
 	EC_BUSTERM_IMG_DEF	* pbusterm_img_def;
 	EK9000_INIT_LIST	init_list;
-	UINT16			term_r32_value;		/* If this terminal has registers, this will hold the latest setting of feature register, or else stays 0 */
 	UINT32			complex_in_wordoffset;	/* complex input word offset of this module in input processing image */
 	UINT32			complex_out_wordoffset;	/* complex output word offset of this module in output processing image */
 	UINT32			digital_in_bitoffset;	/* digital input bit offset of this module in input processing image */
 	UINT32			digital_out_bitoffset;	/* digital output bit offset of this module in output processing image */
 }	INSTALLED_BUSTERM;
 
-/* BC9000/BK9000 coupler information */
+/* EK9000 EtherCAT coupler information */
 typedef struct EK9000_COUPLER
 {
 	ELLNODE			node;	/* Linked List Node */
@@ -403,6 +401,7 @@ typedef struct EK9000_COUPLER
 	char				couplerID[COUPLER_ID_SIZE*2+2];
 	
 	/* We use hardcoded size, this wastes a little bit memory, but no malloc and error check */
+        /* Note this might need to be modified if there is ever the need for byte access */
 	UINT16			outputImage[MAX_WORDS_OF_OUTIMG];
 	UINT16			inputImage[MAX_WORDS_OF_INPIMG];
 

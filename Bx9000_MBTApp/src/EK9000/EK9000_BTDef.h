@@ -13,7 +13,6 @@ typedef	struct BUSTERM_IMG_DEF
 	UINT8			busterm_string[8];	/* String name of bus terminal, must be 6 characters */
 	E_BUSTERM_TYPE	busterm_type;		/* number name of bus terminal */
 	UINT32          term_reg_exist;     /* 1: This terminal has registers, for coupler, this is not used, stay 0 */
-	UINT16          term_r32_dft;       /* default value of feature register */
 	UINT16			complex_in_words;	/* how many words in complex input processing image */
 	UINT16			complex_out_words;	/* how many words in complex output processing image */
 	UINT16			digital_in_bits;	/* how many bits in digital input processing image */
@@ -22,13 +21,13 @@ typedef	struct BUSTERM_IMG_DEF
 #endif
 
 static BUSTERM_IMG_DEF	busterm_img_def[]={
-	{"EK9000",		BT_TYPE_EK9000,	0,	0,	0,	0,	0,	0},
+	{"EK9000",		BT_TYPE_EK9000,	0,	0,	0,	0,	0},
 
-	{"EL5042",		BT_TYPE_EL5042,	1,	0,	10,	0,	0,	0}, /* Biss-C module */
+	{"EL5042",		BT_TYPE_EL5042,	1,	10,	0,	0,	0}, /* Biss-C module */
 
-	{"EL9505",		BT_TYPE_EL9505,	0,	0,	0,	0,	0,	0}, /* Power Supply Module */
-	{"EL9080",		BT_TYPE_EL9080,	0,	0,	0,	0,	0,	0}, /* Separation terminal, just a blank */
-	{"EL9011",		BT_TYPE_EL9011,	0,	0,	0,	0,	0,	0} /* This must be last one */
+	{"EL9505",		BT_TYPE_EL9505,	0,	0,	0,	0,	0}, /* Power Supply Module */
+	{"EL9080",		BT_TYPE_EL9080,	0,	0,	0,	0,	0}, /* Separation terminal, just a blank */
+	{"EL9011",		BT_TYPE_EL9011,	0,	0,	0,	0,	0} /* This must be last one */
 };
 
 #define	N_BT_IMG_DEF	(sizeof(busterm_img_def)/sizeof(BUSTERM_IMG_DEF))

@@ -216,8 +216,6 @@ int	EK9000_Coupler_Add( char * cplrname, char * ipaddr, char * init_string )
 
 	/* Set installedBusTerm[0], there is no reason to fail to find EK9000's def */
 	pcoupler->installedBusTerm[0].pbusterm_img_def = EK9000_Get_BTDef_By_Ename(BT_TYPE_EK9000);
-	/* coupler has no feature register */
-	pcoupler->installedBusTerm[0].term_r32_value = pcoupler->installedBusTerm[0].pbusterm_img_def->term_r32_dft;
 	ellInit((ELLLIST *) & (pcoupler->installedBusTerm[0].init_list));
 	if(init_string)
 	{/* finish me*/
@@ -307,7 +305,7 @@ int	EK9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 	}
 
 	pcoupler->installedBusTerm[slot].pbusterm_img_def = pbtdef;
-	pcoupler->installedBusTerm[slot].term_r32_value = pcoupler->installedBusTerm[slot].pbusterm_img_def->term_r32_dft; /* set R32 value to default, if no R32, default will be 0 */
+//	pcoupler->installedBusTerm[slot].term_r32_value = pcoupler->installedBusTerm[slot].pbusterm_img_def->term_r32_dft; /* set R32 value to default, if no R32, default will be 0 */
 	ellInit( (ELLLIST *) & (pcoupler->installedBusTerm[slot].init_list) );
 	if(init_string)
 	{/* finish me */
@@ -499,10 +497,6 @@ static int EK9000_Coupler_Init(EK9000_COUPLER * pcoupler)
 		return -1;
 	}
 
-	/*****************************************************************************/
-
-	/*****************************************************************************/
-	/********Finish me *********For each installed terminal, read back R32********/
 	/*****************************************************************************/
 
 	/*****************************************************************************/
