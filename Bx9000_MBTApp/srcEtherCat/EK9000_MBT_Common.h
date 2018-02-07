@@ -283,7 +283,7 @@ typedef	enum	DATA_TYPE
 typedef	struct BUSTERM_SIG_PREDEF
 {/* We use this one to define signals */
 	char				busterm_string[8];		/* String name of bus terminal, must be 6 characters */
-	E_EC_BUSTERM_TYPE		busterm_type;			/* number name of bus terminal */
+	E_EC_BUSTERM_TYPE	busterm_type;			/* number name of bus terminal */
 	char				function[MAX_CA_STRING_SIZE];	/* Function name, should be the third part of INP/OUT field */
 	E_EC_BUSTERM_OPTYPE	busterm_optype;			/* The operation type, one of above list */
 	E_EPICS_RTYPE		epics_rtype;			/* EPICS record type to use this signal, EPICS_RTYP_NONE means not for EPICS or waive check */
@@ -296,7 +296,7 @@ typedef	struct BUSTERM_SIG_PREDEF
 typedef	struct BUSTERM_SIG_DEF
 {/* We use this one to really handle signals */
 	char				busterm_string[8];		/* String name of bus terminal, must be 6 characters */
-	E_EC_BUSTERM_TYPE		busterm_type;			/* number name of bus terminal */
+	E_EC_BUSTERM_TYPE	busterm_type;			/* number name of bus terminal */
 	char				function[MAX_CA_STRING_SIZE];	/* Function name, should be the third part of INP/OUT field */
 	E_EC_BUSTERM_OPTYPE	busterm_optype;			/* The operation type, one of above list */
 	E_EPICS_RTYPE		epics_rtype;			/* EPICS record type to use this signal, EPICS_RTYP_NONE means not for EPICS or waive check */
@@ -438,7 +438,7 @@ typedef	struct EK9000_SIGNAL
 
 	EK9000_FPTR		process_fptr;
 
-	EK9000_DEVDATA		* pdevdata;
+	EK9000_DEVDATA	* pdevdata;
 											
 	void			* pextra_arg;
 }	EK9000_SIGNAL;
