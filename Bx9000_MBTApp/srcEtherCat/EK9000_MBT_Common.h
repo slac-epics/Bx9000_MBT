@@ -495,6 +495,9 @@ int EK9000_MBT_Reset(ModBusTCP_Link mbt_link, unsigned int toutsec);
 /* We keep calling this in EK9000 connection monitor task to avoid link drop */
 int EK9000_MBT_TestLink(ModBusTCP_Link mbt_link, unsigned int toutsec);
 
+/* This function uses MBT function 8 to read diagnostic counters */
+int EK9000_MBT_Diag(ModBusTCP_Link mbt_link, unsigned int toutsec);
+
 /* This function uses MBT function 3 to read coupler id from image */
 /* ID must be a pre-malloced buffer with size bytes */
 int	EK9000_MBT_Read_Cplr_ID(ModBusTCP_Link mbt_link, char * ID, int size, unsigned int toutsec);

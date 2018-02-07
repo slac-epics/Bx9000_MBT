@@ -154,7 +154,7 @@ int	EK9000_MBT_Verify_Image_Size(
 	}
 
 	status = MBT_Function3(mbt_link, DIGITAL_OUT_IMG_BITS_MREG, 1, &temp, toutsec);
-	if(status != 0 || temp != caytedigital_out_bits)
+	if(status != 0 || temp != cal_digital_out_bits)
 	{
 		if ( EK9000_DRV_DEBUG && status == 0 )
 		{

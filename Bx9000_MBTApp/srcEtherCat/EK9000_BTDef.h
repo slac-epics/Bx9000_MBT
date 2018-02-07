@@ -20,7 +20,7 @@ typedef	struct BUSTERM_IMG_DEF
 }	BUSTERM_IMG_DEF;
 #endif
 
-static BUSTERM_IMG_DEF	busterm_img_def[]={
+static EC_BUSTERM_IMG_DEF	busterm_img_def[]={
 	{"EK9000",		BT_TYPE_EK9000,	0,	0,	0,	0,	0},
 
 	{"EL5042",		BT_TYPE_EL5042,	1,	10,	0,	0,	0}, /* Biss-C module */

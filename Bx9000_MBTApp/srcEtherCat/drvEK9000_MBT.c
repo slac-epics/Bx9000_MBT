@@ -1,4 +1,4 @@
-#include "EK9000_MBT_Common.h1
+#include "EK9000_MBT_Common.h"
 #include "EK9000_BTDef.h"
 #include "EK9000_SigDef.h"
 #include "EK9000_Watchdog.h"
