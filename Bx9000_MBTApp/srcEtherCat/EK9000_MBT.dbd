@@ -4,4 +4,5 @@ device(stringin,INST_IO,devSiEK9000Info,"EK9000_Info")
 
 device(ai,INST_IO,devAiKL5042,"EK9000_KL5042")
 driver(drvEK9000_MBT)
+variable( EK9000_DRV_DEBUG, int )
 registrar("drvEK9000_MBT_Register")
