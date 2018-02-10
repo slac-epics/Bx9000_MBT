@@ -10,8 +10,8 @@ extern "C" {
 #if	0	/* Must be 0, just for reference here */
 typedef	struct BUSTERM_IMG_DEF
 {
-	UINT8			busterm_string[8];	/* String name of bus terminal, must be 6 characters */
-	E_BUSTERM_TYPE	busterm_type;		/* number name of bus terminal */
+	UINT8			busterm_string[8];	/* String name of ECAT bus terminal, must be 6 characters */
+	EC_E_BUSTERM_TYPE	busterm_type;		/* number name of ECAT bus terminal */
 	UINT32          term_reg_exist;     /* 1: This terminal has registers, for coupler, this is not used, stay 0 */
 	UINT16			complex_in_words;	/* how many words in complex input processing image */
 	UINT16			complex_out_words;	/* how many words in complex output processing image */
