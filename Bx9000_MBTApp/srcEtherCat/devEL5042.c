@@ -57,16 +57,17 @@ static long read_ai_EL5042(struct aiRecord * pai)
 		else
 		{
 			pai->udf = FALSE;
+//  Commenting out these lines since there is no feature register in EtherCAT.  Will clean up later.
 			/* psignal->pdevdata->pbusterm_sig_def->data_type is a little bit overkill */
 			/* We don't check term_reg_exist, because we know we do */
-			if(psignal->pdevdata->pcoupler->installedBusTerm[psignal->pdevdata->slot].term_r32_value & 0x8)/* check bit 3 */
-			{/* signed amount */
-				pai->rval = ( (psignal->pdevdata->value)&0x7FFF ) * ( ((psignal->pdevdata->value)&0x8000)?-1:1 );
-			}
-			else
-			{/* two's complement */
-				pai->rval = (SINT16)(psignal->pdevdata->value);
-			}
+//			if(psignal->pdevdata->pcoupler->installedBusTerm[psignal->pdevdata->slot].term_r32_value & 0x8)/* check bit 3 */
+//			{/* signed amount */
+//				pai->rval = ( (psignal->pdevdata->value)&0x7FFF ) * ( ((psignal->pdevdata->value)&0x8000)?-1:1 );
+//			}
+//			else
+//			{/* two's complement */
+//				pai->rval = (SINT16)(psignal->pdevdata->value);
+//			}
 		}
 	}
 	return (CONVERT);

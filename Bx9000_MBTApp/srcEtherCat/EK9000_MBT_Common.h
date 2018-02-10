@@ -77,6 +77,8 @@
 
 #include "ModBusTCPClnt.h"
 
+
+#define	EK9000_MBT_DRV_VER_STRING	"EK9000_MBT driver version 0.1.0"
 /******************************************************************************************/
 /*********************         define general data type         ***************************/
 /* we don't use epicsType because under vxWorks, char is unsigned by default              */

@@ -43,26 +43,26 @@ EK9000_COUPLER * EK9000_Get_Coupler_By_Name( const char * cplrname )
 	return pcoupler;
 }
 
-/* This function returns the pointer to the busterm_img_def by string name */
-static BUSTERM_IMG_DEF * EK9000_Get_BTDef_By_Cname(char * btcname)
+/* This function returns the pointer to the ec_busterm_img_def by string name */
+static EC_BUSTERM_IMG_DEF * EK9000_Get_BTDef_By_Cname(char * btcname)
 {
 	UINT32	loop;
-	for(loop=0; loop < N_BT_IMG_DEF; loop++)
+	for(loop=0; loop < EC_N_BT_IMG_DEF; loop++)
 	{
-		if( 0 == strcmp((char *) busterm_img_def[loop].busterm_string, btcname) )
-			return	(busterm_img_def+loop);
+		if( 0 == strcmp((char *) ec_busterm_img_def[loop].busterm_string, btcname) )
+			return	(ec_busterm_img_def+loop);
 	}
 	return NULL;
 }
 
-/* This function returns the pointer to the busterm_img_def by enum name */
-static BUSTERM_IMG_DEF * EK9000_Get_BTDef_By_Ename(E_BUSTERM_TYPE bttype)
+/* This function returns the pointer to the ec_busterm_img_def by enum name */
+static EC_BUSTERM_IMG_DEF * EK9000_Get_BTDef_By_Ename(EC_E_BUSTERM_TYPE bttype)
 {
 	UINT32	loop;
-	for(loop=0; loop < N_BT_IMG_DEF; loop++)
+	for(loop=0; loop < EC_N_BT_IMG_DEF; loop++)
 	{
-		if( busterm_img_def[loop].busterm_type == bttype )
-			return	(busterm_img_def+loop);
+		if( ec_busterm_img_def[loop].busterm_type == bttype )
+			return	(ec_busterm_img_def+loop);
 	}
 	return NULL;
 }
@@ -86,7 +86,7 @@ BUSTERM_SIG_DEF * EK9000_Get_SigDef_By_Cname(char * btcname, char * func, E_EPIC
 }
 
 /* This function returns the pointer to the BUSTERM_SIG_DEF by enum name */
-BUSTERM_SIG_DEF * EK9000_Get_SigDef_By_Ename(E_BUSTERM_TYPE bttype, char * func, E_EPICS_RTYPE epics_rtype)
+BUSTERM_SIG_DEF * EK9000_Get_SigDef_By_Ename(EC_E_BUSTERM_TYPE bttype, char * func, E_EPICS_RTYPE epics_rtype)
 {
 	UINT32	loop;
 	for(loop=0; loop < N_BT_SIG_PREDEF; loop++)
@@ -241,7 +241,7 @@ static int EK9000_Operation(EK9000_COUPLER * pcoupler);
 int	EK9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * init_string)
 {
 	EK9000_COUPLER	* pcoupler = NULL;
-	BUSTERM_IMG_DEF	* pbtdef = NULL;
+	EC_BUSTERM_IMG_DEF	* pbtdef = NULL;
 	UINT32	loop;
 
 	/* Parameters check */
@@ -952,7 +952,7 @@ int	EK9000_Signal_Init(
 	dbCommon		*	precord,
 	E_EPICS_RTYPE		epics_rtype,
 	char			*	ioString,
-	E_BUSTERM_TYPE		bttype,
+	EC_E_BUSTERM_TYPE		bttype,
 	EK9000_FPTR			process_fptr,
 	void			*	pextra_arg	)
 {
