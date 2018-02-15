@@ -38,11 +38,17 @@ typedef	struct BUSTERM_SIG_PREDEF
 }	BUSTERM_SIG_PREDEF;
 #endif
 
-/* Most of signals could be processed by default function, but if you have anything longer than 16 bits, you might need your own function */
+/* Most of signals could be processed by default function, but if you have anything longer than 32 bits, you might need your own function */
 static	BUSTERM_SIG_PREDEF	busterm_sig_predef[]= {
-
-	{"EL5042", BT_TYPE_EL5042, "R_ANA_IN_1",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_AI, DTYP_SINT16,    1, 1, 16},
-	{"EL5042", BT_TYPE_EL5042, "R_ANA_IN_2",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_AI, DTYP_SINT16,    3, 1, 16},
+#ifdef DBR_INT64
+	{"EL5042", BT_TYPE_EL5042, "R_LONG_IN_1",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_LI, DTYP_UINT64,    1, 1, 64},
+	
+	{"EL5042", BT_TYPE_EL5042, "R_LONG_IN_2",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_LI, DTYP_UINT64,    9, 1, 64},
+#else
+	{"EL5042", BT_TYPE_EL5042, "R_LONG_IN_1",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_LI, DTYP_UINT32,    1, 1, 32},
+	
+	{"EL5042", BT_TYPE_EL5042, "R_LONG_IN_2",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_LI, DTYP_UINT32,    5, 1, 32},
+#endif
 
 };
 

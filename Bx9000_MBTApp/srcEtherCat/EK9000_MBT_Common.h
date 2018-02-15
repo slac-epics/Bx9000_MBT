@@ -89,6 +89,7 @@ typedef unsigned short int	UINT16;
 typedef unsigned int		UINT32;
 #endif
 
+typedef unsigned long int	UINT64;
 typedef signed char		SINT8;
 typedef signed short int	SINT16;
 typedef signed int		SINT32;
@@ -258,6 +259,7 @@ typedef	enum	DATA_TYPE
 	DTYP_UINT8,
 	DTYP_UINT16,
 	DTYP_UINT32,
+	DTYP_UINT64,
 	DTYP_SINT8,
 	DTYP_SINT16,
 	DTYP_SINT32,
@@ -416,7 +418,7 @@ typedef struct EK9000_COUPLER
 
 }	EK9000_COUPLER;
 
-/* EK9000 device suport record information */
+/* EK9000 device support record information */
 typedef	struct EK9000_DEVDATA
 {
 	dbCommon       		* precord;
@@ -424,15 +426,14 @@ typedef	struct EK9000_DEVDATA
 	EK9000_COUPLER		* pcoupler;
 	UINT16			slot;							
 	BUSTERM_SIG_DEF		* pbusterm_sig_def;
-
-	UINT16			value;	/* the value of input or ouput, 16 bits fits most of signals */
+	UINT64			value;	/* the value of input or output, for EtherCAT the most we have seen is 64-bit width */
 
 	int				op_done;
 	UINT32			err_code;	/* high 16 will be local error, low 16 will copy MBTC err code, 0 means no error */
 
 }	EK9000_DEVDATA;
 
-/* This is the one dpvt ponits to and send in message queue */
+/* This is the one dpvt points to and send in message queue */
 typedef	SINT32	(* EK9000_FPTR)(EK9000_DEVDATA * pdevdata, void * pextra_arg);
 typedef	struct EK9000_SIGNAL
 {
