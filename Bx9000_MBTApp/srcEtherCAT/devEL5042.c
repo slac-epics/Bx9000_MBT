@@ -57,17 +57,6 @@ static long read_li_EL5042(struct longinRecord * pli)
 		else
 		{
 			pli->udf = FALSE;
-//  Commenting out these lines since there is no feature register in EtherCAT.  Will clean up later.
-			/* psignal->pdevdata->pbusterm_sig_def->data_type is a little bit overkill */
-			/* We don't check term_reg_exist, because we know we do */
-//			if(psignal->pdevdata->pcoupler->installedBusTerm[psignal->pdevdata->slot].term_r32_value & 0x8)/* check bit 3 */
-//			{/* signed amount */
-//				pli->rval = ( (psignal->pdevdata->value)&0x7FFF ) * ( ((psignal->pdevdata->value)&0x8000)?-1:1 );
-//			}
-//			else
-//			{/* two's complement */
-//				pli->rval = (SINT16)(psignal->pdevdata->value);
-//			}
 		}
 	}
 	return (0);
