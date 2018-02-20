@@ -1,0 +1,31 @@
+#==============================================================================
+#
+# Abs:  Beckhoff EL5042 2 Ch BiSS-C / SSI
+#
+# Name: EL5042.substitutions
+#
+# Auth: 20-Feb-2018, Scott Stubbs	(sstubbs)
+#
+#==============================================================================
+#
+
+file EL5042.template
+{
+	pattern
+	{	SLOT,
+		SIG1, SIG1.DESC,
+			SIG1.HYST,	SIG1.ADEL,	SIG1.MDEL,
+			SIG1.SCAN,	
+		SIG2, SIG2.DESC,
+			SIG2.HYST,	SIG2.ADEL,	SIG2.MDEL,
+			SIG2.SCAN
+	}
+	{	2,
+		$(COUPLER_LOC):EL5042:SLOT$(SLOT):ENC1, "Encoder readback 1",
+			1,			1,			0.1,
+			".5 second",	
+		$(COUPLER_LOC):EL5042:SLOT$(SLOT):ENC2, "Encoder readback 2",
+			1,			1,			0.1,
+			".5 second"
+	}
+}
