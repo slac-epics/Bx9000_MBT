@@ -29,6 +29,8 @@ static long init_li_EL5042(struct longinRecord * pli)
 static long read_li_EL5042(struct longinRecord * pli)
 {
 	EK9000_SIGNAL	* psignal = (EK9000_SIGNAL *) (pli->dpvt);
+        if(sizeof(pli->val) <= 4) {
+		errlogPrintf("Warning, only 32-bit resolution supported in EPICS < 3.16.1"); }
 	pli->val = psignal->pdevdata->value;
 
 	if (!pli->pact)
