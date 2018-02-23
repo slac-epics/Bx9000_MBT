@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////////////////////////////
+// This file is part of 'Bx9000_MBT'.
+// It is subject to the license terms in the LICENSE.txt file found in the 
+// top-level directory of this distribution and at: 
+//    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html. 
+// No part of 'Bx9000_MBT', including this file, 
+// may be copied, modified, propagated, or distributed except according to 
+// the terms contained in the LICENSE.txt file.
+//////////////////////////////////////////////////////////////////////////////
 #ifndef	_EK9000_MBT_COMMON_H_
 #define	_EK9000_MBT_COMMON_H_
 
@@ -199,7 +208,6 @@ typedef	struct EC_BUSTERM_IMG_DEF
 {
 	char			busterm_string[8];	/* String name of bus terminal, must be 6 characters */
 	EC_E_BUSTERM_TYPE	busterm_type;		/* number name of bus terminal */
-	UINT32			term_reg_exist;		/* 1: This terminal has registers, for coupler, this is not used, stay 0 */
 	UINT16			complex_in_words;	/* how many words in complex input processing image */
 	UINT16			complex_out_words;	/* how many words in complex output processing image */
 	UINT16			digital_in_bits;	/* how many bits in digital input processing image */

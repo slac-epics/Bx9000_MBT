@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////////////////////////////
+// This file is part of 'Bx9000_MBT'.
+// It is subject to the license terms in the LICENSE.txt file found in the 
+// top-level directory of this distribution and at: 
+//    https://confluence.slac.stanford.edu/display/ppareg/LICENSE.html. 
+// No part of 'Bx9000_MBT', including this file, 
+// may be copied, modified, propagated, or distributed except according to 
+// the terms contained in the LICENSE.txt file.
+//////////////////////////////////////////////////////////////////////////////
 #include "EK9000_MBT_Common.h"
 #include "EK9000_BTDef.h"
 #include "EK9000_SigDef.h"
@@ -305,7 +314,6 @@ int	EK9000_Terminal_Add( char * cplrname, UINT16 slot, char * btname, char * ini
 	}
 
 	pcoupler->installedBusTerm[slot].pbusterm_img_def = pbtdef;
-//	pcoupler->installedBusTerm[slot].term_r32_value = pcoupler->installedBusTerm[slot].pbusterm_img_def->term_r32_dft; /* set R32 value to default, if no R32, default will be 0 */
 	ellInit( (ELLLIST *) & (pcoupler->installedBusTerm[slot].init_list) );
 	if(init_string)
 	{/* finish me */
