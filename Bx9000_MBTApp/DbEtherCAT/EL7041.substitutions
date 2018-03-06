@@ -1,0 +1,28 @@
+
+file EL7041.template
+{
+	pattern
+	{	SLOT,
+		SIG1_AI,		SIG1_AI.DESC,
+			SIG1_AI.ADEL,	SIG1_AI.MDEL,	SIG1_AI.SMOO,	SIG1_AI.UNIT, SIG1_AI.EGUF,	SIG1_AI.EGUL,	
+			SIG1_AI.HOPR,	SIG1_AI.HIHI,	SIG1_AI.HIGH,	SIG1_AI.HYST,	
+			SIG1_AI.LOW,	SIG1_AI.LOLO,	SIG1_AI.LOPR,	SIG1_AI.SCAN,
+		SIG1_AO,		SIG1_AO.DESC,
+			SIG1_AO.UNIT,	SIG1_AO.EGUF,	SIG1_AO.EGUL,
+			SIG1_AO.HOPR,	SIG1_AO.LOPR,	SIG1_AO.DRVH,	SIG1_AO.DRVL,	SIG1_AO.PINI,
+
+
+				}
+#	Include one instance of the pattern for each instance
+#	of this module, substituting the appropriate slot number
+#	and signal attributes
+	{	12,
+		$(COUPLER_LOC):EL7041:SLOT$(SLOT):POS_RBK, "Position",
+			0,		0,		0,		mm,		10,		0,
+			10,		9,		5,		0,
+			2,		1,		0,		".1 second",
+		$(COUPLER_LOC):EL7041:SLOT$(SLOT):POS_CMD, "Commanded Position",
+			mm,		10,			-10,
+			10,			-10,		10,			-10,			NO,	
+	}
+}

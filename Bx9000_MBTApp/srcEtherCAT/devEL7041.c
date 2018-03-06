@@ -10,9 +10,10 @@
 #include <EK9000_MBT_Common.h>
 #include <aiRecord.h>
 #include <aoRecord.h>
+//TODO: May want to redo init code to handle stepper terminals, or anything with I/O
 
 /* EL7041 is a Stepper motor terminal w/ incremental encoder input */
-/* Can be viewed as analog I/O  */
+/*I believe it can be viewed as analog I/O  */
 
 extern	SINT32	EK9000_DEV_DEBUG;
 

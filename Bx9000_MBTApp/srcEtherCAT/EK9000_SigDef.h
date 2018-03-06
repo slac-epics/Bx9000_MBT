@@ -59,6 +59,11 @@ static	BUSTERM_SIG_PREDEF	busterm_sig_predef[]= {
 	{"EL5042", BT_TYPE_EL5042, "R_LONG_IN_2",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_LI, DTYP_UINT32,    5, 1, 32},
 #endif
 
+	{"EL7041", BT_TYPE_EL7041, "R_ANALOG_IN_1",        BT_OPTYPE_READ_INPUT_CIMG,      EPICS_RTYPE_AI, DTYP_SINT32,    1, 1, 32},
+	
+	{"EL7041", BT_TYPE_EL7041, "R_ANALOG_OUT_1",       BT_OPTYPE_WRITE_INPUT_CIMG,      EPICS_RTYPE_AO, DTYP_SINT32,    1, 1, 32},
+
+
 };
 
 #define	N_BT_SIG_PREDEF	(sizeof(busterm_sig_predef)/sizeof(BUSTERM_SIG_PREDEF))
