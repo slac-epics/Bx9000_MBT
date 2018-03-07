@@ -46,6 +46,7 @@ DB += KL3464.template
 
 DB += KL3404-signal.template
 
+DB += Bk9000.db
 DB += Bx9000-lcls.db
 DB += Bx9000Info-lcls.template
 DB += Bx9000InstalledBTs-lcls.template
