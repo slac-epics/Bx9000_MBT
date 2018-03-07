@@ -12,6 +12,8 @@ include $(TOP)/configure/CONFIG
 # databases, templates, substitutions like this
 DB += Bk9000Info.template
 DB += Bk9000InstalledBTs.template
+DB += Bx9000Info.template
+DB += Bx9000InstalledBTs.template
 DB += KL1104.template
 DB += KL1002.template
 DB += KL1124.template
@@ -26,6 +28,8 @@ DB += KL2512.template
 DB += KL2622.template
 DB += KL3064.template
 DB += KL3102.template
+DB += KL3022.template
+DB += KL3012.template
 DB += KL3162.template
 DB += KL3202.template
 DB += KL3204.template
@@ -36,11 +40,17 @@ DB += KL3404.template
 DB += KL3408.template
 DB += KL3468.template
 DB += KL4002.template
+DB += KL4004.template
 DB += KL4132.template
 DB += KL3464.template
 
 DB += KL3404-signal.template
 
+DB += Bx9000-lcls.db
+DB += Bx9000Info-lcls.template
+DB += Bx9000InstalledBTs-lcls.template
+DB += KL1104-lcls.template
+DB += KL1124-lcls.template
 
 # Also install substitutions files for easy access
 DB += Bk9000.substitutions
@@ -73,13 +83,36 @@ DB += KL3464.substitutions
 DB += Bk9000Info-lcls.template
 DB += Bk9000InstalledBTs-lcls.template
 DB += KL1488-lcls.template
+DB += KL1408-lcls.template
+DB += KL2114-lcls.template
+DB += KL2124-lcls.template
+DB += KL2408-lcls.template
+DB += KL2872-lcls.template
+DB += KL3064-lcls.template
+DB += KL3102-lcls.template
+DB += KL3022-lcls.template
+DB += KL3022-lcls-standalone.template
+DB += KL3012-lcls.template
+DB += KL3012-lcls-standalone.template
 DB += KL3162-lcls.template
 DB += KL2408-lcls.template
 DB += KL3202-lcls.template 
 DB += KL3222-lcls.template 
 DB += KL3314-lcls.template 
 DB += KL3408-lcls.template
+DB += KL4002-lcls.template
+DB += KL4004-lcls.template
+DB += KL4132-lcls.template
+DB += KM1004-lcls.template
+DB += KM2004-lcls.template
+
 DB += analog-conversion-lcls.template
+
+# Single channel general purpose analog channel
+# Does not contain or reference higher-level PV(s)
+#DB += Bx9000-anlgchan-standalone.db
+
+# For use in conjunction with analog-conversion-lcls.template
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

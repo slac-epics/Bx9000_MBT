@@ -1,0 +1,33 @@
+record(ao, "$(ALIAS)") {
+  field(DESC, "Analog Channel $(CH) Set")
+  field(PREC, "$(PREC)")
+  field(EGUF, "$(EGUF)")
+  field(EGUL, "$(EGUL)")
+  field(DRVH, "$(DRVH)")
+  field(DRVL, "$(DRVL)")
+  field(HOPR, "$(HOPR)")
+  field(LOPR, "$(LOPR)")
+  field(EGU,  "$(UNIT)")
+  field(PINI, "$(PINI)")
+  field(LINR, "LINEAR")
+  field(OMSL, "supervisory")
+  field(FLNK, "$(APC):M$(SLOT)_CH$(CH)_SIG")
+}
+
+record(ao, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
+  field(DESC, "Analog Channel $(CH) Set")
+  field(DTYP, "Bx9000_KL4132")
+  field(OUT,  "@$(COUPLER):$(SLOT):W_ANA_OUT_$(CH)")
+  field(PREC, "$(PREC)")
+  field(EGUF, "$(EGUF)")
+  field(EGUL, "$(EGUL)")
+  field(DRVH, "$(DRVH)")
+  field(DRVL, "$(DRVL)")
+  field(HOPR, "$(HOPR)")
+  field(LOPR, "$(LOPR)")
+  field(EGU,  "$(UNIT)")
+  field(PINI, "NO")
+   field(DOL, "$(ALIAS)")
+   field(OMSL, "closed_loop")
+  field(LINR, "LINEAR")
+}

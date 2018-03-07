@@ -1,0 +1,30 @@
+record(ai, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
+  field(DESC, "$(D="Analog Channel $(CH) Readback")")
+  field(SCAN, "$(SCAN=1 second)")
+  field(DTYP, "Bx9000_KL3064")
+  field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_$(CH)")
+  field(PREC, "$(PREC=3)")
+  field(ADEL, "$(ADEL=0.001)")
+  field(EGUF, "$(EGUF=10)")
+  field(EGUL, "$(EGUL=0)")
+  field(HIGH, "$(HIGH)")
+  field(HIHI, "$(HIHI)")
+  field(HOPR, "$(HOPR=10)")
+  field(HYST, "$(HYST="")")
+  field(LOLO, "$(LOLO)")
+  field(LOPR, "$(LOPR=0)")
+  field(LOW,  "$(LOW)")
+  field(MDEL, "$(MDEL=-.001)")
+  field(SMOO, "$(SMOO="")")
+  field(EGU,  "$(EGU=Volts)")
+  field(HHSV, "$(HHSV=MAJOR)")
+  field(LLSV, "$(LLSV=MAJOR)")
+  field(HSV,  "$(HSV=MINOR)")
+  field(LSV,  "$(LSV=MINOR)")
+  field(LINR, "LINEAR")
+  field(FLNK, "$(FLNK=$(APC):M$(SLOT)_CH$(CH)_EGU)")
+$(A=#) alias("$(ALIAS)")
+}
+
+
+
