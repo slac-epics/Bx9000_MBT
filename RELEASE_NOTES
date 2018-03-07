@@ -5,6 +5,11 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
+R2.6.0-1.1.0:	Mar-06-2018 - Bruce Hill
+	Restored many lcls template files that got left out during initial merge.
+	Fixed conversion between val and rval to work w unsigned roff. Needed as of base 3.14.12.5
+	Export Bk9000_DRV_DEBUG variable so it's accessible from iocsh
+
 R2.6.0-1.0.0:	Apr-24-2017 - Marcio Donadio
 		This is version R2.6.0 plus changings made by PCDS:
 		- Run patches/*
