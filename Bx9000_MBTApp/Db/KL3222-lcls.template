@@ -42,7 +42,7 @@
 record(ai, "$(ALIAS)") {
   field(DESC,"$(D)")
   field(SCAN, "1 second")
-  field(INP, "$(ALIAS)_AVG PP MS")
+  field(INP, "$(ALIAS)_AVG PP MSI")
   field(PREC, "$(P)")
   field(EGU, "DegF")
   field(HOPR, "$(H)")
@@ -67,7 +67,7 @@ record(ai, "$(ALIAS)") {
 #---------------------------------------
 record(compress, "$(ALIAS)_AVG") {
   field(DESC, "Avg sig samples")
-  field(INP, "$(ALIAS)_DATA NPP MS")
+  field(INP, "$(ALIAS)_DATA NPP MSI")
   field(ALG, "N to 1 Average")
   field(N, "$(NSAM)")
   field(NSAM, "1")
@@ -77,7 +77,7 @@ record(compress, "$(ALIAS)_AVG") {
 
 record(compress, "$(ALIAS)_DATA") {
   field(DESC, "Samples to avg")
-  field(INP, "$(APC):M$(SLOT)_CH$(CH)_TEMP NPP MS")
+  field(INP, "$(APC):M$(SLOT)_CH$(CH)_TEMP NPP MSI")
   field(ALG, "Circular Buffer")
   field(NSAM, "$(NSAM)")
   field(PREC, "$(P)")
