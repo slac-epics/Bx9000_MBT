@@ -5,6 +5,9 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
+R2.6.0-0.2.1:	2018-11-06 Bruce Hill
+	Update to ModBusTCPClnt/R2.3.0-1.1.0
+
 R2.6.0-0.2.0:	Mar-06-2018 - Bruce Hill
 	Restored many lcls template files that got left out during initial merge.
 	Restored some missing edm files.
