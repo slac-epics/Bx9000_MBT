@@ -19,7 +19,7 @@
 # Don't set your version to anything such as "test" that
 # could match a directory name.
 # ==========================================================
-MODBUSTCPCLNT_MODULE_VERSION=R2.3.0-1.1.0
+MODBUSTCPCLNT_MODULE_VERSION=R2.3.0-1.2.0
 
 # ==========================================================
 # Define module paths using pattern

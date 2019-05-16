@@ -12,6 +12,10 @@ PROD_IOC = BK9KSoftTest
 # <name>.dbd will be created from <name>Include.dbd
 DBD += BK9KSoftTest.dbd
 
+BK9KSoftTest_DBD += base.dbd
+BK9KSoftTest_DBD += ModBusTCPClnt.dbd
+BK9KSoftTest_DBD += Bk9000_MBT.dbd
+
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 BK9KSoftTest_SRCS += BK9KSoftTest_registerRecordDeviceDriver.cpp
 BK9KSoftTest_SRCS_DEFAULT += BK9KSoftTestMain.cpp
