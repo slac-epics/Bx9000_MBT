@@ -2,7 +2,7 @@ record(bi, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
   field(DESC, "Digital Channel $(CH) Readback")
 #Need to scan faster than 1 Hz to avoid bad watchdog state?
   field(SCAN, ".1 second")
-  field(DTYP, "Bx9000_KL1408")
+  field(DTYP, "Bk9000_KL1408")
   field(INP,  "@$(COUPLER):$(SLOT):R_DIG_IN_$(CH)")
   field(ZNAM, "$(ZNAM)")
   field(ONAM, "$(ONAM)")

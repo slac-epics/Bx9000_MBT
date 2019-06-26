@@ -1,6 +1,6 @@
 record(ao, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG1)") {
   field(DESC, "Analog Channel 1 Set")
-  field(DTYP, "Bx9000_KL4004")
+  field(DTYP, "Bk9000_KL4004")
   field(OUT,  "@$(COUPLER):$(SLOT):W_ANA_OUT_1")
   field(PREC, "3")
   field(EGUF, "$(SIG1.EGUF)")
@@ -16,7 +16,7 @@ record(ao, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG1)") {
 
 record(ao, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG2)") {
   field(DESC, "Analog Channel 2 Set")
-  field(DTYP, "Bx9000_KL4004")
+  field(DTYP, "Bk9000_KL4004")
   field(OUT,  "@$(COUPLER):$(SLOT):W_ANA_OUT_2")
   field(PREC, "3")
   field(EGUF, "$(SIG2.EGUF)")
@@ -32,7 +32,7 @@ record(ao, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG2)") {
 
 record(ao, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG3)") {
   field(DESC, "Analog Channel 3 Set")
-  field(DTYP, "Bx9000_KL4004")
+  field(DTYP, "Bk9000_KL4004")
   field(OUT,  "@$(COUPLER):$(SLOT):W_ANA_OUT_3")
   field(PREC, "3")
   field(EGUF, "$(SIG3.EGUF)")
@@ -48,7 +48,7 @@ record(ao, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG3)") {
 
 record(ao, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG4)") {
   field(DESC, "Analog Channel 4 Set")
-  field(DTYP, "Bx9000_KL4004")
+  field(DTYP, "Bk9000_KL4004")
   field(OUT,  "@$(COUPLER):$(SLOT):W_ANA_OUT_4")
   field(PREC, "3")
   field(EGUF, "$(SIG4.EGUF)")

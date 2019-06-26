@@ -6,7 +6,7 @@ record(longin, "$(APC):CPLRCOUTWDS") {
   field(DESC, "Complex output words")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:COWCNT")
 }
 
@@ -14,7 +14,7 @@ record(longin, "$(APC):CPLRCINWDS") {
   field(DESC, "Complex input words")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:CIWCNT")
 }
 
@@ -22,7 +22,7 @@ record(longin, "$(APC):CPLRDOUTBITS") {
   field(DESC, "Digital output bits")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:DOBCNT")
 }
 
@@ -30,7 +30,7 @@ record(longin, "$(APC):CPLRDINBITS") {
   field(DESC, "Digital input bits")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:DIBCNT")
 }
 
@@ -38,7 +38,7 @@ record(longin, "$(APC):CPLRNOFCONN") {
   field(DESC, "Nth of Connection")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:NOFCONN")
 }
 
@@ -46,7 +46,7 @@ record(longin, "$(APC):CPLRNOFEXCP") {
   field(DESC, "Nth of Exception")
   field(SCAN, "1 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:NOFEXCP")
 }
 
@@ -54,7 +54,7 @@ record(longin, "$(APC):CPLRNOFPKTS") {
   field(DESC, "Number of Packets Sent")
   field(SCAN, "1 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:NOFPKTS")
 }
 
@@ -62,7 +62,7 @@ record(longin, "$(APC):CPLRNOFSIGS") {
   field(DESC, "Number of Signals of CPLR")
   field(SCAN, "Passive")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:NOFSIGS")
 }
 
@@ -70,7 +70,7 @@ record(longin, "$(APC):CPLROPTHRDID") {
   field(DESC, "Op thread ID")
   field(SCAN, "Passive")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:OPTHRDID")
 }
 
@@ -79,7 +79,7 @@ record(mbbi, "$(APC):CPLRREADY") {
   field(SCAN, "1 second")
   field(PINI, "YES")
   field(PHAS, "2")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:CPLRRDY")
   field(ZRVL, "0")
   field(ONVL, "1")
@@ -128,7 +128,7 @@ record(mbbi, "$(APC):CPLRLINKSTAT") {
   field(SCAN, "1 second")
   field(PINI, "YES")
   field(PHAS, "2")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:LINKSTAT")
   field(ZRVL, "0")
   field(ONVL, "1")
@@ -146,7 +146,7 @@ record(stringin, "$(APC):CPLRNAME") {
   field(DESC, "Name of Coupler")
   field(SCAN, "Passive")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:CPLRNAME")
 }
 
@@ -154,7 +154,7 @@ record(stringin, "$(APC):CPLRIPADDR") {
   field(DESC, "IPAddr of Coupler")
   field(SCAN, "Passive")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:CPLRIP")
 }
 
@@ -162,7 +162,7 @@ record(stringin, "$(APC):CPLRTLOSTCONN") {
   field(DESC, "Time of lost connection")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:TLSTCONN")
 }
 
@@ -170,7 +170,7 @@ record(stringin, "$(APC):CPLRTSETCONN") {
   field(DESC, "Time of set connection")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:TSETCONN")
 }
 
@@ -178,7 +178,7 @@ record(stringin, "$(APC):CPLRTLASTTRY") {
   field(DESC, "Time of last try connect")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:TLASTTRY")
 }
 
@@ -186,7 +186,7 @@ record(stringin, "$(APC):CPLRID") {
   field(DESC, "ID of Coupler")
   field(SCAN, "10 second")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:CPLRID")
 }
 
@@ -194,7 +194,7 @@ record(stringin, "$(APC):CPLROPTHRDNAME") {
   field(DESC, "Op Thread Name of Coupler")
   field(SCAN, "Passive")
   field(PINI, "YES")
-  field(DTYP, "Bx9000_Info")
+  field(DTYP, "Bk9000_Info")
   field(INP,  "@$(COUPLER):0:OPTHRDNM")
 }
 
