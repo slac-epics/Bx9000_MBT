@@ -5,6 +5,10 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
+R2.6.0-1.2.1: 2019-09-12 Bruce Hill 
+	Update to ModBusTCPClnt/R2.3.0-1.2.1
+	Fixed test for EPICS_VERSION to handle EPICS 7
+
 R2.6.0-1.2.0:	Jun-15-2018 - J. Defilippis
         Modified KL3222-lcls.template the alias PV was reading in severity from non-exposed PV
 	which causes trouble when users wants to change limits to that PV.
