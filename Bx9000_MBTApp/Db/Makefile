@@ -121,9 +121,11 @@ DB += analog-conversion-lcls.template
 
 # Install Archive files
 ARCHIVE += Bk9000.tpl-arch
+ARCHIVE += KL1124-signal.tpl-arch
 ARCHIVE += KL2124-signal.tpl-arch
 ARCHIVE += KL2502-signal.tpl-arch
 ARCHIVE += KL2512-signal.tpl-arch
+ARCHIVE += KL2622-signal.tpl-arch
 ARCHIVE += KL3064-signal.tpl-arch
 ARCHIVE += KL3102-signal.tpl-arch
 ARCHIVE += KL3162-signal.tpl-arch
@@ -138,9 +140,11 @@ ARCHIVE += KL4132-signal.tpl-arch
 
 # Install Autosave templates
 REQ += Bk9000.tpl-req
+REQ += KL1124-signal.tpl-req
 REQ += KL2124-signal.tpl-req
 REQ += KL2502-signal.tpl-req
 REQ += KL2512-signal.tpl-req
+REQ += KL2622-signal.tpl-req
 REQ += KL3064-signal.tpl-req
 REQ += KL3102-signal.tpl-req
 REQ += KL3162-signal.tpl-req

@@ -1,0 +1,6 @@
+# Autosave Beckhoff KL1124 TTL Digital Input PV list
+$(SIG).DESC
+$(SIG).ONAM
+$(SIG).OSV
+$(SIG).ZNAM
+$(SIG).ZSV
