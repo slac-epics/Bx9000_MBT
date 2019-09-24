@@ -30,7 +30,7 @@ MODBUSTCPCLNT_MODULE_VERSION=R2.3.0-1.2.1
 MODBUSTCPCLNT=$(EPICS_MODULES)/ModBusTCPClnt/$(MODBUSTCPCLNT_MODULE_VERSION)
 
 #MY_MODULES = /reg/neh/home/bhill/git-wa/modules
-MY_MODULES = /afs/slac/u/ey/bhill/git-wa/modules
+#MY_MODULES = /afs/slac/u/ey/bhill/git-wa/modules
 #MODBUSTCPCLNT=$(MY_MODULES)/ModBusTCPClnt-git
 
 # Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, and LIB search paths
