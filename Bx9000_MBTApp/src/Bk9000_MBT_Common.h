@@ -242,6 +242,7 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL1702 = 1702,	/* 230V AC/DC, power contacts */
 	BT_TYPE_KL1712 = 1712,	/* 120V AC/DC, power contacts */
 	BT_TYPE_KL1722 = 1722,	/* 230V AC/DC, no power contacts */
+	BT_TYPE_KM1004 = 1004,	/* 24V DC, filter 3.0ms, 32 inputs */
 
 	/* Digital Output, last digit means num of channels */
 	BT_TYPE_KL2012 = 2012,  /* 24 V DC, Imax = 0.5A */
@@ -252,9 +253,12 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2134 = 2134,  /* 4-channel digital output terminal 24 V DC, reverse voltage protection */
 	BT_TYPE_KL2184 = 2184,  /* 4-channel digital output terminal 24 V DC, n switching */
 	BT_TYPE_KL2404 = 2404,  /* 4-channel digital output terminal 24 V DC, Imax=0.5A, 4x2-wire conn */
+	BT_TYPE_KL2424 = 2424,  /* 4-channel digital output terminal 24 V DC, Imax=2.0A, 4x2-wire conn */
 	BT_TYPE_KL2408 = 2408,  /* 8-channel digital output terminal 24 V DC */
 	BT_TYPE_KL2808 = 2808,  /* 8-channel digital output terminal 24 V DC (with GND)*/
 	BT_TYPE_KL2488 = 2488,  /* 8-channel digital output terminal 24 V DC, n-switch */
+	BT_TYPE_KL2872 = 2872,  /* 16-channel digital output terminal 24 V DC, Imax=0.5A */
+	BT_TYPE_KM2004 = 2004,  /* 32-channel digital output terminal 24 V DC, Imax=0.5A */
 	BT_TYPE_KL2602 = 2602,  /* relay output terminal 230 VAC, make contacts */
 	BT_TYPE_KL2612 = 2612,  /* relay output terminal 120 VAC, change-over */
 	BT_TYPE_KL2622 = 2622,  /* relay output terminal 230 VAC, make contacts, np power contact */
@@ -334,11 +338,10 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL4428 = 4428,  /* 8-channel analog output terminal 4 ... 20 mA, 12 bits, 8x1-wire */
 	BT_TYPE_KL4434 = 4434,  /* 4-channel analog output terminal -10 ... 10 V, 12 bits, 4x2-wire */
 	BT_TYPE_KL4438 = 4438,  /* 8-channel analog output terminal -10 ... 10 V, 12 bits, 8x1-wire */
-
 }	E_BUSTERM_TYPE;
 
 /******************************************************************************************/
-/* We try to describe bus terminal here, some info maybe overkill                         */
+/* We try to describe bus terminal here, some info may be overkill                         */
 /* We can't use input/output to describe terminal because some terminals have both        */
 /* We don't use analog/digital to describe terminal because complex is more accurate      */
 /* complex_in_bits is always same as complex_out_bits, for more general, we define both   */
