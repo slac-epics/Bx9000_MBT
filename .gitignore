@@ -15,3 +15,5 @@ cdCommands
 envPaths
 RELEASE_SITE
 tags
+installedBusTerm*.*
+term_r32_dft
