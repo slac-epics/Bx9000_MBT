@@ -1321,9 +1321,9 @@ int	Bk9000_Dft_OutInit(Bk9000_SIGNAL * psignal)
 static	long    Bk9000_MBT_EPICS_Init();
 static	long    Bk9000_MBT_EPICS_Report(int level);
 
-const struct drvet drvBk9000_MBT = {2,                              /*2 Table Entries */
-			     (DRVSUPFUN) Bk9000_MBT_EPICS_Report,	/* Driver Report Routine */
-			     (DRVSUPFUN) Bk9000_MBT_EPICS_Init};	/* Driver Initialization Routine */
+const drvet drvBk9000_MBT = {2,                                         /*2 Table Entries */
+			     Bk9000_MBT_EPICS_Report,	/* Driver Report Routine */
+			     Bk9000_MBT_EPICS_Init};	/* Driver Initialization Routine */
 
 epicsExportAddress(drvet,drvBk9000_MBT);
 
