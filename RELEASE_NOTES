@@ -5,6 +5,9 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
+R2.6.0-0.5.0:   2019-10-24 Marcio Donadio (marcio)
+	- Fixed support for DRVET in order to compile for EPICS7.
+
 R2.6.0-0.4.0:   2019-10-24 Marcio Donadio (marcio)
 	- Added missing C files that were lost during the migration from CVS to
           GIT.
