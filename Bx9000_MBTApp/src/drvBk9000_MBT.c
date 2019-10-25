@@ -3,8 +3,6 @@
 #include "Bk9000_SigDef.h"
 #include "Bk9000_Watchdog.h"
 
-#include <recSup.h>
-
 /* Add MACRO Definitions for min/max */
 /* Needed as of EPICS BASE R3-14-11 */
 /* provide an macro that implements max() and min() */

@@ -59,7 +59,9 @@
 #include <alarm.h>
 #include <dbDefs.h>
 #include <dbAccess.h>
-/* #include <recSup.h> */
+#if EPICS_VERSION<7
+#include <recSup.h>
+#endif
 #include <recGbl.h>
 #include <devSup.h>
 #include <drvSup.h>
