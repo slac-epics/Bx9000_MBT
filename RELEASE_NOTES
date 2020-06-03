@@ -5,6 +5,11 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
+R2.6.0-1.3.2: 2020-06-03 Janos Vamosi
+	Added support for KL2798, KL2828, KL3002
+	Added missing KL1498 tpl-req and tpl-arch files
+	KL1408-lcls.template: Bx9000_KL1498 changed to Bk9000_KL1498 in DTYP field
+
 R2.6.0-1.3.1: 2019-09-23 Bruce Hill
 	Removed unwanted macros in RELEASE.local
 
