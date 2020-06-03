@@ -1,0 +1,6 @@
+# Autosave Beckhoff KL1408 Digital Input PV list
+$(SIG).DESC
+$(SIG).ONAM
+$(SIG).OSV
+$(SIG).ZNAM
+$(SIG).ZSV
