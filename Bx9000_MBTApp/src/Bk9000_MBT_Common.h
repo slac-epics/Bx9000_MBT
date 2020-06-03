@@ -263,6 +263,8 @@ typedef enum BUSTERM_TYPE
 	BT_TYPE_KL2712 = 2712,  /* 2-channel triac output terminal 12 ... 230 V AC , 0.5 A */
 	BT_TYPE_KL2722 = 2722,  /* 2-channel triac output terminal 12 ... 230 V AC , 1 A */
 	BT_TYPE_KL2732 = 2732,  /* 2-channel triac output terminal 12 ... 230 V AC , 1 A, no power contact */
+	BT_TYPE_KL2798 = 2798,  /* 8-channel digital output terminal 30 V AC/DC, 2 A solid-state */
+	BT_TYPE_KL2828 = 2828,  /* 8-channel digital output terminal 24 V DC 2 A*/
 
 	/* Analog terminal with both input and output */
 	BT_TYPE_KL4494 = 4494,  /* 2-channel analog input, 2-channel analog output terminal -10 V ... 10 V, 12 bits */
