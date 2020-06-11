@@ -5,6 +5,10 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
+R2.6.0-0.7.0: 2020-06-11 Janos Vamosi
+	Added support for KL2798, KL2828, KL3002
+	Added missing KL1408 tpl-req and tpl-arch files
+
 R2.6.0-0.6.0:   2019-10-25 Marcio Donadio (marcio)
 	- Added missing modules that were lost during the migration from CVS to
           GIT.
