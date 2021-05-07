@@ -1,7 +1,7 @@
 record(ai, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG1)") {
   field(DESC, "Analog Channel1 Readback")
   field(SCAN, "$(SIG1.SCAN)")
-  field(DTYP, "Bx9000_KL3022")
+  field(DTYP, "Bk9000_KL3022")
   field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_1")
   field(PREC, "3")
   field(ADEL, "$(SIG1.ADEL)")
@@ -27,7 +27,7 @@ record(ai, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG1)") {
 record(ai, "$(S)_$(SS):$(DVC)$(N)$(DI):$(SIG2)") {
   field(DESC, "Analog Channel2 Readback")
   field(SCAN, "$(SIG2.SCAN)")
-  field(DTYP, "Bx9000_KL3022")
+  field(DTYP, "Bk9000_KL3022")
   field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_2")
   field(PREC, "3")
   field(ADEL, "$(SIG2.ADEL)")

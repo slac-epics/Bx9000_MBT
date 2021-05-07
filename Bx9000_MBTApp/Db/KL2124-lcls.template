@@ -14,7 +14,7 @@
 
  record(bo, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
    field(DESC, "Digital Channel $(CH) Set")
-   field(DTYP, "Bx9000_KL2124")
+   field(DTYP, "Bk9000_KL2124")
    field(OUT,  "@$(COUPLER):$(SLOT):W_DIG_OUT_$(CH)")
    field(DOL, "$(ALIAS)")
    field(OMSL, "closed_loop")

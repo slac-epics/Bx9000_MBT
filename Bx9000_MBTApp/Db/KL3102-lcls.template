@@ -2,7 +2,7 @@
 record(ai, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
   field(DESC, "Analog Ch$(CH) Readback")
   field(SCAN, "1 second")
-  field(DTYP, "Bx9000_KL3102")
+  field(DTYP, "Bk9000_KL3102")
   field(INP,  "@$(COUPLER):$(SLOT):R_ANA_IN_$(CH)")
   field(PREC, "$(PREC)")
   field(ADEL, "$(ADEL)")
