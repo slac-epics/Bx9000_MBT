@@ -1,0 +1,40 @@
+
+file KL4004.template
+{
+	pattern
+	{	SLOT,		REPROCEVT,
+		SIG1,		SIG1.DESC,
+			SIG1.UNIT,	SIG1.EGUF,	SIG1.EGUL,
+			SIG1.HOPR,	SIG1.LOPR,	SIG1.DRVH,	SIG1.DRVL,	SIG1.PINI,
+		SIG2,		SIG2.DESC,
+			SIG2.UNIT,	SIG2.EGUF,	SIG2.EGUL,
+			SIG2.HOPR,	SIG2.LOPR,	SIG2.DRVH,	SIG2.DRVL,	SIG2.PINI,
+
+		SIG3,		SIG3.DESC,
+			SIG3.UNIT,	SIG3.EGUF,	SIG3.EGUL,
+			SIG3.HOPR,	SIG3.LOPR,	SIG3.DRVH,	SIG3.DRVL,	SIG3.PINI,
+
+		SIG4,		SIG4.DESC,
+			SIG4.UNIT,	SIG4.EGUF,	SIG4.EGUL,
+			SIG4.HOPR,	SIG4.LOPR,	SIG4.DRVH,	SIG4.DRVL,	SIG4.PINI
+
+	}
+#	Include one instance of the pattern for each instance
+#	of this module, substituting the appropriate slot number
+#	and signal attributes
+	{	13,			188,
+		$(COUPLER_LOC):KL4004:SLOT$(SLOT):AOUT1, "Signal 1 Description",
+			Volt,		10,			0,
+			10,			0,			10,			0,			NO,
+		$(COUPLER_LOC):KL4004:SLOT$(SLOT):AOUT2, "Signal 2 Description",
+			Volt,		10,			0,
+			10,			0,			10,			0,			NO,
+
+		$(COUPLER_LOC):KL4004:SLOT$(SLOT):AOUT3, "Signal 3 Description",
+			Volt,		10,			0,
+			10,			0,			10,			0,			NO,
+		$(COUPLER_LOC):KL4004:SLOT$(SLOT):AOUT4, "Signal 4 Description",
+			Volt,		10,			0,
+			10,			0,			10,			0,			NO
+	}
+}
