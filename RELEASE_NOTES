@@ -5,6 +5,12 @@
 #  Rem: This files describes release notes for
 #       the Bx9000 MBT driver and device support.
 #
+#==============================================================
+#
+R2.6.0-1.3.5: 15-Mar-2022, K. Luchini (luchini)
+        add support for KL4004, KL4002, KL3062
+
+
 R2.6.0-1.3.4: 2021-05-07 K. Luchini (luchini)
         chg Bx9000 to Bk9000 in module templates
         KL*.template and KM*templates
