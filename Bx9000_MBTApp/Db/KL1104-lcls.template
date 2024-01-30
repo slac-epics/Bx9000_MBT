@@ -18,6 +18,7 @@ record(bi, "$(ALIAS)") {
   field(ZSV,  "$(ZSV)")
   field(OSV,  "$(OSV)")
   field(COSV, "$(COSV)")
+  field(FLNK, "$(FLNK="")")
   info(autosaveFields, "DESC ZNAM ONAM ZSV OSV COSV")
 }
 

@@ -18,4 +18,3 @@ record(ao, "$(APC):M$(SLOT)_CH$(CH)_SIG") {
 $(A=#)  alias("$(ALIAS)")
 }
 
-
